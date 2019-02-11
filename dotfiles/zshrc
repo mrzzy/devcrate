@@ -1,0 +1,147 @@
+
+# zshrc
+# ZSH Configuration file
+#
+
+#Paths
+export GOPATH="$HOME/go"
+export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.miniconda/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+export PGDATA="/usr/local/var/postgres"
+export PATH=/usr/local/cuda-9.0/bin:${PATH:+${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}}
+export PYTHONPATH=/usr/lib/tensorflow/lib/python3.6:$PYTHONPATH
+export ETC_DIR="${ETC_DIR-$HOME/.etc}"
+
+#Locale
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Program settings
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+    export VISUAL="vim"
+else
+    export EDITOR='nvim'
+    export VISUAL="nvim"
+fi
+
+# Aliases
+alias ls='ls -F --color=none'
+alias vim="nvim"
+alias v="nvim"
+alias py="python3"
+alias rb="ruby"
+alias g="git"
+alias tmux="tmux new-session -A -s $HOST"
+alias t="tmux"
+alias less="less -R"
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+#Plugin Configuration
+HISTFILE="$HOME/.zsh_history"
+HIST_STAMPS="dd/mm/yyyy"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history
+setopt inc_append_history
+
+source ~/.zplug/init.zsh
+zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/git-fast", from:oh-my-zsh
+zplug "mafredri/zsh-async"
+zplug "miekg/lean", as:theme, use:"lean.plugin.zsh"
+
+ZSH_TMUX_AUTOSTART=true
+
+#Lean Prompt Configuration
+prompt_lean_python_venv_status()
+{
+    # Support for Python Virtual Enviroment
+    if [ -n "$VIRTUAL_ENV" ]
+    then 
+        printf " venv "
+    fi
+}
+
+PROMPT_LEAN_TMUX=">"
+PROMPT_LEAN_VIMODE="1"
+PROMPT_LEAN_NOTITLE="1"
+PROMPT_LEAN_NOTITLE="1"
+PROMPT_LEAN_COLOR1="136"
+PROMPT_LEAN_COLOR2="61"
+PROMPT_LEAN_COLOR3="136"
+PROMPT_LEAN_RIGHT="prompt_lean_python_venv_status"
+
+zplug load #Load Plugins
+
+# Z directory jumping tool
+source "$HOME/.local/share/z.sh"
+
+# Lazy Load Implmentation
+# Usage: lazy_load(load_cmd, activator, activators... __EOA__ args_activator
+# Runs the lazy load command, dealiases all activators and executes the
+# activator with the given command line arguments
+lazy_load()
+{
+    load_cmd="$1";shift
+    activator="$2";shift
+
+    # Unalias activator aliases since the lazy load command has already run.
+    local PARSED_ACTIVATORS=false # Whether activators have been parsed
+    local ACTIVATOR_ARGS="" 
+    for arg in $*
+    do
+        if [ $arg = "__EOA__" ]
+        then 
+            local PARSED_ACTIVATORS=true
+        else
+            if $PARSED_ACTIVATORS
+            then 
+                # Collect command line arguments for activator command
+                ACTIVATOR_ARGS="$ACTIVATOR_ARGS $arg"
+            else
+                # Remove activator aliases since load command has already run
+                unalias "$arg"
+            fi
+        fi
+    done
+
+
+    # Run Lazy load command
+    eval " $load_cmd"
+
+    # Run activator with collected command line args
+    eval " $activator $ACTIVATOR_ARGS"
+}
+
+# Usage: lazy(load_cmd, activators...)
+# Mitigates the unnecessary overhead of the the 'load_cmd' on startup, only
+# runs the load command if the user touches any of the 'activators' aliases,
+# then which the lazy loader actually loads the load command.
+# activators is a space seperated string of activation alias that will cause
+# the load command to run, thereafter activator command will run.
+# 
+lazy()
+{
+    load_cmd="$1"
+    shift
+    for activator in $*
+    do
+        # printf required because load command can contain spaces
+        # __EOA__ is used to enote end of activators and start of command line arguments for the activators
+        load_alias="`printf 'lazy_load "%s" %s %s "__EOA__" \n' "$load_cmd" "$activator" "$*"`"
+        alias "$activator"="$load_alias"
+    done 
+}
+
+#External Scripts
+lazy "source $HOME/.rvm/scripts/rvm" rvm
+lazy ". $HOME/.miniconda/etc/profile.d/conda.sh" conda
