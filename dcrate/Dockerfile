@@ -8,6 +8,7 @@ FROM alpine:3.9
 
 ## Packages
 # Development environment
+RUN apk add --no-cache make
 RUN apk add --no-cache zsh
 RUN apk add --no-cache neovim
 RUN apk add --no-cache tmux
@@ -49,5 +50,5 @@ RUN apk add --no-cache nodejs
 RUN apk add --no-cache npm
 
 ## Configuration
-COPY dotfiles /
+COPY dotfiles /dotfiles
 RUN make -C /dotfiles

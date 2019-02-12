@@ -9,7 +9,7 @@
 
 # List of dotfile deployment targets
 define DOTFILE_TARGETS 
-$(HOME)/.config/init.vim \
+$(HOME)/.config/nvim/init.vim \
 $(HOME)/.tmux.conf \
 $(HOME)/.zshrc
 endef
@@ -23,7 +23,7 @@ clean:
 	rm -rf $(DOTFILE_TARGETS)
 
 ## Dotfile location mapping targets
-$(HOME)/.config/init.vim: init.vim
+$(HOME)/.config/nvim/init.vim: init.vim $(HOME)/.config/nvim
 	cp $< $@
 
 $(HOME)/.tmux.conf: tmux.conf
@@ -31,3 +31,6 @@ $(HOME)/.tmux.conf: tmux.conf
 
 $(HOME)/.zshrc: zshrc
 	cp $< $@
+
+$(HOME)/.config/nvim:
+	mkdir -p $@
