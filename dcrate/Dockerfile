@@ -26,6 +26,7 @@ RUN apk add --no-cache sqlite
 
 # Python Development
 RUN apk add --no-cache python3
+RUN apk add --no-cache python3-dev
 RUN pip3 install jedi
 
 # Perl Development
@@ -35,6 +36,8 @@ RUN apk add --no-cache perl
 RUN apk add --no-cache ruby
 
 # C/C++ Development
+RUN apk add --no-cache musl-dev
+RUN apk add --no-cache linux-headers
 RUN apk add --no-cache gcc
 RUN apk add --no-cache clang
 RUN apk add --no-cache doxygen
@@ -52,3 +55,11 @@ RUN apk add --no-cache npm
 ## Configuration
 COPY dotfiles /dotfiles
 RUN make -C /dotfiles
+RUN rm -rf /dotfiles
+
+## Development Enviromment Setup
+# Neovim Plugins
+RUN pip3 install neovim
+RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+RUN nvim +PlugInstall +qall
