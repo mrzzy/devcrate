@@ -23,6 +23,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Program settings
+export SHELL=zsh
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
     export VISUAL="vim"
@@ -53,24 +54,17 @@ SAVEHIST=100000
 setopt share_history
 setopt inc_append_history
 
+#zplug
+## NOTE: </dev/null is a hack to get zplug to work in docker build
 source ~/.zplug/init.zsh
-zplug "plugins/vi-mode", from:oh-my-zsh
-zplug "plugins/git-fast", from:oh-my-zsh
-zplug "mafredri/zsh-async"
-zplug "miekg/lean", as:theme, use:"lean.plugin.zsh"
+zplug "plugins/vi-mode", from:oh-my-zsh </dev/null
+zplug "plugins/git-fast", from:oh-my-zsh </dev/null
+zplug "mafredri/zsh-async" </dev/null
+zplug "miekg/lean", as:theme, use:"lean.plugin.zsh" </dev/null
 
 ZSH_TMUX_AUTOSTART=true
 
-#Lean Prompt Configuration
-prompt_lean_python_venv_status()
-{
-    # Support for Python Virtual Enviroment
-    if [ -n "$VIRTUAL_ENV" ]
-    then 
-        printf " venv "
-    fi
-}
-
+# Lean Prompt
 PROMPT_LEAN_TMUX=">"
 PROMPT_LEAN_VIMODE="1"
 PROMPT_LEAN_NOTITLE="1"
@@ -78,7 +72,7 @@ PROMPT_LEAN_NOTITLE="1"
 PROMPT_LEAN_COLOR1="136"
 PROMPT_LEAN_COLOR2="61"
 PROMPT_LEAN_COLOR3="136"
-PROMPT_LEAN_RIGHT="prompt_lean_python_venv_status"
+PROMPT_LEAN_ABBR_METHOD="shrink"
 
 zplug load #Load Plugins
 
@@ -94,7 +88,7 @@ lazy_load()
     load_cmd="$1";shift
     activator="$2";shift
 
-    # Unalias activator aliases since the lazy load command has already run.
+    # Unalias activator aliases since the lazy is about to be run
     local PARSED_ACTIVATORS=false # Whether activators have been parsed
     local ACTIVATOR_ARGS="" 
     for arg in $*
@@ -113,7 +107,6 @@ lazy_load()
             fi
         fi
     done
-
 
     # Run Lazy load command
     eval " $load_cmd"

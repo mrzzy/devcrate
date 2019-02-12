@@ -5,11 +5,18 @@
 #
 
 FROM alpine:3.9
-
 ## Packages
+# System
+RUN apk add --no-cache shadow
+RUN apk add --no-cache openssh
+RUN apk add --no-cache ncurses
+RUN apk add --no-cache sudo
+RUN apk add --no-cache bash
+
 # Development environment
 RUN apk add --no-cache make
 RUN apk add --no-cache zsh
+RUN apk add --no-cache zsh-vcs
 RUN apk add --no-cache neovim
 RUN apk add --no-cache tmux
 
@@ -52,6 +59,10 @@ RUN apk add --no-cache openjdk8-jre
 RUN apk add --no-cache nodejs
 RUN apk add --no-cache npm
 
+
+## System
+RUN echo 'devcrate' >/etc/hostname
+
 ## Configuration
 COPY dotfiles /dotfiles
 RUN make -C /dotfiles
@@ -59,7 +70,24 @@ RUN rm -rf /dotfiles
 
 ## Development Enviromment Setup
 # Neovim Plugins
-RUN pip3 install neovim
+RUN pip3 install --user neovim
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-RUN nvim +PlugInstall +qall
+RUN nvim +PlugInstall +qa
+
+# z jump tool
+RUN wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/.local/share/z.sh
+RUN zsh ~/.local/share/z.sh
+
+# ZSH Plugins
+ENV TERM xterm-256color
+RUN chsh -s /bin/zsh
+RUN git clone https://github.com/zplug/zplug ~/.zplug
+RUN zsh -ic "zplug install"
+
+# Tmux Plugins 
+RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+RUN bash ~/.tmux/plugins/tpm/bin/install_plugins 
+
+WORKDIR /root
+CMD zsh
