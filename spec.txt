@@ -6,7 +6,7 @@ Portablity comes from it being a docker container
 Devcrate solves this by being a portable docker container
 Optional: Supports GUI apps using vnc
 
-Backing container: alphine/ubuntu
+Backing container: alphine
 
 Devcrate will
 - mount trx as home
