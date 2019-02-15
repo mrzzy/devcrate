@@ -4,12 +4,17 @@
 # Project makefile
 #
 
-.PHONY: all devcrate
+.PHONY: all devcrate push
 .DEFAULT: all
 
 ## Targets
-all: devcrate
+all: devcrate push
 
 # devcrate - builds the devcrate docker container
 devcrate: dcrate
 	docker build $< -t "$@"
+
+# push - pushes the devcrate to dockerhub
+push:
+	docker tag devcrate mrzzy/devcrate
+	docker push mrzzy/devcrate
