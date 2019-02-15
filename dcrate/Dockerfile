@@ -46,6 +46,7 @@ RUN apk add --no-cache ruby
 RUN apk add --no-cache musl-dev
 RUN apk add --no-cache linux-headers
 RUN apk add --no-cache gcc
+RUN apk add --no-cache g++
 RUN apk add --no-cache clang
 RUN apk add --no-cache doxygen
 RUN apk add --no-cache gdb
