@@ -213,11 +213,21 @@ call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>',
       \'noremap')
 
 "Deoplete
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case=1
 let g:deoplete#auto_complete_delay=40
 if has('win64')
     let g:python3_host_prog='C:\Python37\python.exe'
+else
+    let g:python_host_prog  = '/usr/bin/python'
+    let g:python3_host_prog  = '/usr/bin/python3'
 endif
+
+"Supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<C-n>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabCrMapping = 1
 
 "Clang Complete
 let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
@@ -229,13 +239,6 @@ let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
 call neomake#configure#automake('w')
 let g:neomake_highlight_columns = 0
 let g:neomake_highlight_lines = 1
-
-"Supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<C-n>"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabCrMapping = 1
-
 "Ultisnips
 let g:UltiSnipsExpandTrigger = "<C-x>"
 
