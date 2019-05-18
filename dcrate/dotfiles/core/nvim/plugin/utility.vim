@@ -26,14 +26,6 @@ nnoremap <leader>uu :UndotreeToggle<cr>
 " fuzzy file finding, jumping
 Plug 'Shougo/denite.nvim'
 Plug 'chemzqm/unite-location'
-call denite#custom#option('default', 'prompt', '>')
-call denite#custom#map('insert', '<C-cr>', '<denite:do_action:cd>', '\noremap')
-call denite#custom#map('insert', '<cr>', '<denite:do_action:open>', 'noremap')
-call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert','<C-k>', '<denite:move_to_previous_line>',  'noremap')
-call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('insert', '<C-x>', '<denite:do_action:split>','noremap')
-call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
 nnoremap <c-p> :Denite file/rec<cr>
 nnoremap <c-n> :Denite outline<cr>
 nnoremap <c-l> :Denite location_list<cr>
