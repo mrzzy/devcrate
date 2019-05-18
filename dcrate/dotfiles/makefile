@@ -11,7 +11,8 @@
 define DOTFILE_TARGETS 
 $(HOME)/.config/nvim/init.vim \
 $(HOME)/.tmux.conf \
-$(HOME)/.zshrc
+$(HOME)/.zshrc \
+$(HOME)/.config/i3/config
 endef
 
 ## Targets
@@ -31,5 +32,6 @@ $(HOME)/.tmux.conf: tmux.conf
 $(HOME)/.zshrc: zshrc
 	cp $< $@
 
-$(HOME)/.config/nvim:
+# Directory target
+$(HOME)/.config/%:
 	mkdir -p $@

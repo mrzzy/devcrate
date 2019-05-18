@@ -60,7 +60,6 @@ RUN apk add --no-cache openjdk8-jre
 RUN apk add --no-cache nodejs
 RUN apk add --no-cache npm
 
-
 ## System
 RUN echo 'devcrate' >/etc/hostname
 

@@ -1,3 +1,4 @@
+
 "
 " ~/etc/nvim/init.vim
 " NeoVim Configuration
@@ -173,7 +174,6 @@ function! DisplayReload(mode)
 endfunction
 call DisplayReload('dark')
 
-
 "Denite
 call denite#custom#option('default', 'prompt', '>')
 
@@ -213,9 +213,14 @@ call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>',
       \'noremap')
 
 "Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case=1
-let g:deoplete#auto_complete_delay=40
+let g:deoplete#enable_at_startup=1
+
+call deoplete#custom#option({
+\ 'auto_complete_delay': 120,
+\ 'auto_refresh_delay': 100,
+\ 'smart_case': v:true,
+\ })
+
 if has('win64')
     let g:python3_host_prog='C:\Python37\python.exe'
 else
@@ -239,6 +244,8 @@ let g:clang_library_path='/usr/local/opt/llvm/lib/libclang.dylib'
 call neomake#configure#automake('w')
 let g:neomake_highlight_columns = 0
 let g:neomake_highlight_lines = 1
+let g:neomake_python_python_exe = 'python3'
+
 "Ultisnips
 let g:UltiSnipsExpandTrigger = "<C-x>"
 
@@ -325,6 +332,9 @@ function! MarkdownToggle()
 endfunction
 
 nnoremap <leader>mm :call MarkdownToggle()<cr>
+
+" Vim sessions
+nnoremap <leader>ws :Obession Session.vim<cr>
 
 "Plugin Autocommands
 autocmd InsertEnter * call deoplete#enable()
