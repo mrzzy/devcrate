@@ -1,102 +1,11 @@
-
 "
 " ~/etc/nvim/init.vim
 " NeoVim Configuration
 " 
 
-"Editor Settings
-set autoindent
-set autoread
-set completeopt=longest,menu,preview
-set expandtab
-set hidden
-set ignorecase
-set laststatus=2
-set magic
-set noshowmode
-set number
-set ruler
-set shiftwidth=4
-set shortmess+=c
-set showtabline=2
-set smartcase
-set smartindent
-set smarttab
-set tabstop=4
-set wildmenu
-set wildmode=longest,list,full
-set lazyredraw
-set splitbelow
-set history=1000
-
-"Display Settings
-set hlsearch
-set background=dark
-colorscheme desert
-
-"Keyboard Bindings
-let g:mapleader = ","
-vnoremap * "*y/\V<c-r>*<cr><esc>
-vnoremap # "*y?\V<c-r>*<cr><esc>
-nnoremap & :&&<cr>
-vnoremap & :&&<cr>
-
-nnoremap <leader>q :qa<cr>
-nnoremap <leader>S :setl spell!<cr>
-nnoremap <leader>ss z=
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-nnoremap <leader>g :grep
-nnoremap <leader>t :tags<cr>
-nnoremap <C-]> <C-]><cr>
-nnoremap <C-T> <C-T><cr>
-nnoremap <leader>k :execute 'ptag ' . expand('<cword>')<cr>
-
-nnoremap <leader>] :next\|args<cr>
-nnoremap <leader>[ :Next\|args<cr>
-nnoremap <leader>a :args<cr>
-nnoremap <leader>A :argadd 
-nnoremap <leader>aa :argadd\|args<cr>
-nnoremap <leader>ad :argdelete %\|args<cr>
-nnoremap <leader>a0 :argrewind\|args<cr>
-nnoremap <leader>a$ :arglast %\|args<cr>
-
-nnoremap <leader>ww :tabnew<cr>
-nnoremap <leader>wq :tabclose<cr>
-nnoremap <leader>w] :tabnext<cr>
-nnoremap <leader>w[ :tabNext<cr>
-nnoremap <leader>w0 :tabrewind<cr>
-nnoremap <leader>w$ :tablast<cr>
-nnoremap <leader>w{ :tabmove -1<cr>
-nnoremap <leader>w} :tabmove +1<cr>
-
-nnoremap <leader>\ :set colorcolumn=80<cr> :set cursorline<cr>
-nnoremap <leader>\| :set colorcolumn=0<cr> :set nocursorline<cr>
-
-function! Binding_Unclutter()
-    pclose 
-    cclose
-    helpclose
-endfunction
-nnoremap <silent> <Esc><Esc> :noh\|call Binding_Unclutter()<cr>
-
-"Search Settings 
-set grepprg=ag\ --vimgrep\ --nocolor\ --nogroup\ '$*'
-set grepformat=%f:%l:%c:%m
-
-"File Settings
-set encoding=utf8
-" set path+=/usr/local/include/,/usr/local/include/c++/7.1.0/,/usr/include/
-filetype plugin on
-filetype plugin indent on
-
-autocmd Filetype scheme setlocal tabstop=2
-autocmd Filetype make setlocal noexpandtab
-autocmd FileType crontab setlocal backupcopy=yes
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
-autocmd BufNewFile,BufRead *.sc setf scala
-autocmd BufNewFile,BufRead *.etc setf m4
+" Load configuration files
+source ~/.config/nvim/editor.vim
+source ~/.config/nvim/keybind.vim
 
 "Plugin
 call plug#begin('~/.local/share/nvim/plugged')
