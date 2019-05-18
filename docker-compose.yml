@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  devcrate:
+    stdin_open: true
+    tty: true
+    image: mrzzy/devcrate
+    volumes:
+      - "~/trx:/root/trx"

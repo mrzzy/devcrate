@@ -1,0 +1,57 @@
+Devcrate
+======
+Portable general purpose development enviroment (neovim + zsh + nvim) 
+Etcetera isn't actually portable.
+Portablity comes from it being a docker container
+Devcrate solves this by being a portable docker container
+Optional: Supports GUI apps using vnc
+
+Backing container: alphine
+
+Devcrate will
+- mount trx as home
+- copy relevant dotfiles
+
+Devcrate install tools:
+w3m
+wget
+aria2c
+curl
+gpg
+git
+git-lfs
+sqlite
+
+python
+numpy
+pandas
+
+octave
+
+perl
+
+ruby
+
+gcc
+gdb
+cmake
+doxygen
+clang
+
+java
+maven
+scala
+
+node
+
+zsh
+zplug
+zsh plugins
+
+nvim
+pip neovim
+pip jedi
+nvim plugins
+
+tmux
+tpm
