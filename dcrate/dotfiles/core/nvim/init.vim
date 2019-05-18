@@ -27,7 +27,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'chemzqm/unite-location'
 Plug 'tpope/vim-fugitive'
 Plug 'neomake/neomake'
-Plug 'tpope/vim-obsession'
+Plug 'vphantom/vim-obsession'
 Plug 'tmux-plugins/tmux-resurrect'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'roxma/vim-window-resize-easy'
@@ -69,7 +69,6 @@ call plug#end()
 
 "Plugin Configuration
 "Plugin Display configuration
-colorscheme solarized
 
 " Usage: Display_Reload(('dark'|'light']))
 function! DisplayReload(mode)
