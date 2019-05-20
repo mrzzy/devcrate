@@ -12,7 +12,6 @@ define DOTFILE_TARGETS
 $(HOME)/.config/nvim \
 $(HOME)/.tmux.conf \
 $(HOME)/.zshrc \
-$(HOME)/.config/i3/config \
 $(HOME)/.Xresources
 endef
 
@@ -24,7 +23,7 @@ clean:
 	rm -rf $(DOTFILE_TARGETS)
 
 ## Dotfile location mapping targets
-$(HOME)/.config/nvim: core/nvim 
+$(HOME)/.config/nvim: core/nvim $(wildcard core/nvim/*)
 	cp -af $< $(dir $@)
 
 $(HOME)/.tmux.conf: core/tmux.conf
