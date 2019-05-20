@@ -5,9 +5,6 @@
 " 
 
 "Utility
-" markdown preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-"
 " tags & tagbar
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
@@ -48,14 +45,16 @@ nnoremap <silent> <M-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <M-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <M-w>l :TmuxNavigateRight<cr>
 let g:tmux_navigator_no_mappings = 1
-
-" markdown live preview
+" markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-let b:IsMarkdownPreviewRunning = 0
-function! MarkdownToggle()
-    if b:IsMarkdownPreviewRunning == 0
+let b:is_markdown_preview_running = 0
+function! MarkdownPreviewToggle() 
+    if b:is_markdown_preview_running == 0
         MarkdownPreview
+        let b:is_markdown_preview_running = 1
     else 
         MarkdownPreviewStop
+        let b:is_markdown_preview_running = 0
     end
 endfunction
+nnoremap <leader>vm :call MarkdownPreviewToggle()<cr>
