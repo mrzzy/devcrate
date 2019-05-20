@@ -13,3 +13,6 @@ call denite#custom#map('insert','<C-k>', '<denite:move_to_previous_line>',  'nor
 call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('insert', '<C-x>', '<denite:do_action:split>','noremap')
 call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
+
+" ui:colorscheme
+colorscheme gruvbox
