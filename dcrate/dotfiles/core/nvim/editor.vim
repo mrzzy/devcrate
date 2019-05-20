@@ -4,7 +4,7 @@
 " NeoVim Configuration
 " 
 
-"Editor Settings
+"editor Settings
 set autoindent
 set autoread
 set completeopt=longest,menu,preview
@@ -29,14 +29,12 @@ set lazyredraw
 set splitbelow
 set history=1000
 
-
-"File Settings
+" file Settings
 set encoding=utf8
 " set path+=/usr/local/include/,/usr/local/include/c++/7.1.0/,/usr/include/
 filetype plugin on
 filetype plugin indent on
-
-" filetype specific editor options
+" filetype specific config
 autocmd Filetype scheme setlocal tabstop=2
 autocmd Filetype make setlocal noexpandtab
 autocmd FileType crontab setlocal backupcopy=yes
@@ -45,15 +43,15 @@ autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
 autocmd BufNewFile,BufRead *.sc setf scala
 autocmd BufNewFile,BufRead *.etc setf m4
 
-"Search Settings 
+" search settings 
 " use ag for search if present
 if executable('ag')
     set grepprg=ag\ --vimgrep\ --nocolor\ --nogroup\ '$*'
 endif
 set grepformat=%f:%l:%c:%m
 
-"Display Settings
+" ui settings - (basic see plugin ui.vim for full config)
 set hlsearch
+set termguicolors
 set background=dark
 colorscheme desert
-
