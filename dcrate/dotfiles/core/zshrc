@@ -5,11 +5,10 @@
 
 #Paths
 export GOPATH="$HOME/go"
-export PATH="$HOME/.rvm/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 #Locale
 export LANG="en_US.UTF-8"
@@ -62,9 +61,9 @@ PROMPT_LEAN_TMUX=">"
 PROMPT_LEAN_VIMODE="1"
 PROMPT_LEAN_NOTITLE="1"
 PROMPT_LEAN_NOTITLE="1"
-PROMPT_LEAN_COLOR1="136"
-PROMPT_LEAN_COLOR2="61"
-PROMPT_LEAN_COLOR3="136"
+PROMPT_LEAN_COLOR1="109"
+PROMPT_LEAN_COLOR2="214"
+PROMPT_LEAN_COLOR3="109"
 PROMPT_LEAN_ABBR_METHOD="shrink"
 
 zplug load #Load Plugins
