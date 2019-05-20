@@ -42,6 +42,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
 autocmd BufNewFile,BufRead *.sc setf scala
 autocmd BufNewFile,BufRead *.etc setf m4
+autocmd BufNewFile,BufRead *.tmux setf tmux
 
 " search settings 
 " use ag for search if present
