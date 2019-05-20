@@ -5,22 +5,11 @@
 
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-
 source ~/.config/nvim/plugin/editor.vim
 source ~/.config/nvim/plugin/utility.vim
 source ~/.config/nvim/plugin/completion.vim
-
-"lang: latex
-Plug 'lervag/vimtex'
-
-" errors
-Plug 'neomake/neomake'
-
-"Syntax
-Plug 'sirtaj/vim-openscad'
-Plug 'tpope/vim-rails'
-Plug 'sheerun/vim-polyglot'
-
+source ~/.config/nvim/plugin/syntax.vim
+    
 "Appearance
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
@@ -61,8 +50,3 @@ let g:airline_powerline_fonts = 1
 " Appearance
 nnoremap <leader>hl :setl background=light\|call Display_Reload('light')<cr>
 nnoremap <leader>hd :setl background=dark\|call Display_Reload('dark')<cr>
-" Deoplete
-nnoremap <leader>cc :call deoplete#toggle()<cr>
-
-" Neomake
-nnoremap <leader>mm :NeomakeToggle<cr>
