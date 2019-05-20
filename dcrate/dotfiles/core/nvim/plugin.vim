@@ -8,7 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 source ~/.config/nvim/plugin/editor.vim
 source ~/.config/nvim/plugin/utility.vim
-source ~/.config/nvim/plugin/engine.vim
+source ~/.config/nvim/plugin/completion.vim
 
 "lang: latex
 Plug 'lervag/vimtex'
