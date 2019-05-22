@@ -1,4 +1,3 @@
-
 "
 " Basic Editor Config
 " NeoVim Configuration
