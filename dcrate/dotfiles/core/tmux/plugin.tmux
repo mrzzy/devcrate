@@ -20,7 +20,7 @@ set -g @fingers-key f
 set -g @fingers-hint-format "#[fg=yellow,bold]%s"
 # directory sidebar
 set -g @plugin 'tmux-plugins/tmux-sidebar' #Directory Sidebar
-set -g @sidebar-tree-command 'tree -C'
+set -g @sidebar-tree-command 'tree -CFL 8 --noreport'
 # persistence of tmux sessions.
 set -g @plugin 'tmux-plugins/tmux-resurrect' 
 set -g @resurrect-strategy-nvim 'session'
