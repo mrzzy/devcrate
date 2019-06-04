@@ -81,6 +81,13 @@ export FZF_COMPLETION_TRIGGER="%%"
 export FZF_DEFAULT_COMMMAND="ag --skip-vcs-ignores -g zsh"
 source "$HOME/.local/share/fzf/shell/completion.zsh"
 
+# fzf history recall
+recall_history() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+zle -N recall_history recall_history
+bindkey "^R" recall_history
+
 # Z directory jumping tool
 source "$HOME/.local/share/z.sh"
 
