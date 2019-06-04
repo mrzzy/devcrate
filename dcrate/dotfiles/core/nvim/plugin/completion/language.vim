@@ -25,7 +25,7 @@ let g:lang_support_config = {
 \}
 
 " DeployLangSupport() - deploy language support according to the given
-" configuiration
+" configuration
 function! DeployLangSupport(config)
     let l:languages = keys(a:config)
     echo 'deploying language support for ' . join(l:languages, ",")
