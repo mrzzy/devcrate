@@ -23,12 +23,13 @@ nnoremap <leader>uu :UndotreeToggle<cr>
 " fuzzy file finding, jumping
 Plug 'Shougo/denite.nvim'
 Plug 'chemzqm/unite-location'
-nnoremap <c-p> :Denite file/rec<cr>
-nnoremap <c-n> :Denite outline<cr>
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 nnoremap <c-l> :Denite location_list<cr>
 nnoremap <c-k> :Denite quickfix<cr>
-nnoremap <c-b> :Denite buffer<cr>
-nnoremap <c-j> :Denite directory_rec<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <c-g> :Ag<cr>
+nnoremap <c-t> :Tags<cr>
 
 " git intergation
 Plug 'tpope/vim-fugitive'
