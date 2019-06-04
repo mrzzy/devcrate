@@ -53,6 +53,8 @@ zplug "plugins/vi-mode", from:oh-my-zsh </dev/null
 zplug "plugins/git-fast", from:oh-my-zsh </dev/null
 zplug "mafredri/zsh-async" </dev/null
 zplug "miekg/lean", as:theme, use:"lean.plugin.zsh" </dev/null
+zplug zsh-users/zsh-autosuggestions </dev/null
+zplug zsh-users/zsh-completions </dev/null
 
 ZSH_TMUX_AUTOSTART=true
 
@@ -65,6 +67,14 @@ PROMPT_LEAN_COLOR1="244"
 PROMPT_LEAN_COLOR2="208"
 PROMPT_LEAN_COLOR3="244"
 PROMPT_LEAN_ABBR_METHOD="shrink"
+
+# autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="40"
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+bindkey "^[\t" autosuggest-accept
+
 
 zplug load #Load Plugins
 
