@@ -1,9 +1,11 @@
 {
+  "suggest.timeout": 5000,
+  "suggest.maxCompleteItemCount": 24,
   "languageserver": {
     "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
+      "filetypes": ["scala", "sbt", ".git/"]
     },
     "ccls": {
       "command": "ccls",
