@@ -32,4 +32,4 @@ function! BindingUnclutter()
     cclose
     helpclose
 endfunction
-nnoremap <silent> <Esc><Esc> :noh\\|call BindingUnclutter()<cr>
+nnoremap <silent> <Esc><Esc> :noh\|call BindingUnclutter()<cr>
