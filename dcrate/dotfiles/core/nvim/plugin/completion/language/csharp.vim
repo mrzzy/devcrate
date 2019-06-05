@@ -5,7 +5,6 @@
 " 
 " C# completion configuration
 let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_highlight_types = 2
 " note: absolute path required for omnisharp to work properly
 let g:OmniSharp_server_path = '/home/zzy/.local/share/omnisharp/run'
 
@@ -47,3 +46,7 @@ endfunction
 
 " C# completion engine
 Plug 'OmniSharp/omnisharp-vim', {'do': function('SetupCSharpLangServer')}
+
+" enter completion - display method signature
+autocmd BufRead *.cs inoremap <expr> <cr> 
+    \ pumvisible() ? "\<C-y><C-o>:OmniSharpTypeLookup<cr>" : "\<C-g>u\<CR>""
