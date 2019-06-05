@@ -8,6 +8,8 @@
 Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_dark="medium"
 let g:gruvbox_contrast_light="soft"
+let g:gruvbox_color_column='bg2'
+
 " binding for hotswitch light and dark
 nnoremap <leader>hl :setl background=light<cr>
 nnoremap <leader>hd :setl background=dark<cr>
