@@ -21,8 +21,7 @@ let g:lang_support_config = {
     \ "css": function('BuildCssLangServer'),
     \ "html": function('BuildHtmlLangServer'),
     \ "python": function('BuildPythonLangServer'),
-    \ "java": function('BuildJavaLangServer'),
-    \ "dockerfile": function('BuildDockerLangServer'),
+    \ "java": function('BuildJavaLangServer')
 \}
 
 " DeployLangSupport() - deploy language support according to the given

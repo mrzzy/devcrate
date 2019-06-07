@@ -2,11 +2,13 @@
   "suggest.timeout": 5000,
   "suggest.maxCompleteItemCount": 24,
   "languageserver": {
+    // scala 
     "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt", ".git/"]
     },
+    // c/c++/obj-c
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
@@ -16,6 +18,12 @@
            "directory": ".ccls-cache"
         }
       }
+    },
+    // dockerfile
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
     }
   }
 }

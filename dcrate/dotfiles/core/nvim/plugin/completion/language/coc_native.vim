@@ -27,7 +27,3 @@ endfunction
 function! BuildJavaLangServer()
     CocInstall -sync 'coc-java' 
 endfunction
-function! BuildDockerLangServer()
-    CocInstall -sync 'coc-docker' 
-endfunction
-
