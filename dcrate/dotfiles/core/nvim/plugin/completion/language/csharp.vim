@@ -50,3 +50,5 @@ Plug 'OmniSharp/omnisharp-vim', {'do': function('SetupCSharpLangServer')}
 " enter completion - display method signature
 autocmd BufRead *.cs inoremap <expr> <cr> 
     \ pumvisible() ? "\<C-y><C-o>:OmniSharpTypeLookup<cr>" : "\<C-g>u\<CR>""
+autocmd BufRead * if &ft != "cs" | inoremap <expr> <cr> 
+    \ pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>""
