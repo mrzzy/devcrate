@@ -1,6 +1,9 @@
 {
   "suggest.timeout": 5000,
   "suggest.maxCompleteItemCount": 24,
+  // python 
+  "python.jediEnabled": false,
+  "python.autoUpdateLanguageServer": false,
   "languageserver": {
     // scala 
     "metals": {
@@ -18,12 +21,6 @@
            "directory": ".ccls-cache"
         }
       }
-    },
-    // dockerfile
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
     }
   }
 }
