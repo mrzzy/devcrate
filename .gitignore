@@ -1,0 +1,9 @@
+# tags
+tags
+tags.*
+
+# vim sessions
+.sessions.vim
+
+# ccls cache
+.ccls-cache/
