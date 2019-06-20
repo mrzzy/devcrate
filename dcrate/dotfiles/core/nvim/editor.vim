@@ -39,9 +39,12 @@ autocmd Filetype make setlocal noexpandtab
 autocmd FileType crontab setlocal backupcopy=yes
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
+autocmd FileType html setlocal tabstop=2|setlocal shiftwidth=2
+" automatic filetye detection
 autocmd BufNewFile,BufRead *.sc setf scala
 autocmd BufNewFile,BufRead *.etc setf m4
 autocmd BufNewFile,BufRead *.tmux setf tmux
+autocmd BufNewFile,BufRead *.cshtml setf html
 
 " search settings 
 " use ag for search if present
