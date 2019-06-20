@@ -27,17 +27,15 @@ let g:lang_support_config = {
 " DeployLangSupport() - deploy language support according to the given
 " configuration
 function! DeployLangSupport(config)
-    if a:info.status == 'installed' || a:info.force
-        let l:languages = keys(a:config)
-        echo 'deploying language support for ' . join(l:languages, ",")
-        for l:language in l:languages
-            echo 'currently deploying language support for ' . l:language
-            " call setup support function for language
-            let l:SetupLanguage = a:config[l:language]
-            silent call l:SetupLanguage()
-        endfor
-        
-        " Clean up screen
-        redraw!    
-   endif
+    let l:languages = keys(a:config)
+    echo 'deploying language support for ' . join(l:languages, ",")
+    for l:language in l:languages
+        echo 'currently deploying language support for ' . l:language
+        " call setup support function for language
+        let l:SetupLanguage = a:config[l:language]
+        silent call l:SetupLanguage()
+    endfor
+    
+    " Clean up screen
+    redraw!    
 endfunction
