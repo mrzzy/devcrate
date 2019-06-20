@@ -34,7 +34,7 @@ alias g="git"
 alias tmux="tmux new-session -A -s $HOST"
 alias t="tmux"
 alias less="less -R"
-alias n="nautilus -s"
+alias n="nautilus"
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
