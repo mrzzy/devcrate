@@ -24,7 +24,7 @@ function! BootstrapCOC(info)
 endfunction
 
 " completion engine
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': function('BootstrapCOC')}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': function('BootstrapCOC')}
 
 " tab completion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
