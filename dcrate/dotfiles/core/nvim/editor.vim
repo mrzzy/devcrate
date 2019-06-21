@@ -2,7 +2,6 @@
 " Basic Editor Config
 " NeoVim Configuration
 " 
-
 "editor Settings
 set autoindent
 set autoread
@@ -24,8 +23,8 @@ set smarttab
 set tabstop=4
 set wildmenu
 set wildmode=longest,list,full
-set lazyredraw
 set splitbelow
+set splitright
 set history=1000
 
 " file Settings

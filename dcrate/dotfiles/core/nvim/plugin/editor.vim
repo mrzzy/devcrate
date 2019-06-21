@@ -26,4 +26,7 @@ let g:incsearch#magic = '\v'
 Plug 'vphantom/vim-obsession'
 nnoremap <leader>ws :Obession Session.vim<cr>
 " resize panes
-Plug 'roxma/vim-window-resize-easy'
+Plug 'simeji/winresizer'
+let g:winreizer_vert_resize=5
+let g:winreizer_horiz_resize=5
+let g:winresizer_start_key="<C-w>r"

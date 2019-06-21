@@ -5,6 +5,7 @@
 
 "Keyboard Bindings
 let g:mapleader = ","
+
 " visual mode select-search
 vnoremap * "*y/\V<c-r>*<cr><esc>
 vnoremap # "*y?\V<c-r>*<cr><esc>
