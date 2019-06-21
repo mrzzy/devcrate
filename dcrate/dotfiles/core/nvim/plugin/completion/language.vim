@@ -15,17 +15,9 @@ source ~/.config/nvim/plugin/completion/language/csharp.vim
 let g:lang_support_config = { 
     \"scala": function("BuildScalaLangServer"),
     \ "c,cpp,objc": function('BuildClangLangServer'),
-    \ "json": function('BuildJsonLangServer'),
-    \ "yaml": function('BuildYamlLangServer'),
-    \ "js,ts": function('BuildJsTsLangServer'), 
-    \ "css": function('BuildCssLangServer'),
-    \ "html": function('BuildHtmlLangServer'),
-    \ "python": function('BuildPythonLangServer'),
-    \ "java": function('BuildJavaLangServer')
 \}
 
-" DeployLangSupport() - deploy language support according to the given
-" configuration
+" DeployLangSupport() - deploy language support not corvered by extensions
 function! DeployLangSupport(config)
     let l:languages = keys(a:config)
     echo 'deploying language support for ' . join(l:languages, ",")

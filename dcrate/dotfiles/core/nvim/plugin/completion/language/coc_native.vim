@@ -6,24 +6,9 @@
 " 
 
 "Language Support for Coc Native Extension Languages
-function! BuildJsonLangServer()
-    CocInstall -sync 'coc-json'
-endfunction
-function! BuildYamlLangServer()
-    CocInstall -sync 'coc-yaml' 
-endfunction
-function! BuildJsTsLangServer()
-    CocInstall -sync 'coc-tsserver' 
-endfunction
-function! BuildCssLangServer()
-    CocInstall -sync 'coc-css' 
-endfunction
-function! BuildHtmlLangServer()
-    CocInstall -sync 'coc-html' 
-endfunction
-function! BuildPythonLangServer()
-    CocInstall -sync 'coc-python' 
-endfunction
-function! BuildJavaLangServer()
-    CocInstall -sync 'coc-java' 
-endfunction
+Plug 'neoclide/coc-tsserver', {'tag': '1.3.7', 'do': 'yarn install --frozen-lockfile'} "js/ts
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'} "yaml
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} "json
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} "html
+Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'} "java
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'} "python
