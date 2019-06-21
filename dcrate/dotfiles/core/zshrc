@@ -26,6 +26,7 @@ fi
 
 # Aliases
 alias ls='ls -F --color=none'
+alias md="mkdir -p"
 alias vim="nvim"
 alias v="nvim"
 alias py="python3"
@@ -35,6 +36,7 @@ alias tmux="tmux new-session -A -s $HOST"
 alias t="tmux"
 alias less="less -R"
 alias n="nautilus"
+alias r="ranger"
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
