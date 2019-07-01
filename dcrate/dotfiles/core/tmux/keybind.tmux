@@ -36,8 +36,8 @@ bind-key "`" last-pane
 bind-key w new-window -a -c "#{pane_current_path}"
 bind-key C command-prompt -p "(rename-window '#W')" "rename-window '%%'"
 bind-key '"' select-layout even-horizontal
-bind-key "=" select-layout tiled
-bind-key -r C-L next-layout
+bind-key "=" select-layout Tiled
+bind-key -r "*" next-layout
 bind-key -r [ previous-window
 bind-key -r ] next-window
 bind-key -r } swap-window -t {next}
