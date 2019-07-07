@@ -82,7 +82,7 @@ zplug load #Load Plugins
 
 # fzf completions
 export FZF_COMPLETION_TRIGGER="%%"
-export FZF_DEFAULT_COMMMAND="ag --skip-vcs-ignores -g zsh"
+export FZF_DEFAULT_COMMAND='ag -g ""'
 source "$HOME/.local/share/fzf/shell/completion.zsh"
 
 # fzf history recall
