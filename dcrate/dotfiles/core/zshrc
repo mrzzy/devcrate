@@ -38,6 +38,8 @@ alias t="tmux"
 alias less="less -R"
 alias n="nautilus"
 alias r="ranger"
+alias k="kubectl"
+alias mk="microk8s.kubectl"
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
