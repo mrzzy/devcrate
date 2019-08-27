@@ -35,6 +35,7 @@ filetype plugin indent on
 " filetype specific config
 autocmd Filetype scheme setlocal tabstop=2
 autocmd Filetype make setlocal noexpandtab
+autocmd Filetype gdscript3 setlocal noexpandtab
 autocmd FileType crontab setlocal backupcopy=yes
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2

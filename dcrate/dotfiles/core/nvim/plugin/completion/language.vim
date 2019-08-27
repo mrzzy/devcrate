@@ -11,6 +11,8 @@ source ~/.config/nvim/plugin/completion/language/c_cpp_objc.vim
 source ~/.config/nvim/plugin/completion/language/coc_native.vim
 source ~/.config/nvim/plugin/completion/language/csharp.vim
 
+Plug 'calviken/vim-gdscript3'
+
 " language support setup configuration { language name : setup function }
 let g:lang_support_config = { 
     \"scala": function("BuildScalaLangServer"),
