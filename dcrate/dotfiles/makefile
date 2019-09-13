@@ -9,10 +9,11 @@
 
 # List of dotfile deployment targets
 define DOTFILE_TARGETS 
-$(HOME)/.config/nvim/init.vim \
+$(HOME)/.config/nvim \
+$(HOME)/.config/tmux \
 $(HOME)/.tmux.conf \
 $(HOME)/.zshrc \
-$(HOME)/.config/i3/config
+$(HOME)/.Xresources
 endef
 
 ## Targets
@@ -22,16 +23,24 @@ install: $(DOTFILE_TARGETS)
 clean:
 	rm -rf $(DOTFILE_TARGETS)
 
-## Dotfile location mapping targets
-$(HOME)/.config/nvim/init.vim: init.vim $(HOME)/.config/nvim
+### Dotfile location mapping targets
+## Terminal (Core)
+# neovim 
+$(HOME)/.config/nvim: core/nvim $(wildcard core/nvim/*)
+	cp -af $< $(dir $@)
+
+# tmux
+$(HOME)/.tmux.conf: core/tmux/tmux.conf
 	cp $< $@
 
-$(HOME)/.tmux.conf: tmux.conf
+$(HOME)/.config/tmux: core/tmux
+	cp -af $< $(dir $@)
+
+# zsh
+$(HOME)/.zshrc: core/zshrc
+	cp $< $@
+	
+## Gui
+$(HOME)/.Xresources: gui/Xresources
 	cp $< $@
 
-$(HOME)/.zshrc: zshrc
-	cp $< $@
-
-# Directory target
-$(HOME)/.config/%:
-	mkdir -p $@
