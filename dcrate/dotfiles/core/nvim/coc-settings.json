@@ -4,6 +4,12 @@
   // python 
   "python.jediEnabled": false,
   "python.autoUpdateLanguageServer": false,
+  // yaml
+  "yaml.validate": false,
+  "yaml.schemas": {
+    "https://kubernetesjsonschema.dev/v1.14.0/deployment-apps-v1.json": "/*.yml",
+    "https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json": "/*.yml"
+  },
   "languageserver": {
     // scala 
     "metals": {

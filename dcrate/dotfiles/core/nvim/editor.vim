@@ -38,6 +38,7 @@ autocmd Filetype make setlocal noexpandtab
 autocmd Filetype gdscript3 setlocal noexpandtab
 autocmd FileType crontab setlocal backupcopy=yes
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd Filetype json setlocal tabstop=2|setlocal shiftwidth=2
 autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2|setlocal shiftwidth=2
 " automatic filetye detection
