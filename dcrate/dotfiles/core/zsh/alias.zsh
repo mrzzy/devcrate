@@ -3,7 +3,6 @@
 # ZSH Aliases
 #
 
-
 # Aliases
 alias ls='ls -F --color=none'
 alias md="mkdir -p"
