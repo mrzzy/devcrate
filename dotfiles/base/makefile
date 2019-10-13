@@ -1,7 +1,6 @@
 #
-# dotfiles/makefile
 # devcrate
-# Makefile to install dotfiles
+# Makefile to install terminal base dotfiles
 # 
 
 .PHONY: install clean
@@ -13,8 +12,7 @@ $(HOME)/.config/nvim \
 $(HOME)/.config/tmux \
 $(HOME)/.tmux.conf \
 $(HOME)/.config/zsh \
-$(HOME)/.zshrc \
-$(HOME)/.Xresources
+$(HOME)/.zshrc 
 endef
 
 ## Targets
@@ -25,25 +23,22 @@ clean:
 	rm -rf $(DOTFILE_TARGETS)
 
 ### Dotfile location mapping targets
-## Terminal (Core)
+## Terminal (Base)
 # neovim 
-$(HOME)/.config/nvim: core/nvim $(wildcard core/nvim/*)
+$(HOME)/.config/nvim: ./nvim $(wildcard ./nvim/*)
 	cp -af $< $(dir $@)
 
 # tmux
-$(HOME)/.tmux.conf: core/tmux/tmux.conf
+$(HOME)/.tmux.conf: ./tmux/tmux.conf
 	cp $< $@
 
-$(HOME)/.config/tmux: core/tmux
+$(HOME)/.config/tmux: ./tmux
 	cp -af $< $(dir $@)
 
 # zsh
-$(HOME)/.zshrc: core/zsh/zshrc
+$(HOME)/.zshrc: ./zsh/zshrc
 	cp $< $@
 
-$(HOME)/.config/zsh: core/zsh
+$(HOME)/.config/zsh: ./zsh
 	cp -af  $< $@
 	
-## Gui
-$(HOME)/.Xresources: gui/Xresources
-	cp $< $@
