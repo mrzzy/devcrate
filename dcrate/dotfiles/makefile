@@ -12,6 +12,7 @@ define DOTFILE_TARGETS
 $(HOME)/.config/nvim \
 $(HOME)/.config/tmux \
 $(HOME)/.tmux.conf \
+$(HOME)/.config/zsh \
 $(HOME)/.zshrc \
 $(HOME)/.Xresources
 endef
@@ -37,10 +38,12 @@ $(HOME)/.config/tmux: core/tmux
 	cp -af $< $(dir $@)
 
 # zsh
-$(HOME)/.zshrc: core/zshrc
+$(HOME)/.zshrc: core/zsh/zshrc
 	cp $< $@
+
+$(HOME)/.config/zsh: core/zsh
+	cp -af  $< $@
 	
 ## Gui
 $(HOME)/.Xresources: gui/Xresources
 	cp $< $@
-
