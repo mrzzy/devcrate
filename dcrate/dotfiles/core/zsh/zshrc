@@ -4,6 +4,11 @@
 # ZSH Configuration file
 #
 
+source "$HOME/.config/zsh/environment.zsh"
+source "$HOME/.config/zsh/alias.zsh"
+source "$HOME/.config/zsh/plugin.zsh"
+source "$HOME/.config/zsh/lazyload.zsh"
+
 # History configuration
 HISTFILE="$HOME/.zsh_history"
 HIST_STAMPS="dd/mm/yyyy"
