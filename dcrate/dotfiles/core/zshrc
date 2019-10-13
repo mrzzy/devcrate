@@ -159,4 +159,5 @@ lazy()
 lazy "source $HOME/.conda/etc/profile.d/conda.sh" conda
 # lazy load kubectl completion
 lazy "source <(kubectl completion zsh)" kubectl
+lazy "source <(helm completion zsh)" helm
 lazy "source <(microk8s.kubectl completion zsh)" microk8s.kubectl
