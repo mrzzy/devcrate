@@ -4,7 +4,7 @@
 # Project makefile
 #
 # vars
-VERSION:=0.2.1b
+VERSION:=0.2.0
 
 DOCKER:=docker
 TAG_PREFIX:=mrzzy
@@ -12,9 +12,9 @@ TAG_PREFIX:=mrzzy
 # names of the docker images
 IMG_NAMES:=$(notdir $(wildcard containers/*))
 IMAGES:=$(foreach img,$(IMG_NAMES),$(TAG_PREFIX)/$(img))
-BASE_IMAGE:=$(TAG_PREFIX)/devcrate-base
+BASE_IMAGE:=$(TAG_PREFIX)/devcrate
 # names of the images that depends on base image
-DEP_BASE_NAMES:=$(filter-out devcrate-mini, $(filter-out devcrate-base, $(IMG_NAMES)))
+DEP_BASE_NAMES:=$(filter-out devcrate-mini, $(filter-out devcrate, $(IMG_NAMES)))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
 
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))

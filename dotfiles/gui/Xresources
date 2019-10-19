@@ -50,6 +50,9 @@ URxvt*saveLines:                  5000
 URxvt*internalBorder: 0
 URxvt*geometry: 70x19
 URxvt.urlLauncher: firefox
+!! disable keycapture mode
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 !! Terminal Styling
 URxvt*font: xft:DejaVu Sans Mono for Powerline:size=9.8
