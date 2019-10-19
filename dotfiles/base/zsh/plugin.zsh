@@ -13,6 +13,12 @@ zplug "miekg/lean", as:theme, use:"lean.plugin.zsh" </dev/null
 zplug zsh-users/zsh-autosuggestions </dev/null
 zplug zsh-users/zsh-completions </dev/null
 
+zplug load #Load Plugins
+
+
+# Z directory jumping tool
+source "$HOME/.local/share/z.sh"
+
 ZSH_TMUX_AUTOSTART=true
 
 # Lean Prompt
@@ -43,9 +49,3 @@ recall_history() {
     zle -U "$(printf $EXEC_CMD)"
 }
 zle -N recall_history recall_history
-bindkey "^R" recall_history
-
-# Z directory jumping tool
-source "$HOME/.local/share/z.sh"
-zplug load #Load Plugins
-

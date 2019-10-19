@@ -4,11 +4,6 @@
 # ZSH Configuration file
 #
 
-source "$HOME/.config/zsh/environment.zsh"
-source "$HOME/.config/zsh/alias.zsh"
-source "$HOME/.config/zsh/plugin.zsh"
-source "$HOME/.config/zsh/lazyload.zsh"
-
 # History configuration
 HISTFILE="$HOME/.zsh_history"
 HIST_STAMPS="dd/mm/yyyy"
@@ -16,3 +11,10 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt share_history
 setopt inc_append_history
+
+source "$HOME/.config/zsh/environment.zsh"
+source "$HOME/.config/zsh/alias.zsh"
+source "$HOME/.config/zsh/lazyload.zsh"
+source "$HOME/.config/zsh/plugin.zsh"
+
+bindkey "^R" recall_history
