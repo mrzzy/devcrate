@@ -40,5 +40,5 @@ $(HOME)/.zshrc: ./zsh/zshrc
 	cp $< $@
 
 $(HOME)/.config/zsh: ./zsh
-	cp -af  $< $@
+	cp -af  $< $(dir $@)
 	
