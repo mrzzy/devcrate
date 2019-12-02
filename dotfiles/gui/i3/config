@@ -209,8 +209,7 @@ for_window [title="Connection Manager — Shadowsocks-Qt5"] floating enable bord
 for_window [urgent=latest] focus
 
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1; compton
-exec --no-startup-id clipit
+exec --no-startup-id nitrogen --restore
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id gnome-flashback
