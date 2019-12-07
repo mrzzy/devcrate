@@ -1,4 +1,4 @@
-[bar/i3wmthemer_bar]
+[bar/master]
 width = 100%
 height = 26
 radius = 0
@@ -175,3 +175,14 @@ throttle-input-for = 20
 [global/wm]
 margin-top = 0
 margin-bottom = 0
+
+;define bars for multiple displays
+; DP - laptop display
+[bar/DP]
+inherit = bar/master
+monitor = eDP-1-1
+
+; HDMI - external display
+[bar/HDMI]
+inherit = bar/master
+monitor = DP-1
