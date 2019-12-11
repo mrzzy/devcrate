@@ -12,7 +12,8 @@ define DOTFILE_TARGETS
 $(HOME)/.Xresources \
 $(HOME)/.config/i3 \
 $(HOME)/.config/nitrogen \
-$(HOME)/.config/polybar 
+$(HOME)/.config/polybar  \
+$(HOME)/.config/pulse  
 endef
 
 ## Targets
@@ -36,3 +37,6 @@ $(HOME)/.config/nitrogen: ./nitrogen
 # polybar
 $(HOME)/.config/polybar: ./polybar
 	cp -af $< $(dir $@)
+# pulseaudio
+$(HOME)/.config/pulse: ./pulse
+	cp -afv $</. $@/

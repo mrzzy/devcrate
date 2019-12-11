@@ -85,9 +85,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 ## workspace config
-# 
-
-# main-display workspaces
+# configure display workspaces
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -98,21 +96,27 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
-
-workspace $ws1
-workspace $ws2
-workspace $ws3
-workspace $ws4
-workspace $ws5
-workspace $ws6
-workspace $ws7
-workspace $ws8
-workspace $ws9
-workspace $ws10
-
-# multiple display support: move focused workspace around displays
-bindsym $mod+bracketleft move workspace to output right
-bindsym $mod+bracketright move workspace to output left
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor1
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor1
+workspace $ws5 output $monitor1
+workspace $ws6 output $monitor1
+workspace $ws7 output $monitor1
+workspace $ws8 output $monitor1
+workspace $ws9 output $monitor1
+workspace $ws10 output $monitor1
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 # quick switch between workspaces
 bindsym $mod+Shift+grave move container to workspace; workspace back_and_forth
 # Move focused container to workspace
@@ -126,10 +130,13 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
-
 # navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+## multiple display support
+# move focused workspace around displays
+bindsym $mod+bracketleft move workspace to output right
+bindsym $mod+bracketright move workspace to output left
 
 # Set shut down, restart and locking features
 bindsym $mod+Ctrl+s mode "$mode_system"
