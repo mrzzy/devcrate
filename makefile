@@ -14,13 +14,13 @@ IMG_NAMES:=$(notdir $(wildcard containers/*))
 IMAGES:=$(foreach img,$(IMG_NAMES),$(TAG_PREFIX)/$(img))
 BASE_IMAGE:=$(TAG_PREFIX)/devcrate
 # names of the images that depends on base image
-DEP_BASE_NAMES:=$(filter-out devcrate-mini, $(filter-out devcrate, $(IMG_NAMES)))
+DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
 
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 
 # phony rules
-.PHONY: all push clean clean-version
+.PHONY: all push clean clean-version run
 .DEFAULT: all 
 
 all: $(DEP_BASE_IMAGES)
@@ -42,7 +42,7 @@ push: $(PUSH_TARGETS)
 push/%: %
 	docker push $<
 
-# cleans docker images
+# cleans docker images from image cache 
 # clean all docker images
 clean: clean-version
 	$(foreach img,$(IMAGES),docker rmi -f $(img);)
@@ -50,3 +50,9 @@ clean: clean-version
 # clean versioned docker images
 clean-version:
 	$(foreach img,$(IMAGES),docker rmi -f $(img):$(VERSION);)
+	
+# runs the images
+run:
+	$(DOCKER) run \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		-it mrzzy/devcrate 
