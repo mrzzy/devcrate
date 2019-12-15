@@ -9,9 +9,15 @@ An attempt to move all tools, configuration into Docker containers:
 
 ## Architecture
 devcrate is composed of docker images of increasing amounts of dev tooling:
-- base image with just the basics (editor, git, tmux, zsh, fzf, make, docker in docker...)
-    - `devcrate-mini` - Alphine based basic development image optimized for size
-    - `devcrate-base` - Ubuntu based basic development image
+- base image with just the basics
+    - `devcrate` - Ubuntu based basic development image:
+        - `neovim` - main editor
+        - `tmux` - terminal multiplexer
+        - `zsh` - shell
+        - `ctags` - univesal ctags
+        - `fzf` - fuzzy finder
+        - `ag` - the silver searcher
+        - `docker` - docker in docker
 - extended with additinal dev tooling/language support
     - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
     - `devcrate-python` - python support: `pip,python,virtualenv`
@@ -21,18 +27,19 @@ devcrate is composed of docker images of increasing amounts of dev tooling:
     - `devcrate-nodejs` - nodejs support: `node`
     - `devcrate-c` - c/c++ support: `gcc, clang, cmake`
 - full blown development envrionment:
-    - `devcrate-py-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
+    - `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
+- full blown desktop envrionment
+    - `devcrate-i3` - i3/gui support: `i3,polybar,nitrogen,firefox`
 
 ## Roadmap
-### Version 0.2a
+### Version 0.2.0
 - clean up and split up configuration files
-- `devcrate-base` - Ubuntu based basic development image
-- `devcrate-mini` - Alphine based basic development image optimized for size
-
-### Version 0.2.1a
+- `devcrate` - Ubuntu based basic development image
 - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
 - `devcrate-python` - python support: `pip,python,virtualenv`
+- `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
 
-### Version 0.2.1b
-- `devcrate-py-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
+### Version 0.2.0
 - `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
+- `devcrate-nodejs` - nodejs support: `node`
+- `devcrate-golang` - golang support
