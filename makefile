@@ -6,6 +6,7 @@
 # vars
 VERSION:=0.2.0
 
+## docker config
 DOCKER:=docker
 TAG_PREFIX:=mrzzy
 
@@ -18,6 +19,11 @@ DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
 
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
+
+## devcrate config
+# default credentials
+USER:=$(USER)
+PASSWORD:=passwds
 
 # phony rules
 .PHONY: all push clean clean-version run
@@ -32,7 +38,10 @@ $(DEP_BASE_IMAGES): $(BASE_IMAGE)
 # docker build rule
 $(TAG_PREFIX)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 	# latest tag
-	$(DOCKER) build -f $< -t $@ .
+	$(DOCKER) build \
+		--build-arg USERNAME=$(USER) \
+		--build-arg PASSWORD=$(PASSWORD) \
+		-f $< -t $@ .
 	# versioned tag
 	$(DOCKER) tag $@ $@:$(VERSION) 
 

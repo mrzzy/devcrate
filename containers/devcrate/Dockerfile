@@ -20,20 +20,21 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 ## install devcrate: dev tools packages
 RUN apt-get update && apt-get install -y \
-    docker-ce-cli nodejs zsh neovim tmux git make silversearcher-ag  \
+    docker-ce-cli nodejs zsh neovim tmux git make silversearcher-ag entr \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 RUN npm install -g yarn
 
 ## setup user & groups
 ARG USERNAME=user
-RUN useradd --home-dir /home/ \
+ARG PASSWORD=passwds
+ENV HOME=/home
+RUN useradd --home-dir $HOME \
     --uid 1000 \
     --shell /usr/bin/zsh \
     --groups sudo,adm,root $USERNAME
-RUN echo "$USERNAME:$USERNAME.devcrate;dck" | chpasswd
+RUN echo "$USERNAME:$PASSWORD" | chpasswd
 
 ## setup home dir 
-ENV HOME=/home
 WORKDIR $HOME
 
 # install scripts
@@ -52,7 +53,7 @@ RUN make -C /tmp/dotfiles/base
 
 ## configure tools with plugins
 # zsh
-ENV ZPLUG_HOME=/home/$USERNAME/.zplug
+ENV ZPLUG_HOME=$HOME/.zplug
 RUN git clone https://github.com/zplug/zplug $ZPLUG_HOME
 
 # tmux
