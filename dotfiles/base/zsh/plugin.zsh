@@ -4,27 +4,13 @@
 #
 
 ## zsh plugins
-## NOTE: </dev/null is a hack to get zplug to work in docker build
-source ~/.zplug/init.zsh
-zplug "plugins/vi-mode", from:oh-my-zsh </dev/null
-zplug "plugins/git-fast", from:oh-my-zsh </dev/null
-zplug "mafredri/zsh-async" </dev/null
-zplug "miekg/lean", as:theme, use:"lean.plugin.zsh" </dev/null
-zplug zsh-users/zsh-autosuggestions </dev/null
-zplug zsh-users/zsh-completions </dev/null
-
-
-# Z directory jumping tool
-source "$HOME/.local/share/z.sh"
-
-ZSH_TMUX_AUTOSTART=true
-
+## plugin config
 # Lean Prompt
 PROMPT_LEAN_TMUX=">"
 PROMPT_LEAN_VIMODE="1"
 PROMPT_LEAN_NOTITLE="1"
 PROMPT_LEAN_NOTITLE="1"
-PROMPT_LEAN_COLOR1="244"
+PROMPT_LEAN_COLOR1="11"
 PROMPT_LEAN_COLOR2="208"
 PROMPT_LEAN_COLOR3="244"
 PROMPT_LEAN_ABBR_METHOD="shrink"
@@ -48,4 +34,7 @@ recall_history() {
 }
 zle -N recall_history recall_history
 
-zplug load #Load Plugins
+## load plugins
+# configure plugin manager to load plugins
+source <(antibody init)
+antibody bundle < "$HOME/.config/zsh/plugin_list.txt"
