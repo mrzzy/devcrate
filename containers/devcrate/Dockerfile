@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y \
     ranger shadowsocks-libev openssh-client iputils-ping netcat wget gawk htop \
     universal-ctags docker-compose \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
-    && npm install -g yarn && npm cache clean --force \
+    && npm install -g yarn && npm cache clean --force 
 
 ## setup user & groups
 ARG USERNAME=user
