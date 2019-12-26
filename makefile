@@ -6,9 +6,9 @@
 # vars
 VERSION:=0.2.0
 
+## docker config
 DOCKER:=docker
 TAG_PREFIX:=mrzzy
-
 # names of the docker images
 IMG_NAMES:=$(notdir $(wildcard containers/*))
 IMAGES:=$(foreach img,$(IMG_NAMES),$(TAG_PREFIX)/$(img))
@@ -16,8 +16,12 @@ BASE_IMAGE:=$(TAG_PREFIX)/devcrate
 # names of the images that depends on base image
 DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
-
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
+
+## devcrate config
+# default credentials
+USER:=$(USER)
+PASSWORD:=passwds
 
 # phony rules
 .PHONY: all push clean clean-version run
@@ -32,7 +36,12 @@ $(DEP_BASE_IMAGES): $(BASE_IMAGE)
 # docker build rule
 $(TAG_PREFIX)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 	# latest tag
-	$(DOCKER) build -f $< -t $@ .
+	$(DOCKER) build \
+		--network=host \
+		$(if $(HTTP_PROXY),--build-arg http_proxy=$(HTTP_PROXY),) \
+		$(if $(USER),--build-arg USERNAME=$(USER),) \
+		$(if $(PASSWORD),--build-arg PASSWORD=$(PASSWORD),) \
+		-f $< -t $@ .
 	# versioned tag
 	$(DOCKER) tag $@ $@:$(VERSION) 
 
@@ -53,6 +62,8 @@ clean-version:
 	
 # runs the images
 run:
-	$(DOCKER) run \
-		-v /var/run/docker.sock:/var/run/docker.sock \
-		-it mrzzy/devcrate 
+	$(DOCKER) run -it \
+		--network=host \
+		$(if $(HTTP_PROXY),--env http_proxy=$(HTTP_PROXY),) \
+		$(BASE_IMAGE)
+		#-v $(HOME)/trx:/home/trx 

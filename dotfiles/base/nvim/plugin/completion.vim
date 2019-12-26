@@ -5,6 +5,8 @@
 "
 
 "Completion 
+" language support
+source ~/.config/nvim/plugin/completion/language.vim
 " completion engine
 source ~/.config/nvim/plugin/completion/engine.vim
 

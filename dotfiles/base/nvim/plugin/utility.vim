@@ -8,7 +8,7 @@
 " tags & tagbar
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
-Plug 'liuchengxu/vista.vim' "like tagbar but newer
+Plug 'liuchengxu/vista.vim' "like tagbar but newer - not stable yet
 nnoremap <leader>tt :TagbarToggle<cr>
 autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 let g:tagbar_autoclose=1
@@ -21,9 +21,9 @@ Plug 'mbbill/undotree'
 nnoremap <leader>uu :UndotreeToggle<cr>
 
 " fuzzy file finding, jumping
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', {'do':':UpdateRemotePlugins'}
 Plug 'chemzqm/unite-location'
-Plug 'junegunn/fzf'
+Plug '~/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
 nnoremap <c-l> :Denite location_list<cr>
 nnoremap <c-k> :Denite quickfix<cr>

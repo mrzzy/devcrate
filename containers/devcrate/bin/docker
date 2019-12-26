@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# devcrate
+# docker patch
+#
+
+# docker does not work normally without sudo, even with
+# docker group, hence we force sudo every time  we run docker
+exec sudo /usr/bin/docker $*

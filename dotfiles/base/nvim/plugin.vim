@@ -12,5 +12,5 @@ source ~/.config/nvim/plugin/syntax.vim
 source ~/.config/nvim/plugin/ui.vim
 call plug#end()
 
-" plugin callback
+" plugin callback - runs after plugins are loaded
 source ~/.config/nvim/plugin/callback.vim

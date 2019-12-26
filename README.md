@@ -14,10 +14,11 @@ devcrate is composed of docker images of increasing amounts of dev tooling:
         - `neovim` - main editor
         - `tmux` - terminal multiplexer
         - `zsh` - shell
-        - `ctags` - univesal ctags
-        - `fzf` - fuzzy finder
-        - `ag` - the silver searcher
         - `docker` - docker in docker
+        - `entr` - file watch for rebuild on file load
+        - `git` - version control
+        - `ssh` - ssh tunneling
+        - `htop` - process monitoring
 - extended with additinal dev tooling/language support
     - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
     - `devcrate-python` - python support: `pip,python,virtualenv`
@@ -25,7 +26,7 @@ devcrate is composed of docker images of increasing amounts of dev tooling:
     - `devcrate-java` - java support: `java, jdk`
     - `devcrate-golang` - golang support
     - `devcrate-nodejs` - nodejs support: `node`
-    - `devcrate-c` - c/c++ support: `gcc, clang, cmake`
+    - `devcrate-c` - c/c++ support: `gcc, clang, cmake, ccls`
 - full blown development envrionment:
     - `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
 - full blown desktop envrionment

@@ -3,7 +3,6 @@
 # ZSH Configuration file
 #
 
-
 ## Lazy Loading Implmentation
 # Usage: lazy_load(load_cmd, activator, activators... __EOA__ args_activator
 # Runs the lazy load command, dealiases all activators and executes the
@@ -62,7 +61,12 @@ lazy()
 
 ## lazy loads
 # lazy load conda
-lazy "source $HOME/.conda/etc/profile.d/conda.sh" conda
+load_conda()
+{
+    export PATH="~/.conda/bin:$PATH"
+    source $HOME/.conda/etc/profile.d/conda.sh
+}
+lazy load_conda conda
 # lazy load kubectl completion
 lazy "source <(kubectl completion zsh)" kubectl
 lazy "source <(helm completion zsh)" helm
