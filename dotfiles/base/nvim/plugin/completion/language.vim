@@ -9,8 +9,6 @@
 source ~/.config/nvim/plugin/completion/language/c_cpp_objc.vim
 source ~/.config/nvim/plugin/completion/language/coc_native.vim
 
-Plug 'calviken/vim-gdscript3'
-
 " additional language support setup configuration { language name : setup function }
 let g:lang_support_config = { 
     \ "c,cpp,objc": function('BuildClangLangServer'),

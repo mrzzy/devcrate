@@ -2,11 +2,7 @@
 # Devcrate
 # ZSH Plugin configuration
 #
-#
-## load plugins
-# configure plugin manager to load plugins
-source <(antibody init)
-antibody bundle < "$HOME/.config/zsh/plugin_list.txt"
+
 
 ## zsh plugins
 ## plugin config
@@ -26,10 +22,16 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="40"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 bindkey "^[\t" autosuggest-accept
 
+## load plugins
+# configure plugin manager to load plugins
+source <(antibody init)
+antibody bundle < "$HOME/.config/zsh/plugin_list.txt"
+
+## extenal intergrations
 # fzf completions
+source "$HOME/.local/share/fzf/shell/completion.zsh"
 export FZF_COMPLETION_TRIGGER="%%"
 export FZF_DEFAULT_COMMAND='ag -g ""'
-source "$HOME/.local/share/fzf/shell/completion.zsh"
 
 # fzf history recall
 recall_history() {
@@ -37,4 +39,4 @@ recall_history() {
     local EXEC_CMD="$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\/g')"
     zle -U "$(printf $EXEC_CMD)"
 }
-ll_history recall_history
+zle -N recall_history recall_history

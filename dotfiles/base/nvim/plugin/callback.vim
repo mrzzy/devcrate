@@ -4,7 +4,7 @@
 " NeoVim Configuration
 " 
 
-" denite keybindings
+" denite configure keybindings
 call denite#custom#option('default', 'prompt', '>')
 call denite#custom#map('insert', '<C-cr>', '<denite:do_action:cd>', 'noremap')
 call denite#custom#map('insert', '<cr>', '<denite:do_action:open>', 'noremap')

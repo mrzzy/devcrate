@@ -5,9 +5,6 @@
 " 
 
 "Completion Engine
-" language support
-source ~/.config/nvim/plugin/completion/language.vim
- 
 function! BootstrapCOC(info)
     if a:info.status == 'installed' || a:info.force
         echo 'bootstrapping coc'
