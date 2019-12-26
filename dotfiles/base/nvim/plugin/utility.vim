@@ -21,7 +21,7 @@ Plug 'mbbill/undotree'
 nnoremap <leader>uu :UndotreeToggle<cr>
 
 " fuzzy file finding, jumping
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', {'do':':UpdateRemotePlugins'}
 Plug 'chemzqm/unite-location'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'

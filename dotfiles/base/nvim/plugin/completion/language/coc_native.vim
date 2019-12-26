@@ -12,3 +12,5 @@ Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} "json
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} "html
 Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'} "java
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'} "python
+Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'} "c sharp
+Plug 'ckipp01/coc-metals', {'do': 'yarn install --frozen-lockfile'} "scala

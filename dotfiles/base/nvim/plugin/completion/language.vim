@@ -6,20 +6,17 @@
 
 "Language Support
 " language-specific support
-source ~/.config/nvim/plugin/completion/language/scala.vim
 source ~/.config/nvim/plugin/completion/language/c_cpp_objc.vim
 source ~/.config/nvim/plugin/completion/language/coc_native.vim
-source ~/.config/nvim/plugin/completion/language/csharp.vim
 
 Plug 'calviken/vim-gdscript3'
 
-" language support setup configuration { language name : setup function }
+" additional language support setup configuration { language name : setup function }
 let g:lang_support_config = { 
-    \"scala": function("BuildScalaLangServer"),
     \ "c,cpp,objc": function('BuildClangLangServer'),
 \}
 
-" DeployLangSupport() - deploy language support not corvered by extensions
+" DeployLangSupport() - deploy language support not covered by coc extensions
 function! DeployLangSupport(config)
     let l:languages = keys(a:config)
     echo 'deploying language support for ' . join(l:languages, ",")

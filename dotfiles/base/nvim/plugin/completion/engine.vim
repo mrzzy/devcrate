@@ -13,11 +13,9 @@ function! BootstrapCOC(info)
         echo 'bootstrapping coc'
         call coc#util#install({'tag':1})
         
-        " completion sources
-        echo 'setting up completion sources '
-        CocInstall -sync 'coc-tag'
-        CocInstall -sync 'coc-syntax'
-        CocInstall -sync 'coc-ultisnips'
+        " basic completion sources
+        echo 'setting up basic completion sources '
+        call coc#add_extension('coc-tag', 'coc-syntax', 'coc-ultisnips')
 
         call DeployLangSupport(g:lang_support_config)
     endif
