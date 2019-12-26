@@ -9,7 +9,6 @@ export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/home/zzy/.conda/bin:$PATH"
 
 #Locale
 export LANG="en_US.UTF-8"

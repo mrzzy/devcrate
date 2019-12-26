@@ -5,10 +5,6 @@
 
 FROM ubuntu:18.04 AS repo
 
-# configure proxy
-ARG http_proxy=
-ENV http_proxy=$http_proxy
-
 ## setup repos
 # install minimum packages required to bootstrap actual
 # package installation

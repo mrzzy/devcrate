@@ -18,9 +18,6 @@ DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 
-# proxy config
-HTTP_PROXY=http://127.0.0.1:1081
-
 ## devcrate config
 # default credentials
 USER:=$(USER)
