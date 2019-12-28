@@ -18,10 +18,15 @@ DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 
+# proxy config
+HTTP_PROXY=http://127.0.0.1:1081
+
 ## devcrate config
 # default credentials
 USER:=$(USER)
 PASSWORD:=passwds
+FULLNAME:=Zhu Zhanyan
+EMAIL:=program.nom@gmail.com
 
 # phony rules
 .PHONY: all push clean clean-version run
@@ -41,6 +46,8 @@ $(TAG_PREFIX)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 		$(if $(HTTP_PROXY),--build-arg http_proxy=$(HTTP_PROXY),) \
 		$(if $(USER),--build-arg USERNAME=$(USER),) \
 		$(if $(PASSWORD),--build-arg PASSWORD=$(PASSWORD),) \
+		$(if $(FULLNAME),--build-arg FULLNAME="$(FULLNAME)",) \
+		$(if $(EMAIL),--build-arg EMAIL="$(EMAIL)",) \
 		-f $< -t $@ .
 	# versioned tag
 	$(DOCKER) tag $@ $@:$(VERSION) 

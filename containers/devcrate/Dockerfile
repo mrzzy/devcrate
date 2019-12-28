@@ -5,6 +5,9 @@
 
 FROM ubuntu:18.04 AS repo
 
+# env var to signal to config files that it is 
+ENV IS_DEVCRATE=1
+
 ## setup repos
 # install minimum packages required to bootstrap actual
 # package installation
@@ -70,6 +73,7 @@ COPY dotfiles $SHARE_DIR/dotfiles
 
 # configure permissions
 RUN chown -R $USERNAME $HOME && chmod -R 755 $HOME
+RUN chmod -R u+x $BIN_DIR
 USER $USERNAME
 
 # install config files
@@ -82,11 +86,16 @@ RUN mkdir -p $HOME/.cache/antibody && zsh -c "source ~/.zshrc && antibody update
 ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
 RUN ~/.tmux/plugins/tpm/bin/install_plugins
 # vim plugins
-RUN nvim +PlugInstall +qall! && yarn cache clean
+RUN nvim +PlugInstall +qall && yarn cache clean
+
+# configure git
+ARG FULLNAME="Jane Doe"
+ARG EMAIL="janedoe@notva.lid"
+RUN git config --global user.name "$FULLNAME" \
+    && git config --global user.email "$EMAIL"
 
 # install scripts
 COPY containers/devcrate/bin/* $BIN_DIR
-RUN chmod -R u+x $BIN_DIR
 
 ENV TERM xterm-256color
 CMD zsh -l
