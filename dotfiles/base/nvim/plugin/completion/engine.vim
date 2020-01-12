@@ -4,6 +4,12 @@
 " NeoVim Configuration
 " 
 
+"check current character is a utility
+function! s:CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 "Completion Engine
 function! BootstrapCOC(info)
     if a:info.status == 'installed' || a:info.force
@@ -22,15 +28,11 @@ endfunction
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': function('BootstrapCOC')}
 
 " tab completion
-function! s:CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" :
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" :
         \ <SID>CheckBackspace() ? "\<Tab>" : 
         \ coc#refresh()
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " enter completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <C-Space> pumvisible() ? coc#refresh()  : "\<C-g>u\<CR>"
