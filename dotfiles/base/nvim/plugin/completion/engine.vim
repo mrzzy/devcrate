@@ -22,7 +22,15 @@ endfunction
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': function('BootstrapCOC')}
 
 " tab completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+function! s:CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" :
+        \ <SID>CheckBackspace() ? "\<Tab>" : 
+        \ coc#refresh()
+
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " enter completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
