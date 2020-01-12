@@ -4,7 +4,7 @@
 #
 
 #Paths
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/doc/code/go"
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$GOPATH/bin:$PATH"
