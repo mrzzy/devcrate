@@ -11,7 +11,7 @@ source ~/.config/nvim/plugin/completion/language/coc_native.vim
 
 " additional language support setup configuration { language name : setup function }
 let g:lang_support_config = {}
-if ! $IS_DEVCRATE || $NVIM_CPP_ENABLE == '1'
+if ! $IS_DEVCRATE || $CPP_ENABLE == '1'
     let g:lang_support_config['c_cpp_objc'] = function('BuildClangLangServer')
 endif 
 

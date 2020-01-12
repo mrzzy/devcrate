@@ -5,6 +5,7 @@
 
 #Paths
 export GOPATH="$HOME/doc/code/go"
+export GO111MODULE="on" # enable go modules
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$GOPATH/bin:$PATH"
