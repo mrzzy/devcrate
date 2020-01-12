@@ -3,8 +3,6 @@
 # Makefile to install terminal base dotfiles
 # 
 
-.PHONY: install clean
-.DEFAULT: install
 
 # List of dotfile deployment targets
 define DOTFILE_TARGETS 
@@ -14,6 +12,9 @@ $(HOME)/.tmux.conf \
 $(HOME)/.config/zsh \
 $(HOME)/.zshrc 
 endef
+
+.PHONY: install clean $(DOTFILE_TARGETS) # force recopy: ignore modification time
+.DEFAULT: install
 
 ## Targets
 # install - (over)writes the dotfiles to their respective locations

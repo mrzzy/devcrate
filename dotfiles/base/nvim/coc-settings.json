@@ -11,12 +11,6 @@
     "https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json": "/*.yml"
   },
   "languageserver": {
-    // scala 
-    "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt", ".git/"]
-    },
     // c/c++/obj-c
     "ccls": {
       "command": "ccls",
