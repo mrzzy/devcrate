@@ -5,55 +5,53 @@
 
 FROM ubuntu:18.04 AS repo
 
-# env var to signal to config files that it is 
+# env vars to signal docker build
 ENV IS_DEVCRATE=1
 
 ## setup repos
 # install minimum packages required to bootstrap actual
 # package installation
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https ca-certificates software-properties-common \
-    curl aria2 gnupg-agent sudo locales \
-    && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+    curl gnupg-agent sudo locales \
+    && add-apt-repository ppa:apt-fast/stable \
+    && apt-get install -y --no-install-recommends apt-fast
+
 # generate locales - english sg 
 RUN sed -i -e 's/# en_SG.UTF-8 UTF-8/en_SG.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
  
-## configure repos to download devtools
-# add docker repo to install docker pages
+## add package repos
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
-    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-# add neovim repo to install up to date neovim
-RUN add-apt-repository ppa:neovim-ppa/stable
-# pull script to install node/npm
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - 
-# add universal-ctag repo 
-RUN add-apt-repository ppa:hnakamur/universal-ctags
-## install devtools: in apt repository
-RUN apt-get update && apt-get install -y \
-    docker-ce-cli nodejs zsh tmux git make silversearcher-ag entr neovim \
-    ranger shadowsocks-libev openssh-client iputils-ping netcat wget gawk htop \
-    universal-ctags docker-compose \
+    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
+    && add-apt-repository ppa:neovim-ppa/stable \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && add-apt-repository ppa:hnakamur/universal-ctags
+
+## install tools
+RUN apt-fast install -y --no-install-recommends \
+    ranger zsh tmux git make silversearcher-ag entr neovim \
+    shadowsocks-libev openssh-client iputils-ping netcat wget htop \
+    universal-ctags docker-ce-cli nodejs \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
     && npm install -g yarn && npm cache clean --force 
 
 ## setup user & groups
 ARG USERNAME=user
-ARG PASSWORD=passwds
 ENV HOME=/home
 RUN useradd --home-dir $HOME \
     --uid 1000 \
     --shell /usr/bin/zsh \
     --groups sudo,adm,root $USERNAME
-RUN echo "$USERNAME:$PASSWORD" | chpasswd
+RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
 
 ## setup home dir 
 WORKDIR $HOME
 ARG BIN_DIR=$HOME/.local/bin
 ARG SHARE_DIR=$HOME/.local/share
 ARG CONFIG_DIR=$HOME/.config
-RUN mkdir -p $BIN_DIR $SHARE_DIR $CONFIG_DIR
 ENV PATH="$BIN_DIR:$PATH"
+RUN mkdir -p $BIN_DIR $SHARE_DIR $CONFIG_DIR
 
 # install plugin managers
 # antibody for zsh plugins/vimplug for neovim plugins and tpm for tmux plugins
@@ -68,12 +66,18 @@ RUN git clone https://github.com/junegunn/fzf.git ~/.local/share/fzf \
     && ~/.local/share/fzf/install --bin \
     && cp $HOME/.local/share/fzf/bin/fzf $BIN_DIR/
     
-# copy files
+
+## configure tools
+# copy dotfiles
 COPY dotfiles $SHARE_DIR/dotfiles
 
+# copy scripts
+COPY containers/devcrate/bin/* $BIN_DIR/
+RUN chmod -R u+x $BIN_DIR/
+
+
 # configure permissions
-RUN chown -R $USERNAME $HOME && chmod -R 755 $HOME
-RUN chmod -R u+x $BIN_DIR
+RUN chown -R $USERNAME $HOME && chmod -R 755 $HOME && chmod -R u+x $BIN_DIR
 USER $USERNAME
 
 # install config files
@@ -87,15 +91,11 @@ ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
 RUN ~/.tmux/plugins/tpm/bin/install_plugins
 # vim plugins
 RUN nvim +PlugInstall +qall && yarn cache clean
-
 # configure git
-ARG FULLNAME="Jane Doe"
-ARG EMAIL="janedoe@notva.lid"
-RUN git config --global user.name "$FULLNAME" \
-    && git config --global user.email "$EMAIL"
+ENV GIT_EMAIL=$GIT_EMAIL
+ENV GIT_FULLNAME=$GIT_FULLNAME
 
-# install scripts
-COPY containers/devcrate/bin/* $BIN_DIR
-
+## container entrypoint
 ENV TERM xterm-256color
-CMD zsh -l
+CMD [ "zsh", "-l" ]
+#ENTRYPOINT [ "sh", "entrypoint.sh" ]
