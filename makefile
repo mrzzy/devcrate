@@ -3,6 +3,7 @@
 # Devcrate
 # Project makefile
 #
+
 # vars
 VERSION:=0.2.0
 
@@ -20,11 +21,12 @@ PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 
 # proxy config
 ## devcrate config
-# default credentials
 USER:=$(USER)
-PASSWORD:=passwds
-FULLNAME:=Zhu Zhanyan
-EMAIL:=program.nom@gmail.com
+UID:=$(shell id -u)
+GID:=$(shell id -g)
+
+GIT_FULLNAME:=Zhu Zhanyan
+GIT_EMAIL:=program.nom@gmail.com
 
 # phony rules
 .PHONY: all push clean clean-version run
@@ -42,9 +44,8 @@ $(TAG_PREFIX)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 	$(DOCKER) build \
 		--network=host \
 		$(if $(USER),--build-arg USERNAME=$(USER),) \
-		$(if $(PASSWORD),--build-arg PASSWORD=$(PASSWORD),) \
-		$(if $(FULLNAME),--build-arg FULLNAME="$(FULLNAME)",) \
-		$(if $(EMAIL),--build-arg EMAIL="$(EMAIL)",) \
+		$(if $(GIT_FULLNAME),--build-arg GIT_FULLNAME="$(GIT_FULLNAME)",) \
+		$(if $(GIT_EMAIL),--build-arg GIT_EMAIL=$(GIT_EMAIL),) \
 		-f $< -t $@ .
 	# versioned tag
 	$(DOCKER) tag $@ $@:$(VERSION) 
@@ -59,7 +60,7 @@ push/%: %
 # clean all docker images
 clean: clean-version
 	$(foreach img,$(IMAGES),docker rmi -f $(img);)
-
+	
 # clean versioned docker images
 clean-version:
 	$(foreach img,$(IMAGES),docker rmi -f $(img):$(VERSION);)
@@ -67,7 +68,9 @@ clean-version:
 # runs the images
 run:
 	$(DOCKER) run -it \
+		-u $(UID):$(GID) \
+		-e GIT_FULLNAME="$(GIT_FULLNAME)" \
+		-e GIT_EMAIL="$(GIT_EMAIL)" \
 		--network=host \
-		$(if $(HTTP_PROXY),--env http_proxy=$(HTTP_PROXY),) \
+		-v $(HOME)/trx:/home/trx  \
 		$(BASE_IMAGE)
-		#-v $(HOME)/trx:/home/trx 
