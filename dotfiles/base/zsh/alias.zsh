@@ -4,7 +4,7 @@
 #
 
 # Aliases
-alias ls='ls -F --color=none'
+alias ls='ls -F'
 alias md="mkdir -p"
 alias vim="nvim"
 alias v="nvim"

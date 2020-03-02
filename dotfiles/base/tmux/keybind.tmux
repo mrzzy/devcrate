@@ -40,8 +40,8 @@ bind-key "=" select-layout Tiled
 bind-key -r "*" next-layout
 bind-key -r [ previous-window
 bind-key -r ] next-window
-bind-key -r } swap-window -t {next}
-bind-key -r { swap-window -t {previous}
+bind-key -r "}" swap-window -t +1\; next-window
+bind-key -r "{" swap-window -t -1\; previous-window
 
 # manage panes
 bind-key -r C-L resize-pane -R 5
@@ -59,7 +59,7 @@ bind-key z resize-pane -Z
 
 # session managment
 bind-key C-W command-prompt -p "(new session)" "new-session -A -s '%%'"
-bind-key "~" switch-client -n
+#bind-key "~" switch-client -n
 
 # copy Mode
 bind-key c copy-mode
