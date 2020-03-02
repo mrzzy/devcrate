@@ -6,25 +6,14 @@
 " 
 
 "Language Support for Coc Native Extension Languages
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'} 
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} 
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} 
+
 " devcrate - deploy only if explict specified in <LANG>_ENABLE env var
 "js/ts
 if ! $IS_DEVCRATE || $JS_ENABLE == '1'
     Plug 'neoclide/coc-tsserver', {'tag': '1.3.7', 'do': 'yarn install --frozen-lockfile'} 
-endif
-
-"yaml
-if ! $IS_DEVCRATE || $YAML_ENABLE == '1'
-    Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'} 
-endif
-
-"json
-if ! $IS_DEVCRATE || $JSON_ENABLE == '1'
-    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} 
-endif
-
-"html
-if ! $IS_DEVCRATE || $HTML_ENABLE == '1'
-    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} 
 endif
 
 "java
