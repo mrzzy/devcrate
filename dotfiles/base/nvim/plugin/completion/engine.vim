@@ -61,4 +61,3 @@ nnoremap <silent> K :call CocAction('doHover')<cr>
 nnoremap <silent> <space>cd  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>cc  :<C-u>CocList commands<cr>
 nnoremap <silent> <space>ca  :<C-u>CocList actions<cr>
-nnoremap <silent> <C-j> :<C-u>CocList outline<cr>

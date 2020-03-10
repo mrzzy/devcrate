@@ -7,14 +7,15 @@
 "Utility
 " tags & tagbar
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
-Plug 'liuchengxu/vista.vim' "like tagbar but newer - not stable yet
-nnoremap <leader>tt :TagbarToggle<cr>
+Plug 'liuchengxu/vista.vim' 
+nnoremap <silent> <leader>tt :Vista<cr>
+let g:vista_default_executive = 'coc'
 autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
-let g:tagbar_autoclose=1
-let g:tagbar_autofocus=1
-let g:tagbar_left=1 
-let g:tagbar_show_visibility=1
+let g:vista_sidebar_position="vertical topleft"
+let g:vista#renderer#enable_icon=0
+let g:vista_update_on_text_changed=1
+let g:vista_fzf_preview = ['right:50%']
+nnoremap <silent> <C-j> :call vista#finder#fzf#Run()<cr>
 
 " undotree
 Plug 'mbbill/undotree'
