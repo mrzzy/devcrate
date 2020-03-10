@@ -27,9 +27,9 @@ if ! $IS_DEVCRATE || $PYTHON_ENABLE == '1'
 endif
 
 "csharp
-if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
-    Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
-endif
+"if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
+"    Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
+"endif
 
 "scala
 if ! $IS_DEVCRATE || $SCALA_ENABLE == '1'
