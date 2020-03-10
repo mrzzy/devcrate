@@ -67,7 +67,30 @@ load_conda()
     source $HOME/.conda/etc/profile.d/conda.sh
 }
 lazy load_conda conda
-# lazy load kubectl completion
+# lazy load k8s completion
 lazy "source <(kubectl completion zsh)" kubectl
 lazy "source <(helm completion zsh)" helm
 lazy "source <(microk8s.kubectl completion zsh)" microk8s.kubectl
+# lazy load sdkman 
+load_sdkman() 
+{
+    export SDKMAN_DIR="/Users/user/.sdkman"
+    [[ -s "/Users/user/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/user/.sdkman/bin/sdkman-init.sh"
+}
+lazy load_sdkman sdk
+# lazy load gcloud
+load_gcloud()
+{
+    # macos specific config
+    if [ $(uname -s) = "Darwin" ]
+    then
+
+        # The next line updates PATH for the Google Cloud SDK.
+        if [ -f '/Users/user/.local/share/gcloud/path.zsh.inc' ]; then . '/Users/user/.local/share/gcloud/path.zsh.inc'; fi
+
+        # The next line enables shell command completion for gcloud.
+        if [ -f '/Users/user/.local/share/gcloud/completion.zsh.inc' ]; then . '/Users/user/.local/share/gcloud/completion.zsh.inc'; fi
+    fi
+
+}
+lazy load_gcloud gcloud
