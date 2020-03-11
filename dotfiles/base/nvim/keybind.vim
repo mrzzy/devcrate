@@ -37,6 +37,5 @@ nnoremap <leader>\| :set colorcolumn=0<cr> :set nocursorline<cr>
 function! BindingUnclutter()
     pclose 
     cclose
-    helpclose
 endfunction
 nnoremap <silent> <Esc><Esc> :noh\|call BindingUnclutter()<cr>
