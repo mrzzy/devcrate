@@ -5,21 +5,25 @@
 " 
 
 "Utility
-" tags & tagbar
+" tags & tagbar/symbol jumping
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vista.vim' 
-nnoremap <silent> <leader>tt :Vista<cr>
+nnoremap <silent> <leader>tt :Vista!!<cr>
 let g:vista_default_executive = 'coc'
 autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 let g:vista_sidebar_position="vertical topleft"
 let g:vista#renderer#enable_icon=0
 let g:vista_update_on_text_changed=1
 let g:vista_fzf_preview = ['right:50%']
-nnoremap <silent> <C-j> :call vista#finder#fzf#Run()<cr>
+nnoremap <silent> <C-j> :Vista finder fzf:coc
 
 " undotree
 Plug 'mbbill/undotree'
 nnoremap <leader>uu :UndotreeToggle<cr>
+
+"filetree browser
+Plug 'lambdalisue/fern.vim'
+nnoremap <silent> <leader>ff :Fern . -drawer -toggle<cr>
 
 " fuzzy file finding, jumping
 Plug 'Shougo/denite.nvim', {'do':':UpdateRemotePlugins'}
