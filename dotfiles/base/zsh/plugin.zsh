@@ -36,7 +36,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # fzf history recall
 recall_history() {
     zle kill-whole-line
-    local EXEC_CMD="$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\/g')"
+    local EXEC_CMD="$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\/g')"
     zle -U "$(printf $EXEC_CMD)"
 }
 zle -N recall_history recall_history
