@@ -38,7 +38,9 @@ autocmd Filetype make setlocal noexpandtab
 autocmd Filetype go setlocal noexpandtab
 autocmd Filetype gdscript3 setlocal noexpandtab
 autocmd FileType crontab setlocal backupcopy=yes
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java setlocal tabstop=2|setlocal shiftwidth=2
+autocmd Filetype javascript setlocal tabstop=2|setlocal shiftwidth=2
+autocmd Filetype javascriptreact setlocal tabstop=2|setlocal shiftwidth=2
 autocmd Filetype json setlocal tabstop=2|setlocal shiftwidth=2
 autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2|setlocal shiftwidth=2
