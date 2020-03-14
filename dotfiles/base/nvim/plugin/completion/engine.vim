@@ -19,8 +19,7 @@ function! BootstrapCOC(info)
         
         " basic completion sources
         echo 'setting up basic completion sources '
-        call coc#add_extension('coc-tag', 'coc-syntax', 'coc-snippets',
-                              \ 'coc-yaml', 'coc-html', 'coc-json')
+        CocInstall -sync coc-tag coc-syntax coc-ultisnips
         
         call DeployLangSupport(g:lang_support_config)
     endif
@@ -28,6 +27,11 @@ endfunction
 
 " completion engine
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': function('BootstrapCOC')}
+" core sources
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'} 
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} 
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} 
 
 " function text object
 xmap if <Plug>(coc-funcobj-i)

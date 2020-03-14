@@ -32,9 +32,10 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 RUN apt-fast install -y --no-install-recommends \
     ranger zsh tmux git make silversearcher-ag entr neovim \
     shadowsocks-libev openssh-client iputils-ping netcat wget htop \
-    universal-ctags docker-ce-cli nodejs \
+    universal-ctags docker-ce-cli nodejs python3-pip python3-setuptools \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
-    && npm install -g yarn && npm cache clean --force 
+    && npm install -g yarn && npm cache clean --force  \
+    && pip3 install --no-cache-dir neovim docker-compose
 
 ## setup user & groups
 ARG USERNAME=user
@@ -53,6 +54,10 @@ ARG CONFIG_DIR=$HOME/.config
 ENV PATH="$BIN_DIR:$PATH"
 RUN mkdir -p $BIN_DIR $SHARE_DIR $CONFIG_DIR
 
+# configure permissions
+RUN chown -R $USERNAME $HOME && chmod -R 755 $HOME && chmod -R u+x $BIN_DIR
+USER $USERNAME
+
 # install plugin managers
 # antibody for zsh plugins/vimplug for neovim plugins and tpm for tmux plugins
 RUN curl -sfL git.io/antibody | sh -s - -b $BIN_DIR \
@@ -66,36 +71,45 @@ RUN git clone https://github.com/junegunn/fzf.git ~/.local/share/fzf \
     && ~/.local/share/fzf/install --bin \
     && cp $HOME/.local/share/fzf/bin/fzf $BIN_DIR/
     
+## install plugins
+# zsh
+RUN mkdir -p $HOME/.config/zsh
+COPY dotfiles/base/zsh/plugin.zsh $HOME/.config/zsh/
+COPY dotfiles/base/zsh/plugin_list.txt $HOME/.config/zsh/
+RUN mkdir -p $HOME/.cache/antibody \
+        && zsh -c "source $HOME/.config/zsh/plugin.zsh && antibody update"
+# tmux
+ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
+RUN mkdir -p $HOME/.config/tmux
+COPY dotfiles/base/tmux/plugin.tmux $HOME/.config/tmux/
+RUN echo "source-file ~/.config/tmux/plugin.tmux" > ~/.tmux.conf \
+        && ~/.tmux/plugins/tpm/bin/install_plugins
+# vim plugins
+RUN mkdir -p $HOME/.config/nvim/
+COPY dotfiles/base/nvim/plugin $HOME/.config/nvim/plugin/
+COPY dotfiles/base/nvim/plugin.vim $HOME/.config/nvim/
+RUN nvim -u $HOME/.config/nvim/plugin.vim +PlugInstall +qall && yarn cache clean
+
+# copy scripts
+COPY containers/devcrate/bin/* $BIN_DIR/
+ENV PATH="$BIN_DIR:$PATH"
+USER root
+RUN chmod -R u+x $BIN_DIR/ && chown -R $USERNAME $BIN_DIR/
+USER $USERNAME
 
 ## configure tools
 # copy dotfiles
 COPY dotfiles $SHARE_DIR/dotfiles
-
-# copy scripts
-COPY containers/devcrate/bin/* $BIN_DIR/
-RUN chmod -R u+x $BIN_DIR/
-
-
-# configure permissions
-RUN chown -R $USERNAME $HOME && chmod -R 755 $HOME && chmod -R u+x $BIN_DIR
-USER $USERNAME
-
 # install config files
 RUN make -C $SHARE_DIR/dotfiles/base
 
-# install plugins
-# zsh
-RUN mkdir -p $HOME/.cache/antibody && zsh -c "source ~/.zshrc && antibody update"
-# tmux
-ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
-RUN ~/.tmux/plugins/tpm/bin/install_plugins
-# vim plugins
-RUN nvim +PlugInstall +qall && yarn cache clean
 # configure git
+ARG GIT_EMAIL="program.nom@gmail.com"
+ARG GIT_FULLNAME="Zhu Zhanyan"
 ENV GIT_EMAIL=$GIT_EMAIL
 ENV GIT_FULLNAME=$GIT_FULLNAME
 
 ## container entrypoint
 ENV TERM xterm-256color
 CMD [ "zsh", "-l" ]
-#ENTRYPOINT [ "sh", "entrypoint.sh" ]
+ENTRYPOINT [ "sh", "/home/.local/bin/entrypoint.sh" ]
