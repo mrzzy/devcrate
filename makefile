@@ -16,8 +16,8 @@ IMG_NAMES:=$(notdir $(wildcard containers/*))
 IMAGES:=$(foreach img,$(IMG_NAMES),$(REPOSITORY)/$(TAG_USER)/$(img))
 BASE_IMAGE:=$(REPOSITORY)/$(TAG_USER)/devcrate
 # names of the images that depends on base image
-DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
-DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_USER)/$(img))
+DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES))
+DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(REPOSITORY)/$(TAG_USER)/$(img))
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 
 # proxy config
@@ -33,7 +33,7 @@ GIT_EMAIL:=program.nom@gmail.com
 .PHONY: all push clean clean-version run
 .DEFAULT: all 
 
-all: $(DEP_BASE_IMAGES)
+all: $(IMAGES)
 
 # image rules
 # image deps
@@ -74,4 +74,5 @@ run:
 		-e GIT_EMAIL="$(GIT_EMAIL)" \
 		--network=host \
 		-v $(HOME)/trx:/home/trx  \
+		-v /var/run/docker.sock:/var/run/docker.sock \
 		$(BASE_IMAGE)

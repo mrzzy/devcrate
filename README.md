@@ -1,28 +1,35 @@
 # devcrate 
-Containerized Development Enviroment
+Dotfiles &amp; containers
 
 ## Intro
-An attempt to move all tools, configuration into Docker containers:
-- containers are portable, so I can develop anywhere
-- containers only bundle what is required, making them small.
-- containers are composable, so I make variants for different languages and situations.
+The two aims in this project:
+- dotfiles - version controling and automate installing dotfiles
+- devcrate - packaging my development tools into a docker containers for portablity
 
-devcrate is composed of docker images of increasing amounts of dev tooling:
-- base image with just the basics
-    - `devcrate` - Ubuntu based basic development image:
-        - `neovim` - main editor
-        - `tmux` - terminal multiplexer
-        - `zsh` - shell
-        - `docker` - docker in docker
-        - `entr` - file watch for rebuild on file load
-        - `git` - version control
-        - `ssh` - ssh tunneling
-        - `htop` - process monitoring
+## Setup
+### Dotfiles
+Prequisites: `make`
+
+Install the command line dotfiles to your home directory:
+```
+make -C dotfiles/base
+```
+
+### Docker Containers
+TODO: document on how to use
+
+
+## Design
+
+### devcrate
+An attempt package move dev tools, config into Docker container to make them more portable:
+- base image:
+    - `devcrate` `neovim` `tmux` `zsh` `docker` `entr` `git` `ssh` `htop`
 - extended with additinal dev tooling/language support
-    - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
+    - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli, helm, terraform`
     - `devcrate-python` - python support: `pip,python,virtualenv`
     - `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
-    - `devcrate-java` - java support: `java, jdk`
+    - `devcrate-java` - java support: `java, openjdk`
     - `devcrate-golang` - golang support
     - `devcrate-nodejs` - nodejs support: `node`
     - `devcrate-c` - c/c++ support: `gcc, clang, cmake, ccls`
@@ -38,9 +45,9 @@ devcrate is composed of docker images of increasing amounts of dev tooling:
 - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
 - `devcrate-python` - python support: `pip,python,virtualenv`
 - `devcrate-py` - python support: `pip,python,virtualenv`
-- `devcrate-golang` - golang support
 
 ### Version 0.3.0
+- `devcrate-golang` - golang support
 - `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
 - `devcrate-nodejs` - nodejs support: `node`
 - `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
