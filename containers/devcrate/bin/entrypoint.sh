@@ -17,4 +17,4 @@ then
 fi
 
 # run command
-exec $@
+exec "$@"

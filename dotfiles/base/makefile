@@ -27,19 +27,19 @@ clean:
 ## Terminal (Base)
 # neovim 
 $(HOME)/.config/nvim: ./nvim $(wildcard ./nvim/*)
-	cp -af $< $(dir $@)
+	cp -rf $< $(dir $@)
 
 # tmux
 $(HOME)/.tmux.conf: ./tmux/tmux.conf
 	cp $< $@
 
 $(HOME)/.config/tmux: ./tmux
-	cp -af $< $(dir $@)
+	cp -rf $< $(dir $@)
 
 # zsh
 $(HOME)/.zshrc: ./zsh/zshrc
 	cp $< $@
 
 $(HOME)/.config/zsh: ./zsh
-	cp -af  $< $(dir $@)
+	cp -rf  $< $(dir $@)
 	
