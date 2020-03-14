@@ -7,7 +7,6 @@ An attempt to move all tools, configuration into Docker containers:
 - containers only bundle what is required, making them small.
 - containers are composable, so I make variants for different languages and situations.
 
-## Architecture
 devcrate is composed of docker images of increasing amounts of dev tooling:
 - base image with just the basics
     - `devcrate` - Ubuntu based basic development image:
@@ -38,9 +37,10 @@ devcrate is composed of docker images of increasing amounts of dev tooling:
 - `devcrate` - Ubuntu based basic development image
 - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
 - `devcrate-python` - python support: `pip,python,virtualenv`
-- `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
+- `devcrate-py` - python support: `pip,python,virtualenv`
+- `devcrate-golang` - golang support
 
-### Version 0.2.0
+### Version 0.3.0
 - `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
 - `devcrate-nodejs` - nodejs support: `node`
-- `devcrate-golang` - golang support
+- `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
