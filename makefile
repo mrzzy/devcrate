@@ -7,6 +7,7 @@
 # vars
 REPOSITORY:=$(if $(REPOSITORY),$(REPOSITORY),docker.io)
 VERSION:=$(if $(VERSION),$(VERSION),latest)
+COMMIT_PATH:=$(if $(COMMIT_PATH),$(COMMIT_PATH),.)
 
 ## docker config
 DOCKER:=docker
@@ -19,6 +20,8 @@ BASE_IMAGE:=$(REPOSITORY)/$(TAG_USER)/devcrate
 DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES))
 DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(REPOSITORY)/$(TAG_USER)/$(img))
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
+SAVE_TARGETS:=$(foreach img,$(IMAGES),save/$(img))
+LOAD_TARGETS:=$(foreach img,$(IMAGES),load/$(img))
 
 # proxy config
 ## devcrate config
@@ -36,9 +39,6 @@ GIT_EMAIL:=program.nom@gmail.com
 all: $(IMAGES)
 
 # image rules
-# image deps
-$(DEP_BASE_IMAGES): $(BASE_IMAGE)
-
 # docker build rule
 $(REPOSITORY)/$(TAG_USER)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 	# latest tag
@@ -49,13 +49,25 @@ $(REPOSITORY)/$(TAG_USER)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 		$(if $(GIT_EMAIL),--build-arg GIT_EMAIL=$(GIT_EMAIL),) \
 		-f $< -t $@ .
 	# versioned tag
-	$(DOCKER) tag $@ $@:$(VERSION) 
+	$(DOCKER) tag $@ $@:$(VERSION)
+
 
 # docker push rule
 push: $(PUSH_TARGETS)
 
-push/%: %
-	docker push $<
+push/%:
+	docker push $(subst push/,,$@)
+
+# docker save & load image
+save: $(SAVE_TARGETS)
+
+save/%:
+	docker save -o $(COMMIT_PATH)/$(notdir $@).tar $(subst save/,,$@)
+
+load: $(LOAD_TARGETS)
+
+load/%:
+	docker load -i $(COMMIT_PATH)/$(notdir $@).tar
 
 # cleans docker images from image cache 
 # clean all docker images
@@ -76,3 +88,4 @@ run:
 		-v $(HOME)/trx:/home/trx  \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		$(BASE_IMAGE)
+	

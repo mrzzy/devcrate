@@ -72,22 +72,26 @@ RUN git clone https://github.com/junegunn/fzf.git ~/.local/share/fzf \
     && cp $HOME/.local/share/fzf/bin/fzf $BIN_DIR/
     
 ## install plugins
+RUN mkdir -p $CONFIG_DIR/zsh \
+    && mkdir -p $CONFIG_DIR/tmux \
+    && mkdir -p $CONFIG_DIR/nvim/
+COPY dotfiles/base/zsh/plugin.zsh $CONFIG_DIR/zsh/
+COPY dotfiles/base/zsh/plugin_list.txt $CONFIG_DIR/zsh/
+COPY dotfiles/base/tmux/plugin.tmux $CONFIG_DIR/tmux/
+COPY dotfiles/base/nvim/plugin $CONFIG_DIR/nvim/plugin/
+COPY dotfiles/base/nvim/plugin.vim $CONFIG_DIR/nvim/
+USER root
+RUN chmod -R u+x $CONFIG_DIR/ && chown -R $USERNAME $CONFIG_DIR/
+USER $USERNAME
+
 # zsh
-RUN mkdir -p $HOME/.config/zsh
-COPY dotfiles/base/zsh/plugin.zsh $HOME/.config/zsh/
-COPY dotfiles/base/zsh/plugin_list.txt $HOME/.config/zsh/
 RUN mkdir -p $HOME/.cache/antibody \
         && zsh -c "source $HOME/.config/zsh/plugin.zsh && antibody update"
 # tmux
 ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
-RUN mkdir -p $HOME/.config/tmux
-COPY dotfiles/base/tmux/plugin.tmux $HOME/.config/tmux/
 RUN echo "source-file ~/.config/tmux/plugin.tmux" > ~/.tmux.conf \
         && ~/.tmux/plugins/tpm/bin/install_plugins
 # vim plugins
-RUN mkdir -p $HOME/.config/nvim/
-COPY dotfiles/base/nvim/plugin $HOME/.config/nvim/plugin/
-COPY dotfiles/base/nvim/plugin.vim $HOME/.config/nvim/
 RUN nvim -u $HOME/.config/nvim/plugin.vim +PlugInstall +qall && yarn cache clean
 
 # copy scripts
