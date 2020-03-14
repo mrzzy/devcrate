@@ -19,8 +19,9 @@ function! BootstrapCOC(info)
         
         " basic completion sources
         echo 'setting up basic completion sources '
-        call coc#add_extension('coc-tag', 'coc-syntax', 'coc-snippets')
-
+        call coc#add_extension('coc-tag', 'coc-syntax', 'coc-snippets',
+                              \ 'coc-yaml', 'coc-html', 'coc-json')
+        
         call DeployLangSupport(g:lang_support_config)
     endif
 endfunction

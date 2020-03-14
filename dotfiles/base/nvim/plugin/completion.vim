@@ -5,10 +5,10 @@
 "
 
 "Completion 
-" language support
-source ~/.config/nvim/plugin/completion/language.vim
 " completion engine
 source ~/.config/nvim/plugin/completion/engine.vim
+" language support
+source ~/.config/nvim/plugin/completion/language.vim
 
 " filepath completion   
 Plug 'Shougo/neoinclude.vim'

@@ -5,11 +5,6 @@
 " NeoVim Configuration
 " 
 
-"Language Support for Coc Native Extension Languages
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'} 
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} 
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} 
-
 " devcrate - deploy only if explict specified in <LANG>_ENABLE env var
 "js/ts
 if ! $IS_DEVCRATE || $JS_ENABLE == '1'
