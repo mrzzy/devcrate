@@ -5,18 +5,19 @@
 #
 
 # vars
-VERSION:=0.2.0
+REPOSITORY:=$(if $(REPOSITORY),$(REPOSITORY),docker.io)
+VERSION:=$(if $(VERSION),$(VERSION),latest)
 
 ## docker config
 DOCKER:=docker
-TAG_PREFIX:=mrzzy
+TAG_USER:=mrzzy
 # names of the docker images
 IMG_NAMES:=$(notdir $(wildcard containers/*))
-IMAGES:=$(foreach img,$(IMG_NAMES),$(TAG_PREFIX)/$(img))
-BASE_IMAGE:=$(TAG_PREFIX)/devcrate
+IMAGES:=$(foreach img,$(IMG_NAMES),$(REPOSITORY)/$(TAG_USER)/$(img))
+BASE_IMAGE:=$(REPOSITORY)/$(TAG_USER)/devcrate
 # names of the images that depends on base image
 DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES)))
-DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_PREFIX)/$(img))
+DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(TAG_USER)/$(img))
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 
 # proxy config
@@ -39,7 +40,7 @@ all: $(DEP_BASE_IMAGES)
 $(DEP_BASE_IMAGES): $(BASE_IMAGE)
 
 # docker build rule
-$(TAG_PREFIX)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
+$(REPOSITORY)/$(TAG_USER)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 	# latest tag
 	$(DOCKER) build \
 		--network=host \
