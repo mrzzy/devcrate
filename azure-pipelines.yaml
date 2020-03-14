@@ -17,7 +17,6 @@ variables:
 trigger:
 - master
 - develop
-- dev/add-azure-ci
 
 stages:
 - stage: build
