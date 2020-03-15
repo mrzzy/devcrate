@@ -17,6 +17,7 @@ variables:
 trigger:
 - master
 - develop
+- rel/*
 
 stages:
 - stage: build
