@@ -43,11 +43,13 @@ An attempt package move dev tools, config into Docker container to make them mor
 - clean up and split up configuration files
 - `devcrate` - Ubuntu based basic development image
 - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
-- `devcrate-python` - python support: `pip,python,virtualenv`
-- `devcrate-py` - python support: `pip,python,virtualenv`
 
 ### Version 0.3.0
 - `devcrate-golang` - golang support
-- `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
+- `devcrate-python` - python support: `pip,python,virtualenv`
 - `devcrate-nodejs` - nodejs support: `node`
+
+### Version 0.4.0
+- `devcrate-java` - java support `openjdk, java, mvn, gradle`
+- `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
 - `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
