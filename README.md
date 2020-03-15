@@ -25,7 +25,7 @@ docker run -it \
     -v /thing/to/work/on:/home/work \
     # optional: for docker in docker
     -v /var/run/docker.sock:/var/run/docker.sock \
-    mrzzy/devcrate:latest # or mrzzy/devcrate-<variant>
+    mrzzy/devcrate:0.2.0 # or mrzzy/devcrate-<variant>
 ```
 
 ## Design
