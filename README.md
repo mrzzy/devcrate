@@ -9,15 +9,24 @@ The two aims in this project:
 ## Setup
 ### Dotfiles
 Prequisites: `make`
-
-Install the command line dotfiles to your home directory:
-```
+1. Clone this repository
+2. Install the command line dotfiles to your home directory:
+```sh
 make -C dotfiles/base
 ```
 
-### Docker Containers
-TODO: document on how to use
-
+### devcrate Containers
+Prequisites: `docker` &amp; macos/Linux
+1. Pull and run docker images:
+```sh
+docker run -it \
+    -u $UID:$GID \
+    --network=host \
+    -v /thing/to/work/on:/home/work \
+    # optional: for docker in docker
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    mrzzy/devcrate:latest # or mrzzy/devcrate-<variant>
+```
 
 ## Design
 
@@ -26,7 +35,7 @@ An attempt package move dev tools, config into Docker container to make them mor
 - base image:
     - `devcrate` `neovim` `tmux` `zsh` `docker` `entr` `git` `ssh` `htop`
 - extended with additinal dev tooling/language support
-    - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli, helm, terraform`
+    - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli, helm, terraform, iputils, dnsutils`
     - `devcrate-python` - python support: `pip,python,virtualenv`
     - `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
     - `devcrate-java` - java support: `java, openjdk`
