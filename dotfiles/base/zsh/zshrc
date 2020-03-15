@@ -1,0 +1,31 @@
+#
+# Devcrate
+# zshrc
+# ZSH Configuration file
+#
+
+# History configuration
+HISTFILE="$HOME/.zsh_history"
+HIST_STAMPS="dd/mm/yyyy"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history
+setopt inc_append_history
+
+source "$HOME/.config/zsh/environment.zsh"
+source "$HOME/.config/zsh/alias.zsh"
+source "$HOME/.config/zsh/lazyload.zsh"
+source "$HOME/.config/zsh/plugin.zsh"
+
+# os specific config
+if [ $(uname -s) = "Darwin" ]
+then
+    
+    # The next line updates PATH for the Google Cloud SDK.
+    if [ -f '/Users/user/.local/share/gcloud/path.zsh.inc' ]; then . '/Users/user/.local/share/gcloud/path.zsh.inc'; fi
+
+    # The next line enables shell command completion for gcloud.
+    if [ -f '/Users/user/.local/share/gcloud/completion.zsh.inc' ]; then . '/Users/user/.local/share/gcloud/completion.zsh.inc'; fi
+fi
+
+bindkey "^R" recall_history

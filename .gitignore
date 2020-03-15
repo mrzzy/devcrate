@@ -3,7 +3,7 @@ tags
 tags.*
 
 # vim sessions
-.sessions.vim
+.session.vim
 
 # ccls cache
 .ccls-cache/

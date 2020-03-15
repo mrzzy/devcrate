@@ -1,0 +1,44 @@
+{
+  // suggestion
+  "suggest.timeout": 5000,
+  "suggest.maxCompleteItemCount": 24,
+  
+  // diagnostics
+  "diagnostic.refreshAfterSave": true,
+  "diagnostic.errorSign": "!",
+  "diagnostic.warningSign": "W",
+  "diagnostic.infoSign": "I",
+  "diagnostic.hintSign": ">",
+  
+  // function signature
+  "signature.target": "echo",
+
+  // perferences
+  "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  
+  /*  language config*/
+  // python 
+  "python.jediEnabled": false,
+  "python.autoUpdateLanguageServer": false,
+  // yaml
+  "yaml.validate": false,
+  "yaml.schemas": {
+    "https://kubernetesjsonschema.dev/v1.14.0/deployment-apps-v1.json": "/*.yml",
+    "https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json": "/*.yml"
+  },
+  "languageserver": {
+    // c/c++/obj-c
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+           "directory": ".ccls-cache"
+        }
+      }
+    }
+  }
+}
