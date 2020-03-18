@@ -32,7 +32,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 RUN apt-fast install -y --no-install-recommends \
     ranger zsh tmux git make silversearcher-ag entr neovim \
     shadowsocks-libev openssh-client iputils-ping netcat wget htop \
-    universal-ctags docker-ce-cli nodejs python3-pip python3-setuptools \
+    universal-ctags docker-ce-cli nodejs python3-pip python3-setuptools jq \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
     && npm install -g yarn && npm cache clean --force  \
     && pip3 install --no-cache-dir neovim docker-compose
