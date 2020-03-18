@@ -30,3 +30,7 @@ Plug 'simeji/winresizer'
 let g:winreizer_vert_resize=5
 let g:winreizer_horiz_resize=5
 let g:winresizer_start_key="<C-w>r"
+" auto alignment
+Plug 'junegunn/vim-easy-align'
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
