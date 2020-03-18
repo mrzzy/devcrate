@@ -13,6 +13,7 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export N_PREFIX="$HOME/.local/share/n"
 export PATH="$N_PREFIX/bin:$PATH"
+export PATH=$PATH:$HOME/.linkerd2/bin
 
 #Locale
 export LANG="en_US.UTF-8"

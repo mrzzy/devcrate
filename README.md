@@ -33,7 +33,7 @@ docker run -it \
 ### devcrate
 An attempt package move dev tools, config into Docker container to make them more portable:
 - base image:
-    - `devcrate` `neovim` `tmux` `zsh` `docker` `entr` `git` `ssh` `htop`
+    - `devcrate` `neovim` `tmux` `zsh` `docker` `entr` `git` `ssh` `htop` `jq`
 - extended with additinal dev tooling/language support
     - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli, helm, terraform, iputils, dnsutils`
     - `devcrate-python` - python support: `pip,python,virtualenv`
