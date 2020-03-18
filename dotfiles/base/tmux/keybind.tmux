@@ -40,8 +40,8 @@ bind-key "=" select-layout Tiled
 bind-key -r "*" next-layout
 bind-key -r [ previous-window
 bind-key -r ] next-window
-bind-key -r "}" swap-window -t +1\; next-window
-bind-key -r "{" swap-window -t -1\; previous-window
+bind-key -r "}" swap-window -t +1
+bind-key -r "{" swap-window -t -1
 
 # manage panes
 bind-key -r C-L resize-pane -R 5
