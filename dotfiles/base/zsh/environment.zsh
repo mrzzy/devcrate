@@ -9,11 +9,12 @@ export GOROOT="$HOME/.go"
 export GO111MODULE="on" # enable go modules
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
+export N_PREFIX="$HOME/.local/share/n"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export N_PREFIX="$HOME/.local/share/n"
 export PATH="$N_PREFIX/bin:$PATH"
-export PATH=$PATH:$HOME/.linkerd2/bin
+export PATH="$PATH:/snap/bin"
+export PATH="$PATH:$HOME/.linkerd2/bin"
 
 #Locale
 export LANG="en_US.UTF-8"
