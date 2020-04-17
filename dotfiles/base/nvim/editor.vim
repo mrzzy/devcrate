@@ -44,6 +44,7 @@ autocmd Filetype javascriptreact setlocal tabstop=2|setlocal shiftwidth=2
 autocmd Filetype json setlocal tabstop=2|setlocal shiftwidth=2
 autocmd FileType ruby setlocal tabstop=2|setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2|setlocal shiftwidth=2
+autocmd FileType proto setlocal tabstop=4|setlocal shiftwidth=4
 " automatic filetye detection
 autocmd BufNewFile,BufRead *.sc setf scala
 autocmd BufNewFile,BufRead *.etc setf m4
