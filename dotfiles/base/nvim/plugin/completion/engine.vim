@@ -28,7 +28,6 @@ endfunction
 " completion engine
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': function('BootstrapCOC')}
 " core sources
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'} 
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'} 
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'} 
