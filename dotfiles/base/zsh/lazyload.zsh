@@ -74,8 +74,8 @@ lazy "source <(microk8s.kubectl completion zsh)" microk8s.kubectl
 # lazy load sdkman 
 load_sdkman() 
 {
-    export SDKMAN_DIR="/Users/user/.sdkman"
-    [[ -s "/Users/user/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/user/.sdkman/bin/sdkman-init.sh"
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 lazy load_sdkman sdk
 # lazy load gcloud
@@ -86,10 +86,10 @@ load_gcloud()
     then
 
         # The next line updates PATH for the Google Cloud SDK.
-        if [ -f '/Users/user/.local/share/gcloud/path.zsh.inc' ]; then . '/Users/user/.local/share/gcloud/path.zsh.inc'; fi
+        if [ -f "$HOME/.local/share/gcloud/path.zsh.inc" ]; then . "$HOME/.local/share/gcloud/path.zsh.inc"; fi
 
         # The next line enables shell command completion for gcloud.
-        if [ -f '/Users/user/.local/share/gcloud/completion.zsh.inc' ]; then . '/Users/user/.local/share/gcloud/completion.zsh.inc'; fi
+        if [ -f "$HOME/.local/share/gcloud/completion.zsh.inc" ]; then . "$HOME/.local/share/gcloud/completion.zsh.inc"; fi
     fi
 
 }
