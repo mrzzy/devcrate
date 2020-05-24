@@ -18,7 +18,7 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = "Lato:style=SemiBold:size=10.5;1.5"
+font-0 = "Lato:style=Bold:size=10.5;1.5"
 font-1 = "Font Awesome 5 Free:style=Solid:size=11;1"
 font-2 = "Font Awesome 5 Brands:size=11;1"
 font-3 = "DejaVu Sans Book for Powerline:size=12,1"
@@ -46,14 +46,14 @@ label-mode-padding = 6
 label-mode-background = #303030
 
 label-focused = %index%
-label-focused-foreground = #b58900
+label-focused-foreground = #ff9d73 
 label-focused-padding = 4
 
 label-unfocused = %index%
 label-unfocused-padding = 4
 
 label-urgent = %index%
-label-urgent-forground = #96281b
+label-urgent-forground = #dc322f
 label-urgent-padding = 4
 
 [module/wlan]
@@ -153,10 +153,10 @@ ramp-capacity-foreground = #7E807E
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #dc322f
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = #b58900
+ramp-capacity-1-foreground = #ff9d73
 
 ramp-capacity-2 = 
-ramp-capacity-2-foreground = #b58900
+ramp-capacity-2-foreground = #ff9d73
 ramp-capacity-3 = 
 
 ramp-capacity-4 = 

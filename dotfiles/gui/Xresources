@@ -23,7 +23,7 @@
 
 !! Rofi
 rofi.color-enabled: true
-rofi.color-window: #0f0f0f, #0f0f0f, #b58900
+rofi.color-window: #0f0f0f, #0f0f0f, #ff9d73
 rofi.color-normal: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #ffffff
 rofi.color-active: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83
 rofi.color-urgent: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83

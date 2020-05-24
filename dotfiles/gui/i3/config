@@ -15,7 +15,7 @@ hide_edge_borders both
 default_floating_border normal 0
 
 # Theme colors
-client.focused          #0f0f0f #0f0f0f #B58900 #0f0f0f #0f0f0f
+client.focused          #0f0f0f #0f0f0f #ff9d73 #0f0f0f #0f0f0f
 client.focused_inactive #0f0f0f #0f0f0f #73807E #0f0f0f #0f0f0f
 client.unfocused        #0f0f0f #0f0f0f #73807E #0f0f0f #0f0f0f
 client.urgent           #0f0f0f #0f0f0f #dc322f #0f0f0f #0f0f0f
