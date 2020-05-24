@@ -37,3 +37,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] 
 \}
+
+" highlight hex colors
+Plug 'chrisbra/colorizer'
+nnoremap <leader>hc :ColorToggle<cr>
