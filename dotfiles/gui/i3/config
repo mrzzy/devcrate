@@ -65,7 +65,7 @@ bindsym $mod+Shift+b [workspace="__focused__"] border pixel 1
 
 # Special Keys
 # start program launcher
-bindsym $mod+semicolon exec --no-startup-id zsh -c "source ~/.zshrc && rofi -show run"
+bindsym $mod+semicolon exec --no-startup-id zsh -c "source ~/.zshrc && rofi -show combi"
 
 # start terminal
 bindsym $mod+Return exec urxvt

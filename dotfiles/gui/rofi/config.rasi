@@ -1,0 +1,17 @@
+configuration {
+    modi: "combi,window,drun";
+    combi-modi: "window,drun";
+    color-normal: "#0f0f0f, #657b83, #0f0f0f, #0f0f0f, #ffffff";
+    color-urgent: "#0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83";
+    color-active: "#0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83";
+    color-window: "#0f0f0f, #0f0f0f, #ff9d73";
+    lines: 8;
+    columns: 1;
+    padding: 24;
+    font: "Lato 16";
+    bw: 1;
+    sidebar-mode: false;
+    fixed-num-lines: true;
+    separator-style: "solid";
+    hide-scrollbar: true;
+}

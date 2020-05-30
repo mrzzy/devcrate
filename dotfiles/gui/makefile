@@ -13,7 +13,8 @@ $(HOME)/.Xresources \
 $(HOME)/.config/i3 \
 $(HOME)/.config/nitrogen \
 $(HOME)/.config/polybar  \
-$(HOME)/.config/pulse  
+$(HOME)/.config/pulse \
+$(HOME)/.config/rofi
 endef
 
 ## Targets
@@ -30,6 +31,9 @@ $(HOME)/.Xresources: Xresources
 
 # i3 window manger
 $(HOME)/.config/i3: ./i3
+	cp -af $< $(dir $@)
+# rofi
+$(HOME)/.config/rofi: ./rofi
 	cp -af $< $(dir $@)
 # nitrogen
 $(HOME)/.config/nitrogen: ./nitrogen

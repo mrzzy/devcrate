@@ -21,23 +21,6 @@
 *color7:                          #E0E0E0
 *color15:                         #E8E8E8
 
-!! Rofi
-rofi.color-enabled: true
-rofi.color-window: #0f0f0f, #0f0f0f, #ff9d73
-rofi.color-normal: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #ffffff
-rofi.color-active: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83
-rofi.color-urgent: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83
-
-rofi.separator-style: solid
-rofi.sidebar-mode: false
-rofi.lines: 8
-rofi.font: Lato 16
-rofi.bw: 1
-rofi.columns: 5
-rofi.padding: 24
-rofi.fixed-num-lines: true
-rofi.hide-scrollbar: true
-
 !!! Terminal (URxvt)
 URxvt.letterSpace: -1
 URxvt.depth: 32
