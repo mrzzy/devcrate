@@ -31,10 +31,10 @@ rofi.color-urgent: #0f0f0f, #657b83, #0f0f0f, #0f0f0f, #657b83
 rofi.separator-style: solid
 rofi.sidebar-mode: false
 rofi.lines: 8
-rofi.font: Lato Light 16
+rofi.font: Lato 16
 rofi.bw: 1
-rofi.columns: 3
-rofi.padding: 16
+rofi.columns: 5
+rofi.padding: 24
 rofi.fixed-num-lines: true
 rofi.hide-scrollbar: true
 
