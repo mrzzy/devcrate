@@ -10,7 +10,7 @@ VERSION:=$(if $(VERSION),$(VERSION),latest)
 COMMIT_PATH:=$(if $(COMMIT_PATH),$(COMMIT_PATH),.)
 
 ## docker config
-DOCKER:=docker
+DOCKER:= env DOCKER_BUILDKIT=1 docker
 TAG_USER:=mrzzy
 # names of the docker images
 IMG_NAMES:=$(notdir $(wildcard containers/*))
