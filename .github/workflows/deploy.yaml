@@ -1,0 +1,47 @@
+#
+# devcrate
+# Github Actions CI
+#
+
+# workflow: trigger on master push or tagged release
+on:
+  push:
+    branches:
+      - master
+
+env:
+  # use docker buildkit to speed up builds
+  DOCKER_BUILDKIT: 1
+  REPOSITORY: docker.io
+  DOCKER_USER: mrzzy
+  
+jobs:
+  build-push-images:
+    name: Build & Push Docker images
+    strategy:
+      matrix:
+        variant:
+          - ""
+          - "cloud"
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Build devcrate-${{matrix.variant}}
+      run: |
+        apt-get update && apt-get install make --no-install-recommends
+        make ${REPOSITORY}/${DOCKER_USER}/devcrate-${{matrix.variant}}
+    - name: Publish devcrate-${{matrix.variant}}
+      run: |
+        # Tag build docker image.
+        IMAGE_REPO=${REPOSITORY}/${DOCKER_USER}/devcrate-${{matrix.variant}}
+        if [ $GITHUB_REF = "refs/heads/master" ]
+        then
+          TAG="latest"
+        elif [[ $GITHUB_REF =~ "refs/tags/*" ]]
+          TAG=$(echo $GITHUB_REF | sed -e "s|refs/tags/||")
+          # strip leading 'v' in tag version
+          TAG=${TAG#v}
+        fi
+        docker tag  ${IMAGE_REPO}:${TAG}
+      
+        echo $DOCKER_TOKEN | docker login --username ${DOCKER_USER} --password-stdin
+        make push/${IMAGE_REPO}:${TAG}
