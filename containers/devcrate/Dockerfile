@@ -94,7 +94,7 @@ RUN echo "source-file ~/.config/tmux/plugin.tmux" > ~/.tmux.conf \
 
 # vim plugins
 # install nvim plugins by running commands on vim in non interactive ex mode.
-RUN echo "PlugInstall | qall!" | nvim -es -u $HOME/.config/nvim/plugin.vim -V 1 \
+RUN echo "PlugInstall --sync | qall!" | nvim -es -u $HOME/.config/nvim/plugin.vim -V 1 \
     && yarn cache clean 
 
 # copy scripts
