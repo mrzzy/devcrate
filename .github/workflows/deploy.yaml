@@ -30,6 +30,7 @@ jobs:
           - "-cloud"
     runs-on: ubuntu-20.04
     steps:
+    - uses: actions/checkout@v2
     - name: Build devcrate${{matrix.variant}}
       run: |
         sudo apt-get update && sudo apt-get install -y make --no-install-recommends
