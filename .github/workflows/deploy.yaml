@@ -1,13 +1,18 @@
 #
 # devcrate
 # Github Actions CI
+# Deploy workflow
 #
 
-# workflow: trigger on master push or tagged release
+# workflow to build and deploy devcrate images 
+# trigger on master push or tagged release
 on:
   push:
     branches:
       - master
+    tags:
+      # tagged release defined as tags with 'v' prefix;
+      - v*
 
 env:
   # use docker buildkit to speed up builds
@@ -23,7 +28,7 @@ jobs:
         variant:
           - ""
           - "cloud"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - name: Build devcrate-${{matrix.variant}}
       run: |
