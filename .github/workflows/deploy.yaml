@@ -36,6 +36,8 @@ jobs:
         sudo apt-get update && sudo apt-get install -y make --no-install-recommends
         make ${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}
     - name: Publish devcrate${{matrix.variant}}
+       env:
+        DOCKER_TOKEN: "${{ secrets.DOCKER_TOKEN }}"
       run: |
         # Tag build docker image.
         IMAGE_REPO=${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}
@@ -47,5 +49,5 @@ jobs:
           TAG=${TAG#refs/tags/v}
         fi
         docker tag ${IMAGE_REPO}:latest ${IMAGE_REPO}:${TAG}
-        echo $DOCKER_TOKEN | docker login --password-stdin --username ${DOCKER_USER}
+        echo ${DOCKER_TOKEN} | docker login --password-stdin --username ${DOCKER_USER}
         make push/${IMAGE_REPO}:${TAG}
