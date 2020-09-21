@@ -11,14 +11,14 @@ COMMIT_PATH:=$(if $(COMMIT_PATH),$(COMMIT_PATH),.)
 
 ## docker config
 DOCKER:=docker
-TAG_USER:=mrzzy
+DOCKER_USER:=mrzzy
 # names of the docker images
 IMG_NAMES:=$(notdir $(wildcard containers/*))
-IMAGES:=$(foreach img,$(IMG_NAMES),$(REPOSITORY)/$(TAG_USER)/$(img))
-BASE_IMAGE:=$(REPOSITORY)/$(TAG_USER)/devcrate
+IMAGES:=$(foreach img,$(IMG_NAMES),$(REPOSITORY)/$(DOCKER_USER)/$(img))
+BASE_IMAGE:=$(REPOSITORY)/$(DOCKER_USER)/devcrate
 # names of the images that depends on base image
 DEP_BASE_NAMES:=$(filter-out devcrate, $(IMG_NAMES))
-DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(REPOSITORY)/$(TAG_USER)/$(img))
+DEP_BASE_IMAGES:=$(foreach img,$(DEP_BASE_NAMES),$(REPOSITORY)/$(DOCKER_USER)/$(img))
 PUSH_TARGETS:=$(foreach img,$(IMAGES),push/$(img))
 SAVE_TARGETS:=$(foreach img,$(IMAGES),save/$(img))
 LOAD_TARGETS:=$(foreach img,$(IMAGES),load/$(img))
@@ -40,7 +40,7 @@ all: $(IMAGES)
 
 # image rules
 # docker build rule
-$(REPOSITORY)/$(TAG_USER)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
+$(REPOSITORY)/$(DOCKER_USER)/%: containers/%/Dockerfile $(CMS_SRC_DIR)
 	# latest tag
 	$(DOCKER) build \
 		--network=host \
