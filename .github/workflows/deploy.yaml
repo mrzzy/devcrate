@@ -36,7 +36,7 @@ jobs:
         sudo apt-get update && sudo apt-get install -y make --no-install-recommends
         make ${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}
     - name: Publish devcrate${{matrix.variant}}
-       env:
+      env:
         DOCKER_TOKEN: "${{ secrets.DOCKER_TOKEN }}"
       run: |
         # Tag build docker image.
