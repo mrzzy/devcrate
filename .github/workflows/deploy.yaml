@@ -43,11 +43,12 @@ jobs:
         then
           TAG="latest"
         elif [[ $GITHUB_REF =~ "refs/tags/*" ]]
+        then
           TAG=$(echo $GITHUB_REF | sed -e "s|refs/tags/||")
           # strip leading 'v' in tag version
           TAG=${TAG#v}
         fi
-        docker tag  ${IMAGE_REPO}:${TAG}
+        docker tag $(IMAGE_REPO}:latest ${IMAGE_REPO}:${TAG}
       
         echo $DOCKER_TOKEN | docker login --username ${DOCKER_USER} --password-stdin
         make push/${IMAGE_REPO}:${TAG}
