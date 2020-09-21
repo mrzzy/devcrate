@@ -91,11 +91,9 @@ RUN mkdir -p $HOME/.cache/antibody \
 ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
 RUN echo "source-file ~/.config/tmux/plugin.tmux" > ~/.tmux.conf \
     && ~/.tmux/plugins/tpm/bin/install_plugins
-
 # vim plugins
-# install nvim plugins by running commands on vim in non interactive ex mode.
-RUN echo "PlugInstall --sync | qall!" | nvim -es -u $HOME/.config/nvim/plugin.vim -V 1 \
-    && yarn cache clean 
+RUN nvim --headless -u $HOME/.config/nvim/plugin.vim +PlugInstall +qall \
+    && yarn cache clean
 
 # copy scripts
 COPY containers/devcrate/bin/* $BIN_DIR/
