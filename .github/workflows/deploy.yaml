@@ -47,5 +47,5 @@ jobs:
           TAG=${TAG#refs/tags/v}
         fi
         docker tag ${IMAGE_REPO}:latest ${IMAGE_REPO}:${TAG}
-        echo $DOCKER_TOKEN | docker login --username ${DOCKER_USER} --password-stdin
+        echo $DOCKER_TOKEN | docker login --password-stdin --username ${DOCKER_USER}
         make push/${IMAGE_REPO}:${TAG}
