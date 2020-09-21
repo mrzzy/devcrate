@@ -17,15 +17,14 @@ make -C dotfiles/base
 
 ### devcrate Containers
 Prequisites: `docker` &amp; macos/Linux
-1. Pull and run docker images:
+1. Running devcrate containers:
 ```sh
 docker run -it \
     -u $UID:$GID \
     --network=host \
     -v /thing/to/work/on:/home/work \
-    # optional: for docker in docker
     -v /var/run/docker.sock:/var/run/docker.sock \
-    mrzzy/devcrate:0.2.0 # or mrzzy/devcrate-<variant>
+    mrzzy/devcrate
 ```
 
 ## Design

@@ -16,7 +16,7 @@ env:
   
 jobs:
   build-push-images:
-    name: Build & Push Docker images
+    name: Build Docker images
     strategy:
       matrix:
         variant:
