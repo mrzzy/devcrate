@@ -39,14 +39,12 @@ jobs:
       run: |
         # Tag build docker image.
         IMAGE_REPO=${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}
-        if [ $GITHUB_REF = "refs/heads/master" ]
+        if [ ${GITHUB_REF##*/} = "master" ]
         then
           TAG="latest"
-        elif [[ $GITHUB_REF =~ "refs/tags/*" ]]
-        then
-          TAG=$(echo $GITHUB_REF | sed -e "s|refs/tags/||")
-          # strip leading 'v' in tag version
-          TAG=${TAG#v}
+        else
+          # strip prefix and leading 'v' in tag version
+          TAG=${TAG#refs/tags/v}
         fi
         docker tag $(IMAGE_REPO}:latest ${IMAGE_REPO}:${TAG}
       
