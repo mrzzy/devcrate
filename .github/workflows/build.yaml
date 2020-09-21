@@ -20,11 +20,11 @@ jobs:
     strategy:
       matrix:
         variant:
-          - ""
-          - "cloud"
+          - "-"
+          - "-cloud"
     runs-on: ubuntu-20.04
     steps:
     - name: Build devcrate-${{matrix.variant}}
       run: |
         apt-get update && apt-get install make --no-install-recommends
-        make ${REPOSITORY}/${DOCKER_USER}/devcrate-${{matrix.variant}}
+        make ${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}

@@ -27,17 +27,17 @@ jobs:
       matrix:
         variant:
           - ""
-          - "cloud"
+          - "-cloud"
     runs-on: ubuntu-20.04
     steps:
     - name: Build devcrate-${{matrix.variant}}
       run: |
         apt-get update && apt-get install make --no-install-recommends
-        make ${REPOSITORY}/${DOCKER_USER}/devcrate-${{matrix.variant}}
+        make ${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}
     - name: Publish devcrate-${{matrix.variant}}
       run: |
         # Tag build docker image.
-        IMAGE_REPO=${REPOSITORY}/${DOCKER_USER}/devcrate-${{matrix.variant}}
+        IMAGE_REPO=${REPOSITORY}/${DOCKER_USER}/devcrate${{matrix.variant}}
         if [ $GITHUB_REF = "refs/heads/master" ]
         then
           TAG="latest"
