@@ -54,13 +54,4 @@ let g:tmux_navigator_no_mappings = 1
 " markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 let b:is_markdown_preview_running = 0
-function! MarkdownPreviewToggle() 
-    if b:is_markdown_preview_running == 0
-        MarkdownPreview
-        let b:is_markdown_preview_running = 1
-    else 
-        MarkdownPreviewStop
-        let b:is_markdown_preview_running = 0
-    end
-endfunction
-nnoremap <leader>vm :call MarkdownPreviewToggle()<cr>
+nnoremap <leader>vm <Plug>MarkdownPreviewToggle<cr>
