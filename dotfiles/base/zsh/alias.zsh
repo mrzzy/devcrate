@@ -19,6 +19,7 @@ alias k="kubectl"
 alias mk="microk8s.kubectl"
 alias o="rifle"
 alias open="rifle"
+alias tf="terraform"
 
 ## virtual machine management
 ## vmv_shutdown(): shutdown vm of the given domain
