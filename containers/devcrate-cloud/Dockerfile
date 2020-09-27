@@ -25,7 +25,14 @@ RUN pip3 install --no-cache-dir --user wheel awscli
 RUN TF_VERSION=$(curl --silent "https://api.github.com/repos/hashicorp/terraform/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")' | cut -c 2-) \
     && wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip \
     && sudo unzip -d /usr/local/bin/ terraform_${TF_VERSION}_linux_amd64.zip \ 
-    && rm  terraform_${TF_VERSION}_linux_amd64.zip
+    && rm terraform_${TF_VERSION}_linux_amd64.zip
+
+# terraform - language server for commpletion.
+# .[1:] - remove prefix 'v' from version tag.
+RUN TF_LS_VERSION=$(curl --silent "https://api.github.com/repos/hashicorp/terraform-ls/releases/latest" | jq -r ".tag_name | .[1:]")
+    && wget http://releases.hashicorp.com/terraform-ls/${TF_LS_VERSION}/terraform-ls_${TF_LS_VERSION}_linux_amd64.zip \
+    && sudo unzip -d /usr/local/bin/ terraform-ls_${TF_LS_VERSION}_linux_amd64.zip \
+    && rm terraform-ls_${TF_LS_VERSION}_linux_amd64.zip
 
 # helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
