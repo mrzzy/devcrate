@@ -33,8 +33,7 @@
     "https://kubernetesjsonschema.dev/v1.14.0/deployment-apps-v1.json": "/*.yml",
     "https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json": "/*.yml"
   },
-  // java
-  // disable autobuild due to high cpu consumpution.
+  // java - disable autobuild due to high cpu consumpution.
   "java.autobuild.enabled": false,
   // scala - disable to prevent scala langserver from running when developing java.
   "metals.enable": false,
@@ -49,6 +48,19 @@
            "directory": ".ccls-cache"
         }
       }
+    },
+    // terraform
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     }
   }
+
+ 
 }
