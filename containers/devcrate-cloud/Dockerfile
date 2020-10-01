@@ -14,7 +14,7 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.c
     && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - \
     && echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 RUN sudo apt-get update && sudo apt-get install -y  \
-    unzip  kubectl google-cloud-sdk \
+    unzip  kubectl google-cloud-sdk groff \
     tcpdump traceroute nmap dnsutils \
     && sudo rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
