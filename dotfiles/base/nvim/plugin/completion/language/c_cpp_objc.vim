@@ -20,9 +20,9 @@ function! BuildClangLangServer() abort
     echo 'building language server'
     exec '!cd ' . l:work_dir . '/ccls &&' 
                 \ . ' cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release'
-                \ . ' -DCMAKE_PREFIX_PATH=/usr/lib/llvm-7'
-                \ . ' -DLLVM_INCLUDE_DIR=/usr/lib/llvm-7/include'
-                \ . ' -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-7/'
+                \ . ' -DCMAKE_PREFIX_PATH=/usr/lib/llvm-11'
+                \ . ' -DLLVM_INCLUDE_DIR=/usr/lib/llvm-11/include'
+                \ . ' -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-11'
                 \ . ' -DCMAKE_INSTALL_PREFIX=~/.local/'
 
     " find no. of cores to enable multiple core build
