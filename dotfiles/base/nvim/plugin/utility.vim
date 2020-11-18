@@ -34,7 +34,7 @@ nnoremap <c-l> :Denite location_list<cr>
 nnoremap <c-k> :Denite quickfix<cr>
 nnoremap <c-p> :Files<cr>
 nnoremap <c-g> :Ag<cr>
-nnoremap <c-t> :Tags<cr>
+nnoremap <c-t> :Vista finder<cr>
 
 " git intergation
 Plug 'tpope/vim-fugitive'
