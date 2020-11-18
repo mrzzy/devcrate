@@ -35,9 +35,12 @@ let g:fzf_colors =
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] 
+  \ 'header':  ['fg', 'Comment']
 \}
 
 " highlight hex colors
 Plug 'chrisbra/colorizer'
 nnoremap <leader>hc :ColorToggle<cr>
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=#fb4934
+match ExtraWhitespace /\s\+$/
