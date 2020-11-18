@@ -15,7 +15,7 @@ endfunction
 function! BootstrapCOC(info)
     if a:info.status == 'installed' || a:info.force
         echo 'bootstrapping coc'
-        call coc#util#install({'tag':1})
+        call coc#util#install()
         
         " basic completion sources
         echo 'setting up basic completion sources '
