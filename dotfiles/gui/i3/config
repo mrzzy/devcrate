@@ -8,7 +8,7 @@
 set $mod Mod4
 set $alt Mod1
 
-# Visual Styling 
+# Visual Styling
 font xft:Lato Semibold 11
 default_border normal 1
 hide_edge_borders both
@@ -138,6 +138,8 @@ bindsym $mod+Ctrl+Left workspace prev
 # move focused workspace around displays
 bindsym $mod+bracketleft move workspace to output right
 bindsym $mod+bracketright move workspace to output left
+bindsym $mod+equal move workspace to output up
+bindsym $mod+apostrophe move workspace to output down
 
 # Set shut down, restart and locking features
 bindsym $mod+Ctrl+s mode "$mode_system"
