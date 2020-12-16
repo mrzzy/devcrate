@@ -28,7 +28,7 @@ endif
 
 "scala
 if ! $IS_DEVCRATE || $SCALA_ENABLE == '1'
-    Plug 'ckipp01/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 endif
 
 "golang
