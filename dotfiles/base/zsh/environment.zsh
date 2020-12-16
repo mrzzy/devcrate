@@ -13,6 +13,7 @@ export N_PREFIX="$HOME/.local/share/n"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$N_PREFIX/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/snap/bin"
 export PATH="$PATH:$HOME/.linkerd2/bin"
 

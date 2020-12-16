@@ -17,10 +17,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && add-apt-repository ppa:apt-fast/stable \
     && apt-get install -y --no-install-recommends apt-fast
 
-# generate locales - english sg 
+# generate locales - english sg
 RUN sed -i -e 's/# en_SG.UTF-8 UTF-8/en_SG.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
- 
+
 ## add package repos
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
@@ -46,7 +46,7 @@ RUN useradd --home-dir $HOME \
     --groups sudo,adm,root $USERNAME
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL' | EDITOR='tee -a' visudo
 
-## setup home dir 
+## setup home dir
 WORKDIR $HOME
 ARG BIN_DIR=$HOME/.local/bin
 ARG SHARE_DIR=$HOME/.local/share
@@ -62,7 +62,7 @@ USER $USERNAME
 # antibody for zsh plugins/vimplug for neovim plugins and tpm for tmux plugins
 RUN curl -sfL git.io/antibody | sh -s - -b $BIN_DIR \
     && curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \    
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
     && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # install local devtools - fzf
@@ -70,7 +70,7 @@ ENV PATH="$HOME/.local/share/fzf/bin:$PATH"
 RUN git clone https://github.com/junegunn/fzf.git ~/.local/share/fzf \
     && ~/.local/share/fzf/install --bin \
     && cp $HOME/.local/share/fzf/bin/fzf $BIN_DIR/
-    
+
 ## install plugins
 RUN mkdir -p $CONFIG_DIR/zsh \
     && mkdir -p $CONFIG_DIR/tmux \
