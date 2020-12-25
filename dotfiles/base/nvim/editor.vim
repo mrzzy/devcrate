@@ -1,7 +1,7 @@
 "
 " Basic Editor Config
 " NeoVim Configuration
-" 
+"
 "editor Settings
 set autoindent
 set autoread

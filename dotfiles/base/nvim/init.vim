@@ -1,7 +1,7 @@
 "
 " ~/etc/nvim/init.vim
 " NeoVim Configuration
-" 
+"
 
 " Load configuration files
 source ~/.config/nvim/editor.vim

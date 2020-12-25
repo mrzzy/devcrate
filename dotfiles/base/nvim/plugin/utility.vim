@@ -1,13 +1,13 @@
 "
-" Plugin Config 
+" Plugin Config
 " Utility plugins
 " NeoVim Configuration
-" 
+"
 
 "Utility
 " tags & tagbar/symbol jumping
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'liuchengxu/vista.vim' 
+Plug 'liuchengxu/vista.vim'
 nnoremap <silent> <leader>tt :Vista!!<cr>
 let g:vista_default_executive = 'coc'
 autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0

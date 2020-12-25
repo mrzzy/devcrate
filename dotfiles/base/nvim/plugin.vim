@@ -1,7 +1,7 @@
 "
 " Plugin Config
 " NeoVim Configuration
-" 
+"
 
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')

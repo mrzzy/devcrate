@@ -1,7 +1,7 @@
 "
 " ~/etc/nvim/init.vim
 " NeoVim Configuration
-" 
+"
 
 "Keyboard Bindings
 let g:mapleader = ","
