@@ -56,15 +56,15 @@ inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <C-Space> pumvisible() ? coc#refresh()  : "\<C-g>u\<CR>"
 
 " goto code navigation
-nmap <silent> <leader>jd <Plug>(coc-definition)
-nmap <silent> <leader>jt <Plug>(coc-type-definition)
-nmap <silent> <leader>ji <Plug>(coc-implementation)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
 " navigation between code diagnostics
-nmap <silent> <leader>jn <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>jN <Plug>(coc-diagnostic-prev
+nmap <silent> <leader>gn <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gN <Plug>(coc-diagnostic-prev
 
 " show references
-nmap <silent> <leader>jr <Plug>(coc-references)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
 " format code
 nnoremap <silent> <leader>cf  <Plug>(coc-format)<cr>
