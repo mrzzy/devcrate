@@ -2,14 +2,14 @@
   // suggestion
   "suggest.timeout": 5000,
   "suggest.maxCompleteItemCount": 24,
-  
+
   // diagnostics
   "diagnostic.refreshAfterSave": true,
   "diagnostic.errorSign": "!",
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",
   "diagnostic.hintSign": ">",
-  
+
   // function signature
   "signature.target": "echo",
 
@@ -20,9 +20,8 @@
     ".vim"
   ],
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  
+
   /*  language config*/
   // python 
   "python.jediEnabled": false,
