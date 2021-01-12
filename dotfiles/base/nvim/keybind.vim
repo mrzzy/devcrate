@@ -19,11 +19,11 @@ nnoremap <leader>ss z=
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 " project search
-nnoremap <leader>g :grep
+nnoremap <leader>/ :grep 
 " tags navigation
 nnoremap <C-]> <C-]><cr>
 nnoremap <C-T> <C-T><cr>
-nnoremap <leader>k :execute 'ptag ' . expand('<cword>')<cr
+nnoremap <leader>K :execute 'ptag ' . expand('<cword>')<cr>
 " tab navigation/arrangement
 nnoremap <C-w>[ :tabprevious<cr>
 nnoremap <C-w>] :tabnext<cr>

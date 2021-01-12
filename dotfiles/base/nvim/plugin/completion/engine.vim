@@ -70,7 +70,7 @@ nmap <silent> <leader>gr <Plug>(coc-references)
 nnoremap <silent> <leader>cf  <Plug>(coc-format)<cr>
 
 " show docs
-nnoremap <silent> <leader>K :call CocAction('doHover')<cr>
+nnoremap <silent> <leader>k :call CocAction('doHover')<cr>
 
 " coc commands
 nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
