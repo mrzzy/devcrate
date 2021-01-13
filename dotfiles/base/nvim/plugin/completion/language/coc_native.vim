@@ -1,14 +1,14 @@
 "
-" Plugin Config 
-" Completion -  Language Support
-" Coc Native Extensions Languages 
+" Plugin Config
+" Completion -  Language Suppor
+" Coc Native Extensions Languages
 " NeoVim Configuration
-" 
+"
 
 " devcrate - deploy only if explict specified in <LANG>_ENABLE env var
 "js/ts
 if ! $IS_DEVCRATE || $JS_ENABLE == '1'
-    Plug 'neoclide/coc-tsserver', {'tag': '1.3.7', 'do': 'yarn install --frozen-lockfile'} 
+    Plug 'neoclide/coc-tsserver', {'tag': '1.3.7', 'do': 'yarn install --frozen-lockfile'}
 endif
 
 "java
@@ -22,9 +22,9 @@ if ! $IS_DEVCRATE || $PYTHON_ENABLE == '1'
 endif
 
 "csharp
-"if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
-"    Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
-"endif
+if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
+    Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
+endif
 
 "scala
 if ! $IS_DEVCRATE || $SCALA_ENABLE == '1'
