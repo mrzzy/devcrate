@@ -34,3 +34,8 @@ let g:winresizer_start_key="<C-w>r"
 Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" fix/Patches to editor
+" fixes: https://github.com/neovim/neovim/issues/12587
+" Fix CursorHold performance issue
+Plug 'antoinemadec/FixCursorHold.nvim'
