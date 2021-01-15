@@ -21,9 +21,33 @@ nnoremap <silent> <C-j> :Vista finder fzf:coc
 Plug 'mbbill/undotree'
 nnoremap <leader>uu :UndotreeToggle<cr>
 
-"filetree browser
+" filetree browser/file explorer
 Plug 'lambdalisue/fern.vim'
+let g:fern#disable_default_mappings = 1
 nnoremap <silent> <leader>ff :Fern . -drawer -toggle<cr>
+" focus fern window
+nnoremap <silent> <leader>gf :FernDo :<cr>
+autocmd FileType fern nmap <buffer> <C-w>" <Plug>(fern-action-zoom:half)
+autocmd FileType fern nmap <buffer> .. <Plug>(fern-action-hidden:toggle)
+autocmd FileType fern nmap <buffer> / <Plug>(fern-action-include)
+autocmd FileType fern nmap <buffer> m <Plug>(fern-action-mark:set)
+autocmd FileType fern nmap <buffer> M <Plug>(fern-action-mark:unset)
+autocmd FileType fern nmap <buffer> <C-l> <Plug>(fern-action-reload:all)
+autocmd FileType fern nmap <buffer> l <Plug>(fern-action-expand:in)
+autocmd FileType fern nmap <buffer> h <Plug>(fern-action-collapse)
+autocmd FileType fern nmap <buffer> <C-i> <Plug>(fern-action-enter)
+autocmd FileType fern nmap <buffer> <C-]> <Plug>(fern-action-enter)
+autocmd FileType fern nmap <buffer> <C-o> <Plug>(fern-action-leave)
+autocmd FileType fern nmap <buffer> <cr> <Plug>(fern-action-open-or-expand)
+autocmd FileType fern nmap <buffer> v<cr> <Plug>(fern-action-open:vsplit)
+autocmd FileType fern nmap <buffer> s<cr> <Plug>(fern-action-open:split)
+autocmd FileType fern nmap <buffer> s<cr> <Plug>(fern-action-open:tabedit)
+autocmd FileType fern nmap <buffer> yy <Plug>(fern-action-clipboard-copy)
+autocmd FileType fern nmap <buffer> dd <Plug>(fern-action-clipboard-move)
+autocmd FileType fern nmap <buffer> p <Plug>(fern-action-clipboard-paste)
+autocmd FileType fern nmap <buffer> DD <Plug>(fern-action-remove)
+autocmd FileType fern nmap <buffer> cd <Plug>(fern-action-cd:cursor)
+autocmd FileType fern nmap <buffer> cw <Plug>(fern-action-rename)
 
 " fuzzy file finding, jumping
 Plug '~/.local/share/fzf'
