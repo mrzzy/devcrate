@@ -26,12 +26,8 @@ Plug 'lambdalisue/fern.vim'
 nnoremap <silent> <leader>ff :Fern . -drawer -toggle<cr>
 
 " fuzzy file finding, jumping
-Plug 'Shougo/denite.nvim', {'do':':UpdateRemotePlugins'}
-Plug 'chemzqm/unite-location'
 Plug '~/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
-nnoremap <c-l> :Denite location_list<cr>
-nnoremap <c-k> :Denite quickfix<cr>
 nnoremap <c-p> :Files<cr>
 nnoremap <c-g> :Ag<cr>
 nnoremap <c-t> :Vista finder<cr>

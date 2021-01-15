@@ -39,3 +39,7 @@ function! BindingUnclutter()
     cclose
 endfunction
 nnoremap <silent> <Esc><Esc> :noh\|call BindingUnclutter()<cr>
+
+" location and quickfix lists
+noremap <c-l> :lopen<cr>
+nnoremap <c-k> :copen<cr>
