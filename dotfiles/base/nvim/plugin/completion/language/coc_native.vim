@@ -1,11 +1,11 @@
 "
 " Plugin Config
-" Completion -  Language Suppor
+" Completion -  Language Support
 " Coc Native Extensions Languages
 " NeoVim Configuration
 "
 
-" devcrate - deploy only if explict specified in <LANG>_ENABLE env var
+" devcrate - deploy only if explicit specified in <LANG>_ENABLE env var
 "js/ts
 if ! $IS_DEVCRATE || $JS_ENABLE == '1'
     Plug 'neoclide/coc-tsserver', {'tag': '1.3.7', 'do': 'yarn install --frozen-lockfile'}

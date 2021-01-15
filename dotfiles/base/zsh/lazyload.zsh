@@ -3,7 +3,7 @@
 # ZSH Configuration file
 #
 
-## Lazy Loading Implmentation
+## Lazy Loading Implementation
 # Usage: lazy_load(load_cmd, activator, activators... __EOA__ args_activator
 # Runs the lazy load command, dealiases all activators and executes the
 # activator with the given command line arguments
@@ -43,7 +43,7 @@ lazy_load()
 # Mitigates the unnecessary overhead of the the 'load_cmd' on startup, only
 # runs the load command if the user touches any of the 'activators' aliases,
 # then which the lazy loader actually loads the load command.
-# activators is a space seperated string of activation alias that will cause
+# activators is a space separated string of activation alias that will cause
 # the load command to run, thereafter activator command will run.
 # 
 lazy()

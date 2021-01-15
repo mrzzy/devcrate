@@ -24,7 +24,7 @@ map ?  <Plug>(incsearch-backward)
 let g:incsearch#magic = '\v'
 " auto-sessions
 Plug 'vphantom/vim-obsession'
-nnoremap <leader>ws :Obession Session.vim<cr>
+nnoremap <leader>ws :Obsession Session.vim<cr>
 " resize panes
 Plug 'simeji/winresizer'
 let g:winreizer_vert_resize=5

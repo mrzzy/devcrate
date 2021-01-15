@@ -3,12 +3,12 @@ Dotfiles &amp; containers
 
 ## Intro
 The two aims in this project:
-- dotfiles - version controling and automate installing dotfiles
+- dotfiles - version controlling and automate installing dotfiles
 - devcrate - packaging my development tools into a docker containers for portablity
 
 ## Setup
 ### Dotfiles
-Prequisites: `make`
+Prerequisites: `make`
 1. Clone this repository
 2. Install the command line dotfiles to your home directory:
 ```sh
@@ -16,7 +16,7 @@ make -C dotfiles/base
 ```
 
 ### devcrate Containers
-Prequisites: `docker` &amp; macos/Linux
+Prerequisites: `docker` &amp; macos/Linux
 1. Running devcrate containers:
 ```sh
 docker run -it \
@@ -41,9 +41,9 @@ An attempt package move dev tools, config into Docker container to make them mor
     - `devcrate-golang` - golang support
     - `devcrate-nodejs` - nodejs support: `node`
     - `devcrate-c` - c/c++ support: `gcc, clang, cmake, ccls`
-- full blown development envrionment:
+- full blown development environment:
     - `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
-- full blown desktop envrionment
+- full blown desktop environment
     - `devcrate-i3` - i3/gui support: `i3,polybar,nitrogen,firefox`
 
 ## Roadmap

@@ -29,7 +29,7 @@ clean:
 $(HOME)/.Xresources: Xresources
 	cp $< $@
 
-# i3 window manger
+# i3 window manager
 $(HOME)/.config/i3: ./i3
 	cp -af $< $(dir $@)
 # rofi

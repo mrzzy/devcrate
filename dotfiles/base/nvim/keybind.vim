@@ -9,7 +9,7 @@ let g:mapleader = ","
 " visual mode select-search
 vnoremap * "*y/\V<c-r>*<cr><esc>
 vnoremap # "*y?\V<c-r>*<cr><esc>
-" repeat last subsitution
+" repeat last substitution
 nnoremap & :&&<cr>
 vnoremap & :&&<cr>
 " spell checking

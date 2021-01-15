@@ -57,7 +57,7 @@ bind-key L swap-pane -t {right-of}\; select-pane -t {right-of}
 bind-key x swap-pane -t {last}
 bind-key z resize-pane -Z
 
-# session managment
+# session management
 bind-key C-W command-prompt -p "(new session)" "new-session -A -s '%%'"
 #bind-key "~" switch-client -n
 

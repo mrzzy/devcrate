@@ -27,7 +27,7 @@ bindkey "^[\t" autosuggest-accept
 source <(antibody init)
 antibody bundle < "$HOME/.config/zsh/plugin_list.txt"
 
-## extenal intergrations
+## external intergrations
 # fzf completions
 source "$HOME/.local/share/fzf/shell/completion.zsh"
 export FZF_COMPLETION_TRIGGER="%%"

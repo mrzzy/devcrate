@@ -27,7 +27,7 @@ RUN TF_VERSION=$(curl --silent "https://api.github.com/repos/hashicorp/terraform
     && sudo unzip -d /usr/local/bin/ terraform_${TF_VERSION}_linux_amd64.zip \ 
     && rm terraform_${TF_VERSION}_linux_amd64.zip
 
-# terraform - language server for commpletion.
+# terraform - language server for completion.
 # .[1:] - remove prefix 'v' from version tag.
 RUN TF_LS_VERSION=$(curl --silent "https://api.github.com/repos/hashicorp/terraform-ls/releases/latest" | jq -r ".tag_name | .[1:]") \
     && wget http://releases.hashicorp.com/terraform-ls/${TF_LS_VERSION}/terraform-ls_${TF_LS_VERSION}_linux_amd64.zip \

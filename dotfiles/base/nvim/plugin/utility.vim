@@ -36,12 +36,31 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-g> :Ag<cr>
 nnoremap <c-t> :Vista finder<cr>
 
-" git intergation
+" git integration
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>vv :Gstatus<cr>
 nnoremap <leader>vl :Glog<cr>
 nnoremap <leader>ve :Gread<cr>
 nnoremap <leader>vb :Gblame -MMM<cr>
+
+" debugger (c/c++/python/bash) integration
+Plug 'sakhnik/nvim-gdb', {'do': ':UpdateRemotePlugins'}
+let g:nvimgdb_disable_start_keymaps = 1
+nnoremap <leader>dd :GdbStart gdb<cr>
+nnoremap <leader>DD :GdbStartLLDB lldb<cr>
+let g:nvimgdb_config_override = {
+            \ 'key_until':      '<leader>du',
+            \ 'key_continue':   '<leader>dc',
+            \ 'key_next':       ']d',
+            \ 'key_step':       ']D',
+            \ 'key_finish':     '<leader>df',
+            \ 'key_breakpoint': '<leader>db',
+            \ 'key_frameup':    '<leader>dk',
+            \ 'key_framedown':  '<leader>dj',
+            \ 'key_eval':       '=d',
+            \ 'key_quit':       '<leader>dq',
+            \ 'codewin_command': 'vnew'
+            \ }
 
 " tmux integration
 Plug 'tmux-plugins/tmux-resurrect'

@@ -30,7 +30,7 @@ set -g @resurrect-processes ':all:'
 set -g @plugin 'tmux-plugins/tmux-continuum' 
 set -g @continuum-restore 'on'
 set -g @continuum-save-interval '10'
-# vim-tmux keybinding intergration
+# vim-tmux keybinding integration
 check_vim="ps -o state= -o comm= -t '#{pane_tty}' \
     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
 bind-key h if-shell "$check_vim" "send-prefix; send-keys h" "select-pane -L"
