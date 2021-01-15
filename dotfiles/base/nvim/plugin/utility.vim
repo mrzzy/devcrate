@@ -15,7 +15,7 @@ let g:vista_sidebar_position="vertical topleft"
 let g:vista#renderer#enable_icon=0
 let g:vista_update_on_text_changed=1
 let g:vista_fzf_preview = ['right:50%']
-nnoremap <silent> <C-j> :Vista finder fzf:coc
+nnoremap <silent> <C-j> :Vista finder fzf:coc<cr>
 
 " undotree
 Plug 'mbbill/undotree'
