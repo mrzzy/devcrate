@@ -49,7 +49,7 @@ let g:nvimgdb_config_override = {
             \ 'key_continue':   '<leader>dc',
             \ 'key_next':       ']d',
             \ 'key_step':       ']D',
-            \ 'key_finish':     '<leader>df',
+            \ 'key_finish':     '[d',
             \ 'key_breakpoint': '<leader>db',
             \ 'key_frameup':    '<leader>dk',
             \ 'key_framedown':  '<leader>dj',
