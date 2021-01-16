@@ -5,8 +5,11 @@
 "
 
 "Utility
-" tags & tagbar/symbol jumping
+" tag jumping
 Plug 'ludovicchabant/vim-gutentags'
+nnoremap <silent> <c-t> :Tags<cr>
+
+" symbol jumping
 Plug 'liuchengxu/vista.vim'
 nnoremap <silent> <leader>tt :Vista!!<cr>
 let g:vista_default_executive = 'coc'
@@ -54,7 +57,6 @@ Plug '~/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
 nnoremap <c-p> :Files<cr>
 nnoremap <c-g> :Ag<cr>
-nnoremap <c-t> :Vista finder<cr>
 
 " git integration
 Plug 'tpope/vim-fugitive'
