@@ -13,7 +13,7 @@ ENV IS_DEVCRATE=1
 # package installation
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https ca-certificates software-properties-common \
-    curl gnupg-agent sudo locales \
+    curl gnupg-agent sudo locales xz-utils \
     && add-apt-repository ppa:apt-fast/stable \
     && apt-get install -y --no-install-recommends apt-fast
 
