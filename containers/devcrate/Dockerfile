@@ -37,6 +37,12 @@ RUN apt-fast install -y --no-install-recommends \
     && npm install -g yarn && npm cache clean --force  \
     && pip3 install --no-cache-dir neovim docker-compose
 
+RUN SS_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest" | jq -r '.assets[] | select(.name | test("x86_64-unknown-linux-gnu\\.tar\\.xz$"))') \
+    && SS_ARCHIVE=$(echo $SS_RELEASE_JSON | jq -r '.name') \
+    && wget $(echo $SS_RELEASE_JSON | jq -r ".browser_download_url") -O $SS_ARCHIVE \
+    && tar -xf $SS_ARCHIVE -C /usr/local/bin/
+
+
 ## setup user & groups
 ARG USERNAME=user
 ENV HOME=/home
