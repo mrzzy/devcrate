@@ -26,6 +26,7 @@ set wildmode=longest,list,full
 set splitbelow
 set splitright
 set history=1000
+set updatetime=300
 
 " file Settings
 set encoding=utf8
@@ -51,7 +52,7 @@ autocmd BufNewFile,BufRead *.etc setf m4
 autocmd BufNewFile,BufRead *.tmux setf tmux
 autocmd BufNewFile,BufRead *.cshtml setf html
 
-" search settings 
+" search settings
 " use ag for search if present
 if executable('ag')
     set grepprg=ag\ --vimgrep\ --nocolor\ --nogroup\ '$*'

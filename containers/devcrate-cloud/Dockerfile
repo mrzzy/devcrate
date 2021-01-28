@@ -19,12 +19,12 @@ RUN sudo apt-get update && sudo apt-get install -y  \
     && sudo rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # aws cli
-RUN pip3 install --no-cache-dir --user wheel awscli 
+RUN pip3 install --no-cache-dir --user wheel awscli
 
 # terraform
 RUN TF_VERSION=$(curl --silent "https://api.github.com/repos/hashicorp/terraform/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")' | cut -c 2-) \
     && wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip \
-    && sudo unzip -d /usr/local/bin/ terraform_${TF_VERSION}_linux_amd64.zip \ 
+    && sudo unzip -d /usr/local/bin/ terraform_${TF_VERSION}_linux_amd64.zip \
     && rm terraform_${TF_VERSION}_linux_amd64.zip
 
 # terraform - language server for completion.
