@@ -4,7 +4,6 @@
   "suggest.maxCompleteItemCount": 24,
 
   // diagnostics
-  "diagnostic.refreshAfterSave": true,
   "diagnostic.errorSign": "!",
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",
@@ -21,9 +20,10 @@
   ],
   "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.useQuickfixForLocations": true,
 
   /*  language config*/
-  // python 
+  // python
   "python.jediEnabled": false,
   "python.autoUpdateLanguageServer": false,
   // yaml
@@ -60,6 +60,4 @@
       "settings": {}
     }
   }
-
- 
 }
