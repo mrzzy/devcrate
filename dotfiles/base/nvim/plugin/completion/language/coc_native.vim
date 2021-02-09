@@ -18,7 +18,7 @@ endif
 
 "python
 if ! $IS_DEVCRATE || $PYTHON_ENABLE == '1'
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
 endif
 
 "csharp
