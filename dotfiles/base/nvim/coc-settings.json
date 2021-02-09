@@ -24,8 +24,8 @@
 
   /*  language config*/
   // python
-  "python.jediEnabled": false,
-  "python.autoUpdateLanguageServer": false,
+  "python.formatting.provider": "black",
+  "python.analysis.typeCheckingMode": "basic",
   // yaml
   "yaml.validate": false,
   "yaml.schemas": {
