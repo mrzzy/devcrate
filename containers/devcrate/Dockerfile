@@ -3,7 +3,7 @@
 # Base image dockerfile
 #
 
-FROM ubuntu:18.04 AS repo
+FROM ubuntu:20.04 AS repo
 
 # env vars to signal docker build
 ENV IS_DEVCRATE=1
