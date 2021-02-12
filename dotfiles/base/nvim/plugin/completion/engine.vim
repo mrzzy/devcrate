@@ -75,7 +75,7 @@ nnoremap <silent> <leader>k :call CocAction('doHover')<cr>
 " coc commands
 nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
-nnoremap <silent> <leader>ca  :<C-u>CocList actions<cr>
+nnoremap <silent> <leader>ca :<C-u>CocAction<cr>
 
 "" autocmds
 " show references on hold
