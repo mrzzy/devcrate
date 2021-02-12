@@ -1,16 +1,16 @@
 "
-" Plugin Config 
+" Plugin Config
 " Auto Completion
 " NeoVim Configuration
 "
 
-"Completion 
+"Completion
 " completion engine
 source ~/.config/nvim/plugin/completion/engine.vim
 " language support
 source ~/.config/nvim/plugin/completion/language.vim
 
-" filepath completion   
+" filepath completion
 Plug 'Shougo/neoinclude.vim'
 " snippets
 Plug 'SirVer/ultisnips'
