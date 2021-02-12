@@ -30,14 +30,14 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 
 ## install tools
 RUN apt-fast install -y --no-install-recommends \
-    # workaround for cryptography depending on setuptools-rust
-    # https://github.com/pyca/cryptography/issues/5771
-    pip install --upgrade pip \
     ranger zsh tmux git make silversearcher-ag entr neovim \
     shadowsocks-libev openssh-client iputils-ping netcat wget htop \
     universal-ctags docker-ce-cli nodejs python3-pip python3-setuptools jq \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
     && npm install -g yarn && npm cache clean --force  \
+    # workaround for cryptography depending on setuptools-rust
+    # https://github.com/pyca/cryptography/issues/5771
+    && pip install --upgrade pip \
     && pip3 install --no-cache-dir neovim docker-compose
 
 RUN SS_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest" | jq -r '.assets[] | select(.name | test("x86_64-unknown-linux-gnu\\.tar\\.xz$"))') \
