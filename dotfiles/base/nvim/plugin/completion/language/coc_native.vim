@@ -23,8 +23,7 @@ endif
 
 "csharp
 if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
-    Plug 'coc-extensions/coc-omnisharp', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
-    CocInstall -sync coc-omnisharp
+    Plug 'OmniSharp/omnisharp-vim'
 endif
 
 "scala
