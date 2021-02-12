@@ -51,6 +51,7 @@ autocmd FileType fern nmap <buffer> p <Plug>(fern-action-clipboard-paste)
 autocmd FileType fern nmap <buffer> DD <Plug>(fern-action-remove)
 autocmd FileType fern nmap <buffer> cd <Plug>(fern-action-cd:cursor)
 autocmd FileType fern nmap <buffer> cw <Plug>(fern-action-rename)
+autocmd FileType fern nmap <buffer> e <Plug>(fern-action-new-path)
 
 " fuzzy file finding, jumping
 Plug '~/.local/share/fzf'
