@@ -22,15 +22,29 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.useQuickfixForLocations": true,
 
-  /*  language config*/
+  /* language config */
   // python
   "python.formatting.provider": "black",
   "python.analysis.typeCheckingMode": "basic",
   // yaml
-  "yaml.validate": false,
+  "yaml.validate": true,
+  "yaml.trace.server": "verbose",
+  // disabled due to bug with github actions pulling wrong schema
+  // https://github.com/redhat-developer/vscode-yaml/issues/397
+  "yaml.schemaStore.enable": false,
   "yaml.schemas": {
-    "https://kubernetesjsonschema.dev/v1.14.0/deployment-apps-v1.json": "/*.yml",
-    "https://kubernetesjsonschema.dev/v1.10.3-standalone/service-v1.json": "/*.yml"
+    // ci/cd
+    "https://json.schemastore.org/github-workflow": "/.github/workflows/*.yaml",
+    "https://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yaml",
+    // pre commit hooks
+    "https://json.schemastore.org/pre-commit-config": "/.pre.commit-config.yaml",
+    // k8s yaml spec
+    "kubernetes": [
+      "deployment.y*ml",
+      "service.y*ml",
+      "svc.y*ml",
+      "pod.y*ml"
+    ]
   },
   // java - disable autobuild due to high cpu consumpution.
   "java.autobuild.enabled": false,
