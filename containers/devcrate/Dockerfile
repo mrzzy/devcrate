@@ -97,7 +97,6 @@ USER $USERNAME
 RUN mkdir -p $HOME/.cache/antibody \
         && zsh -c "source $HOME/.config/zsh/plugin.zsh && antibody update"
 # tmux
-ENV TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
 RUN echo "source-file ~/.config/tmux/plugin.tmux" > ~/.tmux.conf \
     && ~/.tmux/plugins/tpm/bin/install_plugins
 # vim plugins
