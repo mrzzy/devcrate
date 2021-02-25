@@ -1,10 +1,17 @@
-# devcrate 
+# devcrate
 Dotfiles &amp; containers
 
 ## Intro
 The two aims in this project:
-- dotfiles - version controlling and automate installing dotfiles
+- dotfiles - version controlling and automating installing my configuration files
 - devcrate - packaging my development tools into a docker containers for portablity
+
+### Devcrate
+Package move dev tools, config into Docker container to make them more portable:
+- base image:
+    - `devcrate` `neovim` `tmux` `zsh` `docker` `entr` `git` `ssh` `htop` `jq`
+- extended with additinal with additional tools for cloud computing:
+    - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli, helm, terraform, iputils dnsutils`
 
 ## Setup
 ### Dotfiles
@@ -26,38 +33,3 @@ docker run -it \
     -v /var/run/docker.sock:/var/run/docker.sock \
     mrzzy/devcrate
 ```
-
-## Design
-
-### devcrate
-An attempt package move dev tools, config into Docker container to make them more portable:
-- base image:
-    - `devcrate` `neovim` `tmux` `zsh` `docker` `entr` `git` `ssh` `htop` `jq`
-- extended with additinal dev tooling/language support
-    - `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli, helm, terraform, iputils, dnsutils`
-    - `devcrate-python` - python support: `pip,python,virtualenv`
-    - `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
-    - `devcrate-java` - java support: `java, openjdk`
-    - `devcrate-golang` - golang support
-    - `devcrate-nodejs` - nodejs support: `node`
-    - `devcrate-c` - c/c++ support: `gcc, clang, cmake, ccls`
-- full blown development environment:
-    - `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
-- full blown desktop environment
-    - `devcrate-i3` - i3/gui support: `i3,polybar,nitrogen,firefox`
-
-## Roadmap
-### Version 0.2.0
-- clean up and split up configuration files
-- `devcrate` - Ubuntu based basic development image
-- `devcrate-cloud` - cloud computing support: `kubectl, gcloud, awscli`
-
-### Version 0.3.0
-- `devcrate-golang` - golang support
-- `devcrate-python` - python support: `pip,python,virtualenv`
-- `devcrate-nodejs` - nodejs support: `node`
-
-### Version 0.4.0
-- `devcrate-java` - java support `openjdk, java, mvn, gradle`
-- `devcrate-scala` - scala support: `java, scala, sbt, metals.vim`
-- `devcrate-ml` - python machine learning stack: `scikit-learn, tensorflow, jupyter-lab, pandas, seaborn,...`
