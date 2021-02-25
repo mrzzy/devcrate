@@ -35,16 +35,17 @@
   "yaml.schemas": {
     // ci/cd
     "https://json.schemastore.org/github-workflow": "/.github/workflows/*.yaml",
-    "https://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yaml",
+    "https://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yml",
     // pre commit hooks
     "https://json.schemastore.org/pre-commit-config": "/.pre.commit-config.yaml",
-    // k8s yaml spec
+    // k8s/kustomize yaml spec
     "kubernetes": [
       "deployment.y*ml",
       "service.y*ml",
       "svc.y*ml",
       "pod.y*ml"
-    ]
+    ],
+    "https://json.schemastore.org/kustomization": "kustomization.y*ml"
   },
   // java - disable autobuild due to high cpu consumpution.
   "java.autobuild.enabled": false,
