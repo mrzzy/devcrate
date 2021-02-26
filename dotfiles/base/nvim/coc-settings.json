@@ -42,6 +42,7 @@
     "kubernetes": [
       "deployment.y*ml",
       "service.y*ml",
+      "stateful*.y*ml",
       "svc.y*ml",
       "pod.y*ml"
     ],
