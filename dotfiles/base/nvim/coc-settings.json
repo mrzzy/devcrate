@@ -34,7 +34,7 @@
   "yaml.schemaStore.enable": false,
   "yaml.schemas": {
     // ci/cd
-    "https://json.schemastore.org/github-workflow": "/.github/workflows/*.yaml",
+    "https://json.schemastore.org/github-workflow": "/.github/workflows/*.y*ml",
     "https://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yml",
     // pre commit hooks
     "https://json.schemastore.org/pre-commit-config": "/.pre.commit-config.yaml",
