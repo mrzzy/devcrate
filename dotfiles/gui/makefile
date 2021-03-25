@@ -31,22 +31,22 @@ $(HOME)/.Xresources: Xresources
 	cp $< $@
 
 # i3 window manager
-$(HOME)/.config/i3: ./i3
+$(HOME)/.config/i3: ./i3 $(wildcard ./i3/*)
 	cp -af $< $(dir $@)
 # rofi
-$(HOME)/.config/rofi: ./rofi
+$(HOME)/.config/rofi: ./rofi $(wildcard ./rofi/*)
 	cp -af $< $(dir $@)
 # nitrogen
-$(HOME)/.config/nitrogen: ./nitrogen
+$(HOME)/.config/nitrogen: ./nitrogen $(wildcard ./nitrogen/*)
 	cp -af $< $(dir $@)
 # polybar
-$(HOME)/.config/polybar: ./polybar
+$(HOME)/.config/polybar: ./polybar $(wildcard ./polybar/*)
 	cp -af $< $(dir $@)
 # pulseaudio
-$(HOME)/.config/pulse: ./pulse
-	cp -af $</. $@/
+$(HOME)/.config/pulse: ./pulse $(wildcard ./pulse/*)
+	cp -af $< $(dir $@)
 
 # shortcuts
-$(HOME)/.local/bin/shortcuts: ./shortcuts
-	cp -af $< $@
+$(HOME)/.local/bin/shortcuts: ./shortcuts $(wildcard ./shortcuts/*)
+	cp -af $< $(dir $@)
 	chmod u+x -R $@
