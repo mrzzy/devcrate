@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# spotify via flatpak
+#
+
+exec flatpak run com.spotify.Client

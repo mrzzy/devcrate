@@ -1,20 +1,21 @@
 #
 # devcrate
 # Makefile to install gui dotfiles
-# 
+#
 
 
 .PHONY: install clean
 .DEFAULT: install
 
 # List of dotfile deployment targets
-define DOTFILE_TARGETS 
+define DOTFILE_TARGETS
 $(HOME)/.Xresources \
 $(HOME)/.config/i3 \
 $(HOME)/.config/nitrogen \
 $(HOME)/.config/polybar  \
 $(HOME)/.config/pulse \
-$(HOME)/.config/rofi
+$(HOME)/.config/rofi \
+$(HOME)/.local/bin/shortcuts
 endef
 
 ## Targets
@@ -43,4 +44,9 @@ $(HOME)/.config/polybar: ./polybar
 	cp -af $< $(dir $@)
 # pulseaudio
 $(HOME)/.config/pulse: ./pulse
-	cp -afv $</. $@/
+	cp -af $</. $@/
+
+# shortcuts
+$(HOME)/.local/bin/shortcuts: ./shortcuts
+	cp -af $< $@
+	chmod u+x -R $@
