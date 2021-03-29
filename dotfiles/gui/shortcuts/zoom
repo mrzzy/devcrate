@@ -1,8 +1,0 @@
-#!/bin/sh
-#
-# shortcut for running zoom via flatpak
-#
-
-
-# disable QT_XCB_GL_INTEGRATION as a workaround for https://github.com/NixOS/nixpkgs/issues/82959
-exec env QT_XCB_GL_INTEGRATION=none flatpak run us.zoom.Zoom
