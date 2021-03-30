@@ -95,5 +95,5 @@ nnoremap <silent> <M-w>l :TmuxNavigateRight<cr>
 let g:tmux_navigator_no_mappings = 1
 " markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
 nnoremap <leader>vm :MarkdownPreview<cr>
