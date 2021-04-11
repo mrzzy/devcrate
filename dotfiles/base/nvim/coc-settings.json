@@ -14,9 +14,9 @@
 
   // preferences
   "coc.preferences.rootPatterns": [
+    ".vim",
     ".git",
-    ".hg",
-    ".vim"
+    ".hg"
   ],
   "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
