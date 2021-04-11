@@ -73,9 +73,10 @@ nnoremap <silent> <leader>cf  <Plug>(coc-format)<cr>
 nnoremap <silent> <leader>k :call CocAction('doHover')<cr>
 
 " coc commands
-nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>cc :<C-u>CocList commands<cr>
 nnoremap <silent> <leader>ca :<C-u>CocAction<cr>
+nnoremap <silent> <leader>cr :<C-u>CocRestart<cr>
 
 "" autocmds
 " show references on hold
