@@ -14,15 +14,15 @@ lazy_load()
 
     # Unalias activator aliases since the lazy is about to be run
     local PARSED_ACTIVATORS=false # Whether activators have been parsed
-    local ACTIVATOR_ARGS="" 
+    local ACTIVATOR_ARGS=""
     for arg in $*
     do
         if [ $arg = "__EOA__" ]
-        then 
+        then
             local PARSED_ACTIVATORS=true
         else
             if $PARSED_ACTIVATORS
-            then 
+            then
                 # Collect command line arguments for activator command
                 ACTIVATOR_ARGS="$ACTIVATOR_ARGS $arg"
             else
@@ -45,7 +45,7 @@ lazy_load()
 # then which the lazy loader actually loads the load command.
 # activators is a space separated string of activation alias that will cause
 # the load command to run, thereafter activator command will run.
-# 
+#
 lazy()
 {
     load_cmd="$1"
@@ -56,7 +56,7 @@ lazy()
         # __EOA__ is used to enote end of activators and start of command line arguments for the activators
         load_alias="`printf 'lazy_load "%s" %s %s "__EOA__" \n' "$load_cmd" "$activator" "$*"`"
         alias "$activator"="$load_alias"
-    done 
+    done
 }
 
 ## lazy loads
@@ -71,8 +71,8 @@ lazy load_conda conda
 lazy "source <(kubectl completion zsh)" kubectl
 lazy "source <(helm completion zsh)" helm
 lazy "source <(microk8s.kubectl completion zsh)" microk8s.kubectl
-# lazy load sdkman 
-load_sdkman() 
+# lazy load sdkman
+load_sdkman()
 {
     export SDKMAN_DIR="$HOME/.sdkman"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -91,6 +91,12 @@ load_gcloud()
         # The next line enables shell command completion for gcloud.
         if [ -f "$HOME/.local/share/gcloud/completion.zsh.inc" ]; then . "$HOME/.local/share/gcloud/completion.zsh.inc"; fi
     fi
-
 }
 lazy load_gcloud gcloud
+
+# lazy load pyenv
+load_pyenv()
+{
+    eval "$(pyenv init -)"
+}
+lazy load_pyenv pyenv

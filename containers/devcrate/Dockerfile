@@ -79,6 +79,7 @@ ENV PATH="$HOME/.local/share/fzf/bin:$PATH"
 RUN git clone https://github.com/junegunn/fzf.git ~/.local/share/fzf \
     && ~/.local/share/fzf/install --bin \
     && cp $HOME/.local/share/fzf/bin/fzf $BIN_DIR/
+RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
 ## install plugins
 RUN mkdir -p $CONFIG_DIR/zsh \
