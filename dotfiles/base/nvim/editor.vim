@@ -52,6 +52,7 @@ autocmd BufNewFile,BufRead *.sc setf scala
 autocmd BufNewFile,BufRead *.etc setf m4
 autocmd BufNewFile,BufRead *.tmux setf tmux
 autocmd BufNewFile,BufRead *.cshtml setf html
+autocmd BufNewFile,BufRead requirements*.txt setf requirements
 
 " search settings
 " use ag for search if present
