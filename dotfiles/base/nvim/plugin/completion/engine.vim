@@ -60,8 +60,8 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 " navigation between code diagnostics
-nmap <silent> <leader>gn <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>gN <Plug>(coc-diagnostic-prev
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
 
 " show references
 nmap <silent> <leader>gr <Plug>(coc-references)
