@@ -42,5 +42,5 @@ let g:fzf_colors =
 Plug 'chrisbra/colorizer'
 nnoremap <leader>hc :ColorToggle<cr>
 " highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=#fb4934
+highlight ExtraWhitespace ctermbg=white guibg=#FBF1C7
 match ExtraWhitespace /\s\+$/
