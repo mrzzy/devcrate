@@ -33,6 +33,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Program settings
+# editor
 export SHELL=zsh
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
@@ -41,6 +42,8 @@ else
     export EDITOR='nvim'
     export VISUAL="nvim"
 fi
+# gpg: use tty to prompt for pin
+export GPG_TTY=$(tty)
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
