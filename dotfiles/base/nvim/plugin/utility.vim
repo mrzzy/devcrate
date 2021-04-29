@@ -92,6 +92,10 @@ nnoremap <silent> <M-w>h :TmuxNavigateLeft<cr>
 nnoremap <silent> <M-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <M-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <M-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-e>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-e>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-e>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-e>l :TmuxNavigateRight<cr>
 let g:tmux_navigator_no_mappings = 1
 " markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}

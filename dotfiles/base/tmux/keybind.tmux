@@ -4,9 +4,10 @@
 #
 
 #Keyboard Bindings
-# prefix
-bind-key -n  M-e send-prefix
+# send prefix key to process, useful for nested tmux sessions
+# tmux prefix is set using 'prefix" option
 bind-key M-w send-prefix
+bind-key -n M-e send-prefix
 
 # tabbing: pane  -> window
 bind-key t break-pane
@@ -16,7 +17,7 @@ bind-key T select-window -t {last} \; join-pane -s {last}
 bind-key G choose-tree -w
 bind-key g display-pane
 
-# window jumping   
+# window jumping
 bind-key "0" select-window -t :10
 bind-key '^' select-window -t {start}
 bind-key '$' select-window -t {end}
@@ -46,7 +47,7 @@ bind-key -r "{" swap-window -t -1
 # manage panes
 bind-key -r C-L resize-pane -R 5
 bind-key -r C-J resize-pane -D 5
-bind-key -r C-H resize-pane -L 5 
+bind-key -r C-H resize-pane -L 5
 bind-key -r C-K resize-pane -U 5
 bind-key s split-window -v -c "#{pane_current_path}"
 bind-key v split-window -h -c "#{pane_current_path}"
@@ -66,4 +67,3 @@ bind-key c copy-mode
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind-key -T copy-mode-vi y send-keys -X copy-selection
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
-
