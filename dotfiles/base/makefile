@@ -1,16 +1,17 @@
 #
 # devcrate
 # Makefile to install terminal base dotfiles
-# 
+#
 
 
 # List of dotfile deployment targets
-define DOTFILE_TARGETS 
+define DOTFILE_TARGETS
 $(HOME)/.config/nvim \
 $(HOME)/.config/tmux \
 $(HOME)/.tmux.conf \
 $(HOME)/.config/zsh \
-$(HOME)/.zshrc 
+$(HOME)/.zshrc \
+$(HOME)/.gnupg/gpg-agent.conf
 endef
 
 .PHONY: install clean $(DOTFILE_TARGETS) # force recopy: ignore modification time
@@ -25,7 +26,7 @@ clean:
 
 ### Dotfile location mapping targets
 ## Terminal (Base)
-# neovim 
+# neovim
 $(HOME)/.config/nvim: ./nvim $(wildcard ./nvim/*)
 	cp -rf $< $(dir $@)
 
@@ -42,4 +43,7 @@ $(HOME)/.zshrc: ./zsh/zshrc
 
 $(HOME)/.config/zsh: ./zsh
 	cp -rf  $< $(dir $@)
-	
+
+# gpg
+$(HOME)/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
+	cp $< $@

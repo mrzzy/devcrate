@@ -34,7 +34,7 @@ GIT_EMAIL:=program.nom@gmail.com
 
 # phony rules
 .PHONY: all push clean clean-version run
-.DEFAULT: all 
+.DEFAULT: all
 
 all: $(IMAGES)
 
@@ -69,15 +69,15 @@ load: $(LOAD_TARGETS)
 load/%:
 	docker load -i $(COMMIT_PATH)/$(notdir $@).tar
 
-# cleans docker images from image cache 
+# cleans docker images from image cache
 # clean all docker images
 clean: clean-version
 	$(foreach img,$(IMAGES),docker rmi -f $(img);)
-	
+
 # clean versioned docker images
 clean-version:
 	$(foreach img,$(IMAGES),docker rmi -f $(img):$(VERSION);)
-	
+
 # runs the images
 run:
 	$(DOCKER) run -it \
@@ -88,4 +88,3 @@ run:
 		-v $(HOME)/trx:/home/trx  \
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		$(BASE_IMAGE)
-	
