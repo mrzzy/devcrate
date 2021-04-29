@@ -35,6 +35,8 @@ bind-key "`" last-pane
 
 # manage windows
 bind-key w new-window -a -c "#{pane_current_path}"
+# alt binding for termux Android
+bind-key e new-window -a -c "#{pane_current_path}"
 bind-key C command-prompt -p "(rename-window '#W')" "rename-window '%%'"
 bind-key '"' select-layout even-horizontal
 bind-key "=" select-layout Tiled
