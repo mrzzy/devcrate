@@ -61,7 +61,7 @@ nnoremap <c-g> :Ag<cr>
 
 " git integration
 Plug 'tpope/vim-fugitive'
-nnoremap <leader>vv :Gstatus<cr>
+nnoremap <leader>vv :Git<cr>
 nnoremap <leader>vl :Glog<cr>
 nnoremap <leader>ve :Gread<cr>
 nnoremap <leader>vb :Gblame -MMM<cr>
