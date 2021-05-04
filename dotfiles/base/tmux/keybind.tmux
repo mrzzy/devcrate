@@ -62,7 +62,7 @@ bind-key z resize-pane -Z
 
 # session management
 bind-key C-W command-prompt -p "(new session)" "new-session -A -s '%%'"
-#bind-key "~" switch-client -n
+bind-key "~" switch-client -n
 
 # copy Mode
 bind-key c copy-mode
