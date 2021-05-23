@@ -3,13 +3,18 @@
 # Makefile to install terminal base dotfiles
 #
 
+# command aliases
+MKDIR:=mkdir -p
+
+# file / directory variables
+CONFIG_DIR:=$(HOME)/.config
 
 # List of dotfile deployment targets
 define DOTFILE_TARGETS
-$(HOME)/.config/nvim \
-$(HOME)/.config/tmux \
+$(CONFIG_DIR)/nvim \
+$(CONFIG_DIR)/tmux \
 $(HOME)/.tmux.conf \
-$(HOME)/.config/zsh \
+$(CONFIG_DIR)/zsh \
 $(HOME)/.zshrc \
 $(HOME)/.gnupg/gpg-agent.conf
 endef
@@ -26,24 +31,30 @@ clean:
 
 ### Dotfile location mapping targets
 ## Terminal (Base)
+$(CONFIG_DIR):
+	$(MKDIR) $@
+
 # neovim
-$(HOME)/.config/nvim: ./nvim $(wildcard ./nvim/*)
+$(CONFIG_DIR)/nvim: ./nvim $(wildcard ./nvim/*) $(CONFIG_DIR)
 	cp -rf $< $(dir $@)
 
 # tmux
 $(HOME)/.tmux.conf: ./tmux/tmux.conf
 	cp $< $@
 
-$(HOME)/.config/tmux: ./tmux
+$(CONFIG_DIR)/tmux: ./tmux $(CONFIG_DIR)
 	cp -rf $< $(dir $@)
 
 # zsh
 $(HOME)/.zshrc: ./zsh/zshrc
 	cp $< $@
 
-$(HOME)/.config/zsh: ./zsh
+$(CONFIG_DIR)/zsh: ./zsh $(CONFIG_DIR)
 	cp -rf  $< $(dir $@)
 
 # gpg
-$(HOME)/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf
+$(HOME)/.gnupg:
+	$(MKDIR) $@
+
+$(HOME)/.gnupg/gpg-agent.conf: gpg/gpg-agent.conf $(HOME)/.gnupg
 	cp $< $@
