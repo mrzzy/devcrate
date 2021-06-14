@@ -12,10 +12,16 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 # clipboard integration
 set -g @plugin 'tmux-plugins/tmux-yank'
-# copy pasting utility
-set -g @plugin 'Morantron/tmux-fingers'
-set -g @fingers-key f
-set -g @fingers-hint-format "#[fg=bright,bold]%s"
+# tmux-thumbs: copy pasting utility
+set -g @plugin 'fcsonline/tmux-thumbs'
+set -g @thumbs-key 'f'
+set -g @thumbs-alphabet 'numeric'
+set -g @thumbs-unique 'enabled'
+set -g @thumbs-bg-color '#282828'
+set -g @thumbs-fg-color '#d79921'
+set -g @thumbs-hint-bg-color '#fabd2f'
+set -g @thumbs-hint-fg-color '#1d2021'
+
 # directory sidebar
 set -g @plugin 'tmux-plugins/tmux-sidebar' #Directory Sidebar
 set -g @sidebar-tree-command 'tree -CFL 8 --noreport'
