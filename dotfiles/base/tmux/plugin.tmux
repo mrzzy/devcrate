@@ -1,33 +1,31 @@
 #
 # Tmux Configuration
-# Plugin Config 
+# Plugin Config
 #
 
 #plugin
 # plugin manager
-set -g @plugin 'tmux-plugins/tpm' 
-# source plugin config
-#source-file ~/.config/tmux/plugin/utility.tmux
+set -g @plugin 'tmux-plugins/tpm'
 
 #Utility
 # sensible defaults
 set -g @plugin 'tmux-plugins/tmux-sensible'
 # clipboard integration
-set -g @plugin 'tmux-plugins/tmux-yank' 
-# copy pasting utility 
-set -g @plugin 'Morantron/tmux-fingers' 
+set -g @plugin 'tmux-plugins/tmux-yank'
+# copy pasting utility
+set -g @plugin 'Morantron/tmux-fingers'
 set -g @fingers-key f
-set -g @fingers-hint-format "#[fg=yellow,bold]%s"
+set -g @fingers-hint-format "#[fg=bright,bold]%s"
 # directory sidebar
 set -g @plugin 'tmux-plugins/tmux-sidebar' #Directory Sidebar
 set -g @sidebar-tree-command 'tree -CFL 8 --noreport'
 # persistence of tmux sessions.
-set -g @plugin 'tmux-plugins/tmux-resurrect' 
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @resurrect-strategy-nvim 'session'
 set -g @resurrect-capture-pane-contents 'on'
 set -g @resurrect-processes ':all:'
 # automatic persistence of tmux sessions
-set -g @plugin 'tmux-plugins/tmux-continuum' 
+set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 set -g @continuum-save-interval '10'
 # vim-tmux keybinding integration
@@ -37,19 +35,18 @@ bind-key h if-shell "$check_vim" "send-prefix; send-keys h" "select-pane -L"
 bind-key j if-shell "$check_vim" "send-prefix; send-keys j" "select-pane -D"
 bind-key l if-shell "$check_vim" "send-prefix; send-keys l" "select-pane -R"
 bind-key k if-shell "$check_vim" "send-prefix; send-keys k" "select-pane -U"
-#source-file ~/.config/tmux/plugin/ui.tmux
 
 #user interface
 # battery indicator
-set -g @plugin 'tmux-plugins/tmux-battery' 
+set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @batt_remain_short true
 set -g @batt_remain_short true
 BATTERY_STATUS="#{battery_graph}#{battery_percentage}"
 # cpu, memory info status bar
 set -g status-interval 3
-set -g @plugin 'thewtex/tmux-mem-cpu-load' 
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
 SYSTEM_STATUS="#(~/.tmux/plugins/tmux-mem-cpu-load/tmux-mem-cpu-load --powerline-right --interval 2 --graph-lines 5 --mem-mode 2 --averages-count 1)"
-# status bar styling 
+# status bar styling
 set -g status-justify "left"
 set -g status "on"
 set -g status-left-style "none"
