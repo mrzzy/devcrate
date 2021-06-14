@@ -68,5 +68,7 @@ bind-key "~" switch-client -n
 # copy mode
 bind-key c copy-mode
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -sel clipboard'
+# TODO(mrzzy): xclip is linux specific. see for porting to other OS:
+# https://github.com/tmux-plugins/tmux-yank/blob/1b1a436e19f095ae8f825243dbe29800a8acd25c/scripts/helpers.sh#L138
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -sel clipboard'
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
