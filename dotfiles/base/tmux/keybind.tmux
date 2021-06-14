@@ -65,8 +65,8 @@ bind-key z resize-pane -Z
 bind-key C-W command-prompt -p "(new session)" "new-session -A -s '%%'"
 bind-key "~" switch-client -n
 
-# copy Mode
+# copy mode
 bind-key c copy-mode
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -sel clipboard'
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
