@@ -13,9 +13,10 @@ bind-key -n M-e send-prefix
 bind-key t break-pane
 bind-key T select-window -t {last} \; join-pane -s {last}
 
-# jumping
+# jumping & searching windows
 bind-key G choose-tree -w
 bind-key g display-pane
+bind-key / command-prompt -p "(search)" "search-window '%%'"
 
 # window jumping
 bind-key "0" select-window -t :10
@@ -37,7 +38,7 @@ bind-key "`" last-pane
 bind-key w new-window -a -c "#{pane_current_path}"
 # alt binding for termux Android
 bind-key e new-window -a -c "#{pane_current_path}"
-bind-key C command-prompt -p "(rename-window '#W')" "rename-window '%%'"
+bind-key C command-prompt -p "(rename)" "rename-window '%%'"
 bind-key '"' select-layout even-horizontal
 bind-key "=" select-layout Tiled
 bind-key -r "*" next-layout
