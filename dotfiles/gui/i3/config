@@ -15,12 +15,12 @@ hide_edge_borders both
 default_floating_border normal 0
 
 # Theme colors
-client.focused          #0f0f0f #0f0f0f #ff9d73 #0f0f0f #0f0f0f
-client.focused_inactive #0f0f0f #0f0f0f #73807E #0f0f0f #0f0f0f
-client.unfocused        #0f0f0f #0f0f0f #73807E #0f0f0f #0f0f0f
-client.urgent           #0f0f0f #0f0f0f #dc322f #0f0f0f #0f0f0f
-client.placeholder      #0f0f0f #0f0f0f #73807E #0f0f0f #0f0f0f
-client.background       #0f0f0f
+client.focused          #000000 #000000 #ff9d73 #000000 #000000
+client.focused_inactive #000000 #000000 #73807E #000000 #000000
+client.unfocused        #000000 #000000 #73807E #000000 #000000
+client.urgent           #000000 #000000 #dc322f #000000 #000000
+client.placeholder      #000000 #000000 #73807E #000000 #000000
+client.background       #000000
 
 # Keybindings
 bindsym $mod+q kill
