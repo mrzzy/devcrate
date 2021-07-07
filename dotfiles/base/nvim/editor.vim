@@ -34,7 +34,7 @@ set encoding=utf8
 filetype plugin on
 filetype plugin indent on
 " filetype specific config
-autocmd Filetype scheme setlocal tabstop=2
+autocmd Filetype scheme setlocal tabstop=2|setlocal shiftwidth=2
 autocmd Filetype make setlocal noexpandtab
 autocmd Filetype go setlocal noexpandtab
 autocmd Filetype gdscript3 setlocal noexpandtab
