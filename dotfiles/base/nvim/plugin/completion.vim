@@ -15,3 +15,6 @@ Plug 'Shougo/neoinclude.vim'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+" navigiate between fields of snippet
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
