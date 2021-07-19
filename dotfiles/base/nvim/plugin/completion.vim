@@ -15,4 +15,3 @@ Plug 'Shougo/neoinclude.vim'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger = "<C-x>"
