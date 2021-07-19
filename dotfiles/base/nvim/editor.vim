@@ -57,7 +57,7 @@ autocmd BufNewFile,BufRead requirements*.txt setf requirements
 " search settings
 " use ag for search if present
 if executable('ag')
-    set grepprg=ag\ --vimgrep\ --nocolor\ --nogroup\ '$*'
+    set grepprg=ag\ --vimgrep\ --nocolor\ --nogroup\ \'$*\'
 endif
 set grepformat=%f:%l:%c:%m
 
