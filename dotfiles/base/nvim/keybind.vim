@@ -40,6 +40,9 @@ function! BindingUnclutter()
 endfunction
 nnoremap <silent> <Esc><Esc> :noh\|call BindingUnclutter()<cr>
 
-" location and quickfix lists
-noremap <c-l> :lopen<cr>
+" view arg, location and quickfix lists
+nnoremap <c-a> :args<cr>
+nnoremap <c-l> :lopen<cr>
 nnoremap <c-k> :copen<cr>
+" reset arg list
+nnoremap <leader>a :args 
