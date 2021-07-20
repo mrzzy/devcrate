@@ -19,7 +19,7 @@ nnoremap <leader>ss z=
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 " project search
-nnoremap <leader>/ :grep
+nnoremap <leader>/ :grep 
 " tags navigation
 nnoremap <C-]> <C-]><cr>
 nnoremap <C-T> <C-T><cr>
