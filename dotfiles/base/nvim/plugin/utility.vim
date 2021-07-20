@@ -8,12 +8,12 @@
 " tag jumping
 Plug 'ludovicchabant/vim-gutentags'
 nnoremap <silent> <c-t> :Tags<cr>
+autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 
 " symbol jumping
 Plug 'liuchengxu/vista.vim'
 nnoremap <silent> <leader>tt :Vista!!<cr>
 let g:vista_default_executive = 'coc'
-autocmd FileType gitcommit,gitrebase let g:gutentags_enabled=0
 let g:vista_sidebar_position="vertical topleft"
 let g:vista#renderer#enable_icon=0
 let g:vista_update_on_text_changed=1
@@ -53,6 +53,9 @@ autocmd FileType fern nmap <buffer> cd <Plug>(fern-action-cd:cursor)
 autocmd FileType fern nmap <buffer> cw <Plug>(fern-action-rename)
 autocmd FileType fern nmap <buffer> e <Plug>(fern-action-new-path)
 
+" project specific navigation & config
+Plug 'tpope/vim-projectionist'
+
 " fuzzy file finding, jumping
 Plug '~/.local/share/fzf'
 Plug 'junegunn/fzf.vim'
@@ -62,7 +65,7 @@ nnoremap <c-g> :Ag<cr>
 " git integration
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>vv :Git<cr>
-nnoremap <leader>vl :Glog<cr>
+nnoremap <leader>vl :Gclog<cr>
 nnoremap <leader>ve :Gread<cr>
 nnoremap <leader>vb :Gblame -MMM<cr>
 
