@@ -1,8 +1,8 @@
 "
-" Plugin Config 
+" Plugin Config
 " Editor plugins
 " NeoVim Configuration
-" 
+"
 
 
 "Editor

@@ -46,7 +46,7 @@ label-mode-padding = 6
 label-mode-background = #303030
 
 label-focused = %index%
-label-focused-foreground = #ff9d73 
+label-focused-foreground = #ff9d73
 label-focused-padding = 4
 
 label-unfocused = %index%
@@ -60,9 +60,9 @@ label-urgent-padding = 4
 type = internal/network
 interface = ${env:WLAN_INTERFACE}
 interval = 3.0
-format-connected = <ramp-signal> 
+format-connected = <ramp-signal>
 format-connected-padding = 2
-format-disconnected = 
+format-disconnected =
 
 ramp-signal-0 = 
 ramp-signal-1 = 

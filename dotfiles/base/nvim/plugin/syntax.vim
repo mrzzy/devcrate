@@ -2,7 +2,7 @@
 " Plugin Config
 " Syntax Related Configuration
 " NeoVim Configuration
-" 
+"
 
 " syntax highlight
 Plug 'sheerun/vim-polyglot'

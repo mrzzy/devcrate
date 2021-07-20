@@ -1,8 +1,8 @@
 "
-" Plugin Config 
+" Plugin Config
 " Completion -  Language Support
 " NeoVim Configuration
-" 
+"
 
 "Language Support
 " language-specific support
@@ -13,7 +13,7 @@ source ~/.config/nvim/plugin/completion/language/coc_native.vim
 let g:lang_support_config = {}
 if ! $IS_DEVCRATE || $CPP_ENABLE == '1'
     let g:lang_support_config['c_cpp_objc'] = function('BuildClangLangServer')
-endif 
+endif
 
 " DeployLangSupport() - deploy language support not covered by coc extensions
 function! DeployLangSupport(config)
@@ -25,5 +25,5 @@ function! DeployLangSupport(config)
         silent call l:SetupLanguage()
     endfor
     " Clean up screen
-    redraw!    
+    redraw!
 endfunction

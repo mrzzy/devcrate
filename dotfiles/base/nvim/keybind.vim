@@ -19,7 +19,7 @@ nnoremap <leader>ss z=
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 " project search
-nnoremap <leader>/ :grep 
+nnoremap <leader>/ :grep
 " tags navigation
 nnoremap <C-]> <C-]><cr>
 nnoremap <C-T> <C-T><cr>
@@ -35,7 +35,7 @@ nnoremap <leader>\ :set colorcolumn=80<cr> :set cursorline<cr>
 nnoremap <leader>\| :set colorcolumn=0<cr> :set nocursorline<cr>
 " unclutter workspace
 function! BindingUnclutter()
-    pclose 
+    pclose
     cclose
 endfunction
 nnoremap <silent> <Esc><Esc> :noh\|call BindingUnclutter()<cr>
