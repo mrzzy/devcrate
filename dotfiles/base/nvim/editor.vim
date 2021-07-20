@@ -62,6 +62,7 @@ endif
 set grepformat=%f:%l:%c:%m
 
 " ui settings - (basic see plugin ui.vim for full config)
+set incsearch
 set hlsearch
 set termguicolors
 set background=dark

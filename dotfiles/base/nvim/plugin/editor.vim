@@ -17,11 +17,6 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
-" search
-Plug 'haya14busa/incsearch.vim'
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-let g:incsearch#magic = '\v'
 " auto-sessions
 Plug 'vphantom/vim-obsession'
 nnoremap <leader>ws :Obsession Session.vim<cr>
