@@ -16,7 +16,7 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " do not bind expansion trigger
-let g:UltiSnipsExpandTrigger = ''
+let g:UltiSnipsExpandTrigger = '<M-x>'
 " navigiate between fields of snippet
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
