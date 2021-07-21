@@ -43,7 +43,7 @@ URxvt*font: xft:DejaVu Sans Mono for Powerline:size=9.8
 URxvt*background: #282828
 ! soft contrast: *background: #32302f
 URxvt*foreground: #ebdbb2
-! gluvbox theme
+! gruvbox theme
 URxvt.color24:  #076678
 URxvt.color66:  #427b58
 URxvt.color88:  #9d0006
