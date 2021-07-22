@@ -41,7 +41,6 @@ endfunction
 nnoremap <silent> <Esc><Esc> :noh\|call BindingUnclutter()<cr>
 
 " view arg, location and quickfix lists
-nnoremap <c-a> :args<cr>
 nnoremap <c-l> :lopen<cr>
 nnoremap <c-k> :copen<cr>
 " reset arg list
