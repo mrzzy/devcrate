@@ -68,7 +68,7 @@ bindsym $mod+Shift+b [workspace="__focused__"] border pixel 1
 bindsym $mod+semicolon exec --no-startup-id zsh -c "source ~/.zshrc && rofi -show combi"
 
 # start terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 # Display configuration control
 bindsym XF86Display exec arandr
 # Media controls

@@ -15,6 +15,7 @@ $(HOME)/.config/nitrogen \
 $(HOME)/.config/polybar  \
 $(HOME)/.config/pulse \
 $(HOME)/.config/rofi \
+$(HOME)/.config/alacritty \
 $(HOME)/.local/bin/shortcuts
 endef
 
@@ -44,6 +45,9 @@ $(HOME)/.config/polybar: ./polybar $(wildcard ./polybar/*)
 	cp -af $< $(dir $@)
 # pulseaudio
 $(HOME)/.config/pulse: ./pulse $(wildcard ./pulse/*)
+	cp -af $< $(dir $@)
+# alacritty terminal
+$(HOME)/.config/alacritty: ./alacritty $(wildcard ./alacritty/*)
 	cp -af $< $(dir $@)
 
 # shortcuts
