@@ -22,6 +22,7 @@ alias tf="terraform"
 alias g="git"
 alias gvm="/home/zzy/.local/go/bin/g"
 alias nvm="/home/zzy/.local/share/n/bin/n"
+alias rc="rclone"
 
 ## virtual machine management
 ## vmv_shutdown(): shutdown vm of the given domain
