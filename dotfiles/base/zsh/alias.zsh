@@ -22,8 +22,6 @@ alias tf="terraform"
 alias g="git"
 alias gvm="/home/zzy/.local/go/bin/g"
 alias nvm="/home/zzy/.local/share/n/bin/n"
-alias fp="flatpak"
-alias fpr="flatpak run"
 
 ## virtual machine management
 ## vmv_shutdown(): shutdown vm of the given domain
