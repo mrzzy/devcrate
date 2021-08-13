@@ -4,6 +4,9 @@
 #
 
 #Keyboard Bindings
+# reload config
+bind-key r source-file ~/.tmux.conf
+
 # send prefix key to process, useful for nested tmux sessions
 # tmux prefix is set using 'prefix" option
 bind-key M-w send-prefix
@@ -46,6 +49,8 @@ bind-key -r [ previous-window
 bind-key -r ] next-window
 bind-key -r "}" swap-window -t +1
 bind-key -r "{" swap-window -t -1
+bind-key "~" last-window
+bind-key Q kill-window
 
 # manage panes
 bind-key -r C-L resize-pane -R 5
@@ -60,10 +65,13 @@ bind-key K swap-pane -t {up-of}\; select-pane  -t {up-of}
 bind-key L swap-pane -t {right-of}\; select-pane -t {right-of}
 bind-key x swap-pane -t {last}
 bind-key z resize-pane -Z
+bind-key q kill-pane
 
 # session management
 bind-key C-W command-prompt -p "(new session)" "new-session -A -s '%%'"
-bind-key "~" switch-client -n
+bind-key C-Q kill-session
+bind-key C-] switch-client -n
+bind-key C-[ switch-client -p
 
 # copy mode
 bind-key c copy-mode
