@@ -37,7 +37,7 @@ $(CONFIG_DIR):
 	$(MKDIR) $@
 
 # neovim
-$(CONFIG_DIR)/nvim: ./nvim $(wildcard ./nvim/*) $(CONFIG_DIR)
+$(CONFIG_DIR)/nvim: ./nvim  $(CONFIG_DIR)
 	cp -rf $< $(dir $@)
 
 $(CONFIG_DIR)/nvim_plugin: ./nvim/plugin $(CONFIG_DIR)
