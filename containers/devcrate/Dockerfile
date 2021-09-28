@@ -90,7 +90,7 @@ RUN mkdir -p $CONFIG_DIR/zsh \
 COPY dotfiles/base/zsh/plugin.zsh $CONFIG_DIR/zsh/
 COPY dotfiles/base/zsh/plugin_list.txt $CONFIG_DIR/zsh/
 COPY dotfiles/base/tmux/plugin.tmux $CONFIG_DIR/tmux/
-COPY dotfiles/base/nvim/plugin $CONFIG_DIR/nvim_plugin/
+COPY dotfiles/base/nvim_plugin $CONFIG_DIR/nvim_plugin/
 COPY dotfiles/base/nvim/plugin.vim $CONFIG_DIR/nvim/
 USER root
 RUN chmod -R u+x $CONFIG_DIR/ && chown -R $USERNAME $CONFIG_DIR/

@@ -40,7 +40,7 @@ $(CONFIG_DIR):
 $(CONFIG_DIR)/nvim: ./nvim  $(CONFIG_DIR)
 	cp -rf $< $(dir $@)
 
-$(CONFIG_DIR)/nvim_plugin: ./nvim/plugin $(CONFIG_DIR)
+$(CONFIG_DIR)/nvim_plugin: ./nvim_plugin $(CONFIG_DIR)
 	cp -Trf $< $@
 
 # tmux
