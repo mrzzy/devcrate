@@ -5,6 +5,7 @@
 
 # command aliases
 MKDIR:=mkdir -p
+RM:=rm -rf
 
 # file / directory variables
 CONFIG_DIR:=$(HOME)/.config
@@ -12,6 +13,7 @@ CONFIG_DIR:=$(HOME)/.config
 # List of dotfile deployment targets
 define DOTFILE_TARGETS
 $(CONFIG_DIR)/nvim \
+$(CONFIG_DIR)/nvim_plugin \
 $(CONFIG_DIR)/tmux \
 $(HOME)/.tmux.conf \
 $(CONFIG_DIR)/zsh \
@@ -27,7 +29,7 @@ endef
 install: $(DOTFILE_TARGETS)
 # clean - removes dotfiles from their respective locations
 clean:
-	rm -rf $(DOTFILE_TARGETS)
+	$(RM) $(DOTFILE_TARGETS)
 
 ### Dotfile location mapping targets
 ## Terminal (Base)
@@ -35,8 +37,11 @@ $(CONFIG_DIR):
 	$(MKDIR) $@
 
 # neovim
-$(CONFIG_DIR)/nvim: ./nvim $(wildcard ./nvim/*) $(CONFIG_DIR)
+$(CONFIG_DIR)/nvim: ./nvim  $(CONFIG_DIR)
 	cp -rf $< $(dir $@)
+
+$(CONFIG_DIR)/nvim_plugin: ./nvim_plugin $(CONFIG_DIR)
+	cp -Trf $< $@
 
 # tmux
 $(HOME)/.tmux.conf: ./tmux/tmux.conf

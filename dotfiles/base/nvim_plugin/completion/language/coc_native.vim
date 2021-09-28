@@ -35,4 +35,3 @@ endif
 if ! $IS_DEVCRATE || $GO_ENABLE == '1'
     Plug 'josa42/coc-go', {'do': 'yarn install --frozen-locklife'}
 endif
-

@@ -6,8 +6,8 @@
 
 "Language Support
 " language-specific support
-source ~/.config/nvim/plugin/completion/language/c_cpp_objc.vim
-source ~/.config/nvim/plugin/completion/language/coc_native.vim
+source ~/.config/nvim_plugin/completion/language/c_cpp_objc.vim
+source ~/.config/nvim_plugin/completion/language/coc_native.vim
 
 " additional language support setup configuration { language name : setup function }
 let g:lang_support_config = {}
