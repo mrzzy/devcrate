@@ -40,11 +40,13 @@ RUN apt-fast install -y --no-install-recommends \
     && pip3 install --upgrade pip \
     && pip3 install --no-cache-dir neovim docker-compose codespell detect-secrets pre-commit
 
+# install rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 RUN SS_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest" | jq -r '.assets[] | select(.name | test("x86_64-unknown-linux-gnu\\.tar\\.xz$"))') \
     && SS_ARCHIVE=$(echo $SS_RELEASE_JSON | jq -r '.name') \
     && wget $(echo $SS_RELEASE_JSON | jq -r ".browser_download_url") -O $SS_ARCHIVE \
     && tar -xf $SS_ARCHIVE -C /usr/local/bin/
-
 
 ## setup user & groups
 ARG USERNAME=user
@@ -88,7 +90,7 @@ RUN mkdir -p $CONFIG_DIR/zsh \
 COPY dotfiles/base/zsh/plugin.zsh $CONFIG_DIR/zsh/
 COPY dotfiles/base/zsh/plugin_list.txt $CONFIG_DIR/zsh/
 COPY dotfiles/base/tmux/plugin.tmux $CONFIG_DIR/tmux/
-COPY dotfiles/base/nvim/plugin $CONFIG_DIR/nvim/plugin/
+COPY dotfiles/base/nvim/plugin $CONFIG_DIR/nvim_plugin/
 COPY dotfiles/base/nvim/plugin.vim $CONFIG_DIR/nvim/
 USER root
 RUN chmod -R u+x $CONFIG_DIR/ && chown -R $USERNAME $CONFIG_DIR/
