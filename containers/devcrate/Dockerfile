@@ -41,7 +41,7 @@ RUN apt-fast install -y --no-install-recommends \
     && pip3 install --no-cache-dir neovim docker-compose codespell detect-secrets pre-commit
 
 # install rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+RUN curl --proto '=https' --tlsv1.2 -sSf -y https://sh.rustup.rs | sh -s -- -y
 
 RUN SS_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest" | jq -r '.assets[] | select(.name | test("x86_64-unknown-linux-gnu\\.tar\\.xz$"))') \
     && SS_ARCHIVE=$(echo $SS_RELEASE_JSON | jq -r '.name') \
