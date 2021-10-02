@@ -7,6 +7,10 @@
 " BuildClangLangServer() - builds c/c++/obj-c language sever
 " prerequisites - cmake>=3.8, clang, clang-7 libclang-dev
 function! BuildClangLangServer() abort
+    if executable('/usr/local/bin/ccls')
+        " ccls already installed nothing to do
+        return
+    endif
     " setup work directory
     let l:work_dir = '/tmp/clang_ls'
     exec 'silent !mkdir -p ' . l:work_dir
