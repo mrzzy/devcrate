@@ -5,33 +5,47 @@
 " NeoVim Configuration
 "
 
-" devcrate - deploy only if explicit specified in <LANG>_ENABLE env var
-"js/ts
-if ! $IS_DEVCRATE || $JS_ENABLE == '1'
-    Plug 'neoclide/coc-tsserver', {'tag': '1.3.7', 'do': 'yarn install --frozen-lockfile'}
-endif
+function! InstallCOCExtensions()
+    " core completion extensions
+    let extensions = [
+        \'coc-tag', 'coc-syntax', 'coc-ultisnips', 'coc-yaml', 'coc-json', 'coc-html'
+        \]
 
-"java
-if ! $IS_DEVCRATE || $JAVA_ENABLE == '1'
-    Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
-endif
+    " deploy only if explicit specified in <LANG>_ENABLE env var
+    "js/ts
+    if ! $IS_DEVCRATE || $JS_ENABLE == '1'
+        call add(extensions, 'coc-tsserver')
+    endif
 
-"python
-if ! $IS_DEVCRATE || $PYTHON_ENABLE == '1'
-    Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
-endif
+    "java
+    if ! $IS_DEVCRATE || $JAVA_ENABLE == '1'
+        call add(extensions, 'coc-java')
+    endif
 
-"csharp
-if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
-    Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
-endif
+    "python
+    if ! $IS_DEVCRATE || $PYTHON_ENABLE == '1'
+        call add(extensions, 'coc-pyright')
+    endif
 
-"scala
-if ! $IS_DEVCRATE || $SCALA_ENABLE == '1'
-    Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
-endif
+    "csharp
+    if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
+        call add(extensions, 'coc-omnisharp')
+    endif
 
-"golang
-if ! $IS_DEVCRATE || $GO_ENABLE == '1'
-    Plug 'josa42/coc-go', {'do': 'yarn install --frozen-locklife'}
-endif
+    "scala
+    if ! $IS_DEVCRATE || $SCALA_ENABLE == '1'
+        call add(extensions, 'coc-metals')
+    endif
+
+    "golang
+    if ! $IS_DEVCRATE || $GO_ENABLE == '1'
+        call add(extensions, 'coc-go')
+    endif
+
+    "rust
+    if ! $IS_DEVCRATE || $GO_ENABLE == '1'
+        call add(extensions, 'coc-rls')
+    endif
+
+    execute 'CocInstall -sync ' . join(extensions, ' ')
+endfunction
