@@ -4,6 +4,8 @@
 " NeoVim Configuration
 "
 
+source ~/.config/nvim_plugin/completion/language.vim
+
 "" editing
 "check current character is a utility
 function! s:CheckBackspace() abort
@@ -16,21 +18,12 @@ function! BootstrapCOC(info)
     if a:info.status == 'installed' || a:info.force
         echo 'bootstrapping coc'
         call coc#util#install()
-
-        " basic completion sources
-        echo 'setting up basic completion sources '
-        CocInstall -sync coc-tag coc-syntax coc-ultisnips
-
+        call InstallCOCExtensions()
         call DeployLangSupport(g:lang_support_config)
     endif
 endfunction
 
-" completion engine
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': function('BootstrapCOC')}
-" core sources
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 
 " function text object
 xmap if <Plug>(coc-funcobj-i)
