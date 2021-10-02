@@ -46,6 +46,11 @@ function! InstallCOCExtensions()
     if ! $IS_DEVCRATE || $GO_ENABLE == '1'
         call add(extensions, 'coc-rls')
     endif
-
+    
+    "flutter
+    if ! $IS_DEVCRATE || $FLUTTER_ENABLE == '1'
+        call add(extensions, 'coc-flutter')
+    endif
+   
     execute 'CocInstall -sync ' . join(extensions, ' ')
 endfunction
