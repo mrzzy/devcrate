@@ -6,42 +6,46 @@
 "
 
 function! InstallCOCExtensions()
-    " core completion sources
-    CocInstall -sync coc-tag coc-syntax coc-ultisnips coc-yaml coc-json coc-html
+    " core completion extensions
+    let extensions = [
+        \'coc-tag', 'coc-syntax', 'coc-ultisnips', 'coc-yaml', 'coc-json', 'coc-html'
+        \]
 
     " deploy only if explicit specified in <LANG>_ENABLE env var
     "js/ts
     if ! $IS_DEVCRATE || $JS_ENABLE == '1'
-        CocInstall -sync coc-tsserver
+        call add(extensions, 'coc-tsserver')
     endif
 
     "java
     if ! $IS_DEVCRATE || $JAVA_ENABLE == '1'
-        CocInstall -sync coc-java
+        call add(extensions, 'coc-java')
     endif
 
     "python
     if ! $IS_DEVCRATE || $PYTHON_ENABLE == '1'
-        CocInstall -sync coc-pyright
+        call add(extensions, 'coc-pyright')
     endif
 
     "csharp
     if ! $IS_DEVCRATE || $CSHARP_ENABLE == '1'
-        CocInstall -sync coc-omnisharp
+        call add(extensions, 'coc-omnisharp')
     endif
 
     "scala
     if ! $IS_DEVCRATE || $SCALA_ENABLE == '1'
-        CocInstall -sync coc-metals
+        call add(extensions, 'coc-metals')
     endif
 
     "golang
     if ! $IS_DEVCRATE || $GO_ENABLE == '1'
-        CocInstall -sync coc-go
+        call add(extensions, 'coc-go')
     endif
 
     "rust
     if ! $IS_DEVCRATE || $GO_ENABLE == '1'
-        CocInstall -sync coc-rls
+        call add(extensions, 'coc-rls')
     endif
+
+    execute 'CocInstall -sync ' . join(extensions, ' ')
 endfunction
