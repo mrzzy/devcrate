@@ -27,6 +27,8 @@ export PATH="$PATH:$HOME/.linkerd2/bin"
 # python pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+# spark
+export PATH="$PATH:/opt/spark-3.1.2-bin-hadoop3.2/bin/"
 
 #Locale
 export LANG="en_US.UTF-8"
