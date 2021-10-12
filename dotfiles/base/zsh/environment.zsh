@@ -50,3 +50,6 @@ export GPG_TTY=$(tty)
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
+
+# dotnet: opt out of telemery
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
