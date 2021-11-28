@@ -46,7 +46,7 @@ inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " enter completion
 inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <C-Space> pumvisible() ? coc#refresh()  : "\<C-g>u\<CR>"
+inoremap <silent><expr> <C-Space> coc#refresh()
 
 " goto code navigation
 nmap <silent> <leader>gd <Plug>(coc-definition)
